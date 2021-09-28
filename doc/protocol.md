@@ -19,6 +19,7 @@ Note: I've only used a very old version `1.1.13` from 2019 and `6.1.10` which is
 | [Appliance.Control.ConsumptionConfig](#appliancecontrolconsumptionconfig) | 6.1.8 | Consumption ratio, unsure of purpose
 | [Appliance.Control.ConsumptionX](#appliancecontrolconsumptionx) | 1.1.13     | Shows daily power consumption from the last 30 days
 | [Appliance.Control.Electricity](#appliancecontrolelectricity)   | 1.1.13     | Returns present electricity usage
+| [Appliance.Control.Light](#appliancecontrollight)               | 2.1.2      | Control bulb variables
 | [Appliance.Control.Multiple](#appliancecontrolmultiple)         | 6.1.8      | Send multiple Appliance.Control requests in one
 | [Appliance.Control.Timer](#appliancecontroltimer)               | 1.1.13     | GET/SET Timer values
 | [Appliance.Control.TimerX](#appliancecontroltimerx)             | 6.1.8      | GET/SET Timer values on newer firmware
@@ -77,6 +78,8 @@ Each header contains the following keys
 | timestamp      | Time in seconds past Epoch
 
 **Note:** When a appliance is waiting to be configured it does not validate the sign value.
+
+**Note:** Leaving `key` blank during initial setup simplifies `sign` down to md5(`messageId` + `timestamp`)
 
 ## Errors
 
@@ -751,6 +754,72 @@ Method: `GETACK`
 | .electricity.current | Current being consumed in milliamps (mA)
 | .electricity.voltage | Current voltage in deci-volts (dV) (/10 for Volts)
 | .electricity.power   | Current power usage in milliwatts (mW)
+
+#### Appliance.Control.Light
+
+Method: `SET`
+
+```json
+{
+  "light": {
+    "capacity": 6,
+    "channel": 0,
+    "rgb": 65280,
+    "temperature": 1,
+    "luminance": -1,
+    "transform": -1
+  }
+}
+```
+
+| Field                | Description
+|----------------------|---
+| .light.capacity      | Controls which parameter to apply `1` = rgb, `2` = temperature, `4` = luminance
+| .light.channel       | Unknown, may be for devices with multiple things to control
+| .light.rgb           | int encoded rgb value, e.g ffffff = 16777215
+| .light.temperature   | Controls warm / cool balance, 1 - 100
+| .light.luminance     | Controls brightness, 1 - 100
+| .light.transform     | Unknown, doesn't seem to do anything
+
+Method: `SETACK`
+
+```json
+{
+  "light": {
+    "capacity": 6,
+    "channel": 0,
+    "rgb": 65280,
+    "temperature": 1,
+    "luminance": -1,
+    "transform": -1
+  }
+}
+```
+
+| Field                | Description
+|----------------------|---
+| .light.capacity      | Controls which parameter to apply `1` = rgb, `2` = temperature, `4` = luminance
+| .light.channel       | Unknown, may be for devices with multiple things to control
+| .light.rgb           | int encoded rgb value, e.g ffffff = 16777215
+| .light.temperature   | Controls warm / cool balance, 1 - 100
+| .light.luminance     | Controls brightness, 1 - 100
+| .light.transform     | Unknown, doesn't seem to do anything
+
+
+**Note: On older versions (tested 2.1.2) it is possible to set values outside of parameters  if .light.capacity is lower than the parameter being set. This can be exploited to disable the gradual dimming of Appliance.Control.ToggleX by setting luminance to -1 with the following payload:**
+
+```json
+{
+  "light": {
+    "capacity": 2,
+    "channel": 1,
+    "rgb": 1,
+    "temperature": 1,
+    "luminance": -1,
+    "transform": -1
+  }
+}
+```
 
 #### Appliance.Control.Multiple
 

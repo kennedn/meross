@@ -1,0 +1,34 @@
+#!/bin/bash
+ts=$(date +%s) # Can be number but easy enough to get current unix epoch
+key='' # If running in normal mode this must match the key configured during setup (can be left blank)
+messageID='mCurl' # Can be any value
+
+help() {
+  echo -e "usage: mCurl IP_ADDR METHOD NAMESPACE JSON\n"
+  echo -e "simple shell wrapper for making REST calls to meross devices\n"
+  echo -e "arguments:"
+  echo -e "IP_ADDR\t\tmeross device ip"
+  echo -e "METHOD\t\tmeross header method, [GET|SET]"
+  echo -e "NAMESPACE\tmeross header namespace"
+  echo -e "JSON\t\tpayload to send to namespace"
+  exit 1
+}
+[ "${#}" != 4 ] && help
+
+sign=$(printf "${messageID}${key}${ts}" | md5sum | awk -F\  '{print $1}')
+JSON=$(jq -cn \
+       --arg messageID "$messageID" \
+       --arg method "$2" \
+       --arg namespace "$3" \
+       --arg sign "$sign" \
+       --arg ts "$ts" \
+       --argfile payload <(echo "${4}") \
+       '{header: { messageId: $messageID, method: $method, namespace: $namespace, payloadVersion: 1, sign: $sign, timestamp: $ts }, payload: $payload}' )
+
+
+
+curl --header 'Accept:' \
+--header "Content-Type: application/json; charset=UTF-8" \
+--header "Connection: close" \
+--user-agent "okhttp/3.12.1" \
+--data-binary "${JSON}" http://${1}/config
