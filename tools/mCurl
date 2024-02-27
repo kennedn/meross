@@ -1,7 +1,7 @@
 #!/bin/bash
-ts=$(date +%s) # Can be number but easy enough to get current unix epoch
+ts=0 # Supposed to be a unix epoch of the current time but can be any value
 key='' # If running in normal mode this must match the key configured during setup (can be left blank)
-messageID='mCurl' # Can be any value
+messageID=$(dd if=/dev/urandom bs=1 count=16 2>/dev/null | xxd -p) # Can be any value but must be unique on newer devices
 
 help() {
   echo -e "usage: mCurl IP_ADDR METHOD NAMESPACE JSON\n"
@@ -26,9 +26,6 @@ JSON=$(jq -cn \
        '{header: { messageId: $messageID, method: $method, namespace: $namespace, payloadVersion: 1, sign: $sign, timestamp: $ts }, payload: $payload}' )
 
 
-
-curl --header 'Accept:' \
---header "Content-Type: application/json; charset=UTF-8" \
---header "Connection: close" \
---user-agent "okhttp/3.12.1" \
---data-binary "${JSON}" http://${1}/config
+curl --connect-timeout 3 -s \
+--header "Content-Type: application/json" \
+--data "${JSON}" http://${1}/config
