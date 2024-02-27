@@ -8,7 +8,8 @@
     - [Set up the Certificates](#set-up-the-certificates)
     - [Minimal config](#minimal-config)
     - [Running](#running)
-  - [Bulb setup](#bulb-setup)
+  - [Bulb setup Automatic](#bulb-setup-automatic)
+  - [Bulb setup Manual](#bulb-setup-manual)
   - [Usage](#usage)
   - [Acknowledgements](#acknowledgements)
 
@@ -37,6 +38,8 @@ So in order to fully detach from the meross cloud, we must satisfy the following
 If we can satisfy these requirements the bulb will remain in normal mode and we can turn off the MQTT server, using direct REST calls to communicate with the bulb going forward.
 
 ## MQTT server setup
+
+> NOTE: Mosquitto setup is entirely optional since meross devices do not care whether the configured MQTT server is online or not and devices can be side channeled via HTTP
 
 Mosquitto can be used to host a local MQTT server.
 
@@ -86,7 +89,22 @@ keyfile ../certs/server.key
 mosquitto -c /path/to/minimal.config
 ```
 
-## Bulb setup
+## Meross scripted setup
+
+A wrapper script is provided under tools/onboard that paramaterises the setup process so that only a single command is required to setup a given Meross device. The following steps can be followed:
+
+- Ensure that your bulb is advertising a wifi network and connect to it
+- Run the following to get a list of network devices the bulb can see:
+  `./onboard --wifi`
+- Onboard the meross device:
+  `./onboard --host pc.int --port 8883 --ssid "cool-ssiid" --password "cool_password" --bssid "66:55:44:33:22:11" --channel 5 --encryption 6 --cipher 3`
+
+If the ssid of the device is known, the script can be chained together to fill in the wifi parameters automatically from the respective json object:
+
+`./onboard --host shitcube.int --port 8883 --password "cool-password" --from-json "$(./onboard --wifi cool-ssid)"`
+  
+
+## Meross manual device setup
 A simple shell script is provided under tools/mCurl to be able to perform REST calls to the bulb. **You must connect to the bulbs local network before running the setup commands**. We can first configure the Appliance.Config.Key endpoint to point at our newly provisioned MQTT server:
 
 Example payload:
