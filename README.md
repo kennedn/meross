@@ -8,8 +8,8 @@
     - [Set up the Certificates](#set-up-the-certificates)
     - [Minimal config](#minimal-config)
     - [Running](#running)
-  - [Bulb setup Automatic](#bulb-setup-automatic)
-  - [Bulb setup Manual](#bulb-setup-manual)
+  - [Meross scripted setup](#meross-scripted-setup)
+  - [Meross manual device setup](#meross-manual-device-setup)
   - [Usage](#usage)
   - [Acknowledgements](#acknowledgements)
 
@@ -21,25 +21,25 @@ This is a fork of arandalls [repository](https://github.com/arandall/meross). I 
 
 # Provisioning
 
-If we were to setup the bulbs normally, the flow would look like this:
+If we were to setup the device normally, the flow would look like this:
 
-* Bulb is started in a configuration mode, it advertises its own wifi network
-* Phone app connects to the local bulb wifi network and calls the following endpoints:
+* Device is started in a configuration mode, it advertises its own wifi network
+* Phone app connects to the local devices wifi network and calls the following endpoints:
   * Appliance.Config.Key
   * Appliance.Config.Wifi
 * Once the Wifi endpoint has been called the device automatically reboots into its normal mode
-* The bulb will attempt to make a connection with the meross cloud, using parameters setup during initialisation
+* The device will attempt to make a connection with the meross cloud, using parameters setup during initialisation
 * Depending on whether the initial connection succeeds or not the device will either settle into normal mode or reboot to configuration mode
 
 So in order to fully detach from the meross cloud, we must satisfy the following requirements:
 * Call `Appliance.Config.Key` and `Applicance.Config.Wifi` ourselves to configure our own connection parameters
-* Host our own MQTT server **during initial setup** so that the bulb makes one successful connection to the MQTT we configure
+* **Optional** Host our own MQTT server **during initial setup** so that the device makes one successful connection to the MQTT we configure
 
-If we can satisfy these requirements the bulb will remain in normal mode and we can turn off the MQTT server, using direct REST calls to communicate with the bulb going forward.
+If we can satisfy this single requirement the device will remain in normal mode and we can turn off the MQTT server, using direct REST calls to communicate with the device going forward.
 
 ## MQTT server setup
 
-> NOTE: Mosquitto setup is entirely optional since meross devices do not care whether the configured MQTT server is online or not and devices can be side channeled via HTTP
+> NOTE: Mosquitto setup is entirely optional since meross devices do not care whether the configured MQTT server is online or not
 
 Mosquitto can be used to host a local MQTT server.
 
@@ -93,8 +93,8 @@ mosquitto -c /path/to/minimal.config
 
 A wrapper script is provided under tools/onboard that paramaterises the setup process so that only a single command is required to setup a given Meross device. The following steps can be followed:
 
-- Ensure that your bulb is advertising a wifi network and connect to it
-- Run the following to get a list of network devices the bulb can see:
+- Ensure that your device is advertising a wifi network and connect to it
+- Run the following to get a list of network devices the device can see:
   `./onboard --wifi`
 - Onboard the meross device:
   `./onboard --host pc.int --port 8883 --ssid "cool-ssiid" --password "cool_password" --bssid "66:55:44:33:22:11" --channel 5 --encryption 6 --cipher 3`
@@ -105,7 +105,7 @@ If the ssid of the device is known, the script can be chained together to fill i
   
 
 ## Meross manual device setup
-A simple shell script is provided under tools/mCurl to be able to perform REST calls to the bulb. **You must connect to the bulbs local network before running the setup commands**. We can first configure the Appliance.Config.Key endpoint to point at our newly provisioned MQTT server:
+A simple shell script is provided under tools/mCurl to be able to perform REST calls to the device. **You must connect to the devices local network before running the setup commands**. We can first configure the Appliance.Config.Key endpoint to point at our newly provisioned MQTT server:
 
 Example payload:
 ```json
@@ -130,7 +130,7 @@ Example Command:
 mCurl 10.10.10.1 SET Appliance.Config.Key '{ "key": { "gateway": { "host": "192.168.1.100", "port": 8883 }, "key": "", "userId": ""}}'
 ```
 
-We then need to configure the wifi network to connect to. You can ask the bulb to return the available wifi networks by issuing the following:
+We then need to configure the wifi network to connect to. You can ask the device to return the available wifi networks by issuing the following:
 ```bash
 > mCurl 10.10.10.1 GET Appliance.Config.WifiList '{}' | jq -r
 {
@@ -182,18 +182,18 @@ mCurl 10.10.10.1 SET Appliance.Config.Wifi '{"wifi":{"ssid":"RElSRUNULUQzNUMyN0Q
 
 If all goes well the device should now reboot, connect to your network and then you should see a connection come in on the MQTT server logs.
 
-After this point the device is configured and you can switch off the MQTT server. If something went wrong you can get the bulb back to configuration mode by slowly turning the light switch on and off ~ 5 times.
+After this point the device is configured and you can switch off the MQTT server. If something went wrong you can get the device back to configuration mode by slowly turning the light switch on and off ~ 5 times.
 
 ## Usage
 
-You can now use the same mCurl tool to call endpoints, if the bulb has taken ip 192.168.1.148 for example you can toggle the bulb on and off by issuing the following:
+You can now use the same mCurl tool to call endpoints, if the device has taken ip 192.168.1.148 for example you can toggle the device on and off by issuing the following:
 
 ```bash
 mCurl 192.168.1.148 SET Appliance.Control.ToggleX '{"togglex":{"onoff": 0}}'
 mCurl 192.168.1.148 SET Appliance.Control.ToggleX '{"togglex":{"onoff": 1}}'
 ```
 
-See the [[protocol]](doc/protocol.md) page for details on how to construct your own REST calls. The two important commands for bulbs are `Appliance.Control.ToggleX` and `Appliance.Control.Light`
+See the [[protocol]](doc/protocol.md) page for details on how to construct your own REST calls. The two important commands for bulbs specifically are `Appliance.Control.ToggleX` and `Appliance.Control.Light`
 
 
 <!-- ACKNOWLEDGEMENTS -->
