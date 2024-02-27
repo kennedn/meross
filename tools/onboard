@@ -39,6 +39,7 @@ exit 1
 [ "$#" -eq 0 ] && help
 
 list_wifi() {
+  echo "Wifi scan initiated (takes around 10 seconds)..." 1>&2
   ./mCurl 10.10.10.1 GET Appliance.Config.WifiList '{}' | jq --arg ssid "$1" -r '.payload.wifiList[] | select (($ssid == "") or (.ssid | @base64d == $ssid)) | {"ssid": .ssid | @base64d, "bssid":.bssid, "channel": .channel, "encryption": .encryption, "cipher": .cipher, "signal strength": .signal}'
 }
 
@@ -64,7 +65,8 @@ configure() {
           }
         }')
 
-  ./mCurl 10.10.10.1 SET Appliance.Config.Key "$CONFIG_JSON" | jq -r
+  ./mCurl 10.10.10.1 SET Appliance.Config.Key "$CONFIG_JSON" | jq -c
+  echo "Key configured" 1>&2
 }
 
 wifi_connect() {
@@ -92,7 +94,8 @@ wifi_connect() {
             "cipher": $cipher
             }
         }')
-  ./mCurl 10.10.10.1 SET Appliance.Config.Wifi "$WIFI_JSON" | jq -r
+  ./mCurl 10.10.10.1 SET Appliance.Config.Wifi "$WIFI_JSON" | jq -c
+  echo "Wifi configured" 1>&2
 }
 
 POSITIONAL=()
