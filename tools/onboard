@@ -180,11 +180,11 @@ if [ -z "$HOST" ] || [ -z "$PORT" ]; then
 fi
 
 if [ -n "${JSON}" ]; then
-  SSID=$(jq -r '.ssid' <<<"${JSON}")
-  BSSID=$(jq -r '.bssid' <<<"${JSON}")
-  CHANNEL=$(jq -r '.channel' <<<"${JSON}")
-  ENCRYPTION=$(jq -r '.encryption' <<<"${JSON}")
-  CIPHER=$(jq -r '.cipher' <<<"${JSON}")
+  [ -z "${SSID}" ] && SSID=$(jq -r '.ssid' <<<"${JSON}")
+  [ -z "${BSSID}" ] && BSSID=$(jq -r '.bssid' <<<"${JSON}")
+  [ -z "${CHANNEL}" ] && CHANNEL=$(jq -r '.channel' <<<"${JSON}")
+  [ -z "${ENCRYPTION}" ] && ENCRYPTION=$(jq -r '.encryption' <<<"${JSON}")
+  [ -z "${CIPHER}" ] && CIPHER=$(jq -r '.cipher' <<<"${JSON}")
 fi
 
 if [ -z "$SSID" ] || [ -z "$PASSWORD" ] || [ -z "$BSSID" ] || [ -z "$CHANNEL" ] || [ -z "$ENCRYPTION" ] || [ -z "$CIPHER" ]; then
