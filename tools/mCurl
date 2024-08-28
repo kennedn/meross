@@ -23,9 +23,9 @@ JSON=$(jq -cn \
        --arg sign "$sign" \
        --arg ts "$ts" \
        --argfile payload <(echo "${4}") \
-       '{header: { messageId: $messageID, method: $method, namespace: $namespace, payloadVersion: 1, sign: $sign, timestamp: $ts }, payload: $payload}' )
+       '{header: {from: "http://10.10.10.1/config", messageId: $messageID, method: $method, namespace: $namespace, payloadVersion: 1, sign: $sign, timestamp: $ts }, payload: $payload}' )
 
 
-curl --connect-timeout 3 -s \
+curl --connect-timeout 3 \
 --header "Content-Type: application/json" \
 --data "${JSON}" http://${1}/config

@@ -8,6 +8,8 @@ Onboard a meross device to the network
 Example: $SCRIPT_NAME --wifi
 
 Options:
+  -j,--from-json
+        specify a wifi json object
   -d,--host HOST
         specify the host to connect to
   -P,--port PORT
