@@ -14,6 +14,7 @@ Note: I've only used a very old version `1.1.13` from 2019 and `6.1.10` which is
 | [Appliance.Config.Key](#applianceconfigkey)                     | 1.1.13     | Used to configure MQTT servers
 | [Appliance.Config.Trace](#applianceconfigtrace)                 | 1.1.13     | Returns WiFi and system details during setup
 | [Appliance.Config.Wifi](#applianceconfigwifi)                   | 1.1.13     | Configures WiFi network to connect to during setup
+| [Appliance.Config.WifiX](#applianceconfigwifix)                 | 8.3.1      | Configures WiFi network to connect to during setup on newer devices
 | [Appliance.Config.WifiList](#applianceconfigwifiList)           | 1.1.13     | Lists aviable Wifi networks
 | [Appliance.Control.Bind](#appliancecontrolbind)                 | 1.1.13     | Sent by device after setup
 | [Appliance.Control.ConsumptionConfig](#appliancecontrolconsumptionconfig) | 6.1.8 | Consumption ratio, unsure of purpose
@@ -179,7 +180,7 @@ Method: `SET`
 ```json
 {
   "wifi": {
-    "bssid": "de-ad-00-00-be-ef",
+    "bssid": "de:ad:00:00:be:ef",
     "channel": 3,
     "cipher": 3,
     "encryption": 6,
@@ -196,6 +197,43 @@ Method: `SET`
 | .wifi.cipher     | cipher used by Wifi network
 | .wifi.encryption | encryption used by network
 | .wifi.password   | base64 encoded string of password to connect to network
+| .wifi.bssid      | base64 encoded string of SSID
+
+Method: `SETACK`
+
+```json
+{}
+```
+
+#### Appliance.Config.WifiX
+
+Used to set Wifi SSID/Password. The only difference from Appliance.Config.Wifi is that .wifi.password is AES encoded, see [reference implementation](../tools/meross_wifix_aes.py)
+
+**Note:** Once appliance responds it will restart and connect to the network provided. If an error occurs the appliance will
+reset and wait for configuration.
+
+Method: `SET`
+
+```json
+{
+  "wifi": {
+    "bssid": "de:ad:00:00:be:ef",
+    "channel": 3,
+    "cipher": 3,
+    "encryption": 6,
+    "password": "c/sY5LHH92vRBVU1CzWBfqunORBqdjiLQvGg1CCxnSs=",
+    "ssid": "c3NpZAo="
+  }
+}
+```
+
+| Field            | Description
+|------------------|---
+| .wifi.bssid      | BSSID
+| .wifi.channel    | Channel
+| .wifi.cipher     | cipher used by Wifi network
+| .wifi.encryption | encryption used by network
+| .wifi.password   | AES encoded string of password to connect to network
 | .wifi.bssid      | base64 encoded string of SSID
 
 Method: `SETACK`
@@ -221,7 +259,7 @@ Method: `GETACK`
   "wifiList": [
     {
       "ssid": "dGVzdCBTU0lE",
-      "bssid": "2c-6e-a4-55-c6-47",
+      "bssid": "de:ad:00:00:be:ef",
       "signal": 100,
       "channel": 3,
       "encryption": 6,
@@ -229,7 +267,7 @@ Method: `GETACK`
     },
     {
       "ssid": "dGVzdCBTU0lEMg==",
-      "bssid": "4d-23-0e-3c-a2-22",
+      "bssid": "be:ad:99:22:be:de",
       "signal": 20,
       "channel": 3,
       "encryption": 6,
