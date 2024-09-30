@@ -9,7 +9,7 @@ import asyncio
 from zlib import crc32
 from hashlib import md5
 from string import Template
-from base64 import b64encode
+from base64 import b64encode, b64decode
 from bleak import BleakClient, BleakScanner
 from Crypto.Cipher import AES
 
@@ -21,11 +21,11 @@ HEADER_TEMPLATE = Template('{"header":{"from":"","messageId":"$messageId","metho
 MAGIC_START = b'\x55\xaa'
 MAGIC_END = b'\xaa\x55'
 
-def print_wifi(payload):
+def print_wifi(payload, ssid=None):
     wifi_list = json.loads(payload)
     filtered_list = [
         {
-            "ssid": wifi['ssid'].encode('ascii').decode('base64'),
+            "ssid": b64decode(wifi['ssid']).decode(),
             "bssid": wifi['bssid'],
             "channel": wifi['channel'],
             "encryption": wifi['encryption'],
@@ -33,8 +33,11 @@ def print_wifi(payload):
             "signal strength": wifi['signal']
         }
         for wifi in wifi_list['payload']['wifiList']
+        if ssid is None or b64decode(wifi['ssid']).decode() == ssid
     ]
-    print(json.dumps(filtered_list, indent=2))
+    if len(filtered_list) == 1:
+        filtered_list = filtered_list[0]
+    print(json.dumps(filtered_list, separators=(',', ':')))
 
 def generate_config_payload(host, port, key, userid):
     return json.dumps({
@@ -46,7 +49,7 @@ def generate_config_payload(host, port, key, userid):
             "key": key,
             "userId": userid
         }
-    }, separators=(',', ':'), ensure_ascii=True)
+    }, separators=(',', ':'))
     
 def generate_wifi_payload(ssid, password, bssid, channel, encryption, cipher):
     return json.dumps({
@@ -58,7 +61,7 @@ def generate_wifi_payload(ssid, password, bssid, channel, encryption, cipher):
             "encryption": encryption,
             "cipher": cipher
         },
-    }, separators=(',', ':'), ensure_ascii=True)
+    }, separators=(',', ':'))
 
 def wifix_aes_password(password, type, uuid, mac_address):
     key = md5((type + uuid + mac_address).encode('utf-8')).hexdigest().encode('utf-8')
@@ -139,6 +142,20 @@ async def meross_scan():
         print("No devices found")
     else:
         print(devices[0].address)
+
+async def meross_wifi_scan(args):
+    payload = encode_request("GET", "Appliance.Config.WifiList", "{}")
+    future_response = asyncio.Future()
+    raw_concat = bytearray()
+
+    async def decode_response_wrapper(sender, value):
+        return decode_response(sender, value, future_response, raw_concat)
+
+    async with BleakClient(args.mac_address) as client:
+        await client.start_notify(NOTIFY_CHAR_UUID, decode_response_wrapper)
+        await client.write_gatt_char(WRITE_CHAR_UUID, payload, response=False)
+        response = await future_response
+    print_wifi(response, args.ssid)
 
 async def meross_send(args):
     payload = encode_request(args.method, args.namespace, args.payload)
@@ -221,6 +238,11 @@ def main():
     # Subcommand for device scan
     discover_parser = subparsers.add_parser("scan", help="Scan for Meross Bluetooth LE device")
 
+    # Subcommand for wifi scan
+    wifi_scan_parser = subparsers.add_parser("wifi_scan", help="Scan for Wifi Networks")
+    wifi_scan_parser.add_argument("-a", "--mac_address", required=True, help="MAC address of the Meross device")
+    wifi_scan_parser.add_argument("-s", "--ssid", default=None, help="Filter the returned Wifi list by SSID")
+
     # Subcommand for sending a packet
     packet_parser = subparsers.add_parser("send", help="Send a packet to the Meross device")
     packet_parser.add_argument("-a", "--mac_address", required=True, help="MAC address of the Meross device")
@@ -231,13 +253,13 @@ def main():
     # Subcommand for onboarding a device
     onboard_parser = subparsers.add_parser("onboard", help="Onboard a Meross Bluetooth LE device")
     onboard_parser.add_argument("-a", "--mac-address", required=True, help="Mac address of BLE Meross device")
-    onboard_parser.add_argument("-j", "--from-json", help="Specify a wifi JSON object")
     onboard_parser.add_argument("-d", "--host", required=True, help="Specify the host to connect to")
     onboard_parser.add_argument("-P", "--port", required=True, help="Specify the port to connect to")
     onboard_parser.add_argument("-k", "--key", required=True, help="Specify the key for authentication")
-    onboard_parser.add_argument("-u", "--userid", required=False, default="0", help="Specify the user ID")
+    onboard_parser.add_argument("-p", "--password", required=True, help="Specify the password for the WiFi network")
+    onboard_parser.add_argument("-j", "--from-json", help="Specify a wifi JSON object")
+    onboard_parser.add_argument("-u", "--userid", default="0", help="Specify the user ID")
     onboard_parser.add_argument("-s", "--ssid", help="Specify the SSID of the WiFi network")
-    onboard_parser.add_argument("-p", "--password", help="Specify the password for the WiFi network")
     onboard_parser.add_argument("-b", "--bssid", help="Specify the BSSID of the WiFi network")
     onboard_parser.add_argument("-c", "--channel", help="Specify the channel of the WiFi network")
     onboard_parser.add_argument("-e", "--encryption", help="Specify the encryption type of the WiFi network")
@@ -248,6 +270,8 @@ def main():
     
     if args.command == "scan":
         asyncio.run(meross_scan())
+    elif args.command == "wifi_scan":
+        asyncio.run(meross_wifi_scan(args))
     elif args.command == "send":
         asyncio.run(meross_send(args))
     elif args.command == "onboard":
