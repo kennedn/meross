@@ -136,61 +136,55 @@ def decode_response(sender, value, future_response, raw_concat):
         resp = process_response(raw_concat)
         future_response.set_result(resp)
 
+# Look for Bluetooth devices that advertise the meross custom service
 async def meross_scan():
     devices = await BleakScanner(service_uuids=[SERVICE_UUID]).discover()
     if len(devices) == 0:
         print("No devices found")
     else:
-        print(devices[0].address)
+        for device in devices:
+            print(device.address)
 
-async def meross_wifi_scan(args):
-    payload = encode_request("GET", "Appliance.Config.WifiList", "{}")
+async def meross_send(method, namespace, payload, client):
+    payload = encode_request(method, namespace, payload)
     future_response = asyncio.Future()
     raw_concat = bytearray()
 
     async def decode_response_wrapper(sender, value):
         return decode_response(sender, value, future_response, raw_concat)
 
-    async with BleakClient(args.mac_address) as client:
+    async def bleak_io():
+        # BlueZ doesn't have a proper way to get the MTU, so we have this hack. see https://github.com/hbldh/bleak/blob/develop/examples/mtu_size.py
+        if client._backend.__class__.__name__ == "BleakClientBlueZDBus" and client._backend._mtu_size is None:
+            await client._backend._acquire_mtu()
+        chunk_size = client.mtu_size - 3
+
         await client.start_notify(NOTIFY_CHAR_UUID, decode_response_wrapper)
-        await client.write_gatt_char(WRITE_CHAR_UUID, payload, response=False)
+
+        for chunk in [payload[i:i + chunk_size] for i in range(0, len(payload), chunk_size)]:
+            await client.write_gatt_char(WRITE_CHAR_UUID, chunk, response=False)
         response = await future_response
-    print_wifi(response, args.ssid)
 
-async def meross_send(args):
-    payload = encode_request(args.method, args.namespace, args.payload)
-    future_response = asyncio.Future()
-    raw_concat = bytearray()
+        await client.stop_notify(NOTIFY_CHAR_UUID)
 
-    async def decode_response_wrapper(sender, value):
-        return decode_response(sender, value, future_response, raw_concat)
+        return response
 
-    async with BleakClient(args.mac_address) as client:
-        await client.start_notify(NOTIFY_CHAR_UUID, decode_response_wrapper)
-        await client.write_gatt_char(WRITE_CHAR_UUID, payload, response=False)
-        response = await future_response
-        print(response)
+    if client.is_connected:
+        return await bleak_io()
+    else:
+        async with client as client:
+            return await bleak_io()
 
 
 async def meross_onboard(args):
-
-    async def decode_response_wrapper(sender, value):
-        return decode_response(sender, value, future_response, raw_concat)
-
     async with BleakClient(args.mac_address) as client:
+        # BlueZ doesn't have a proper way to get the MTU, so we have this hack. see https://github.com/hbldh/bleak/blob/develop/examples/mtu_size.py
+        if client._backend.__class__.__name__ == "BleakClientBlueZDBus" and client._backend._mtu_size is None:
+            await client._backend._acquire_mtu()
 
-        await client._backend._acquire_mtu()
+        response = await meross_send("GET", "Appliance.System.All", "{}", client)
+        print(response)
 
-        chunk_size = client.mtu_size - 3
-
-        all_payload = encode_request("GET", "Appliance.System.All", "{}")
-        future_response = asyncio.Future()
-        raw_concat = bytearray()
-
-        await client.start_notify(NOTIFY_CHAR_UUID, decode_response_wrapper)
-        for chunk in [all_payload[i:i + chunk_size] for i in range(0, len(all_payload), chunk_size)]:
-            await client.write_gatt_char(WRITE_CHAR_UUID, chunk, response=False)
-        response = await future_response
         try:
             hardware = json.loads(response)['payload']['all']['system']['hardware']
         except:
@@ -199,36 +193,24 @@ async def meross_onboard(args):
         type = hardware['type']
         uuid = hardware['uuid']
         mac_address = hardware['macAddress']
-
-        config_payload = encode_request("SET", "Appliance.Config.Key", generate_config_payload(
+        
+        print(await meross_send("SET", "Appliance.Config.Key", generate_config_payload(
             args.host,
             args.port,
             args.key,
             args.userid
-        ))
-        future_response = asyncio.Future()
-        raw_concat = bytearray()
-        for chunk in [config_payload[i:i + chunk_size] for i in range(0, len(config_payload), chunk_size)]:
-            await client.write_gatt_char(WRITE_CHAR_UUID, chunk, response=False)
-        print(await future_response)
+        ), client))
 
         password = wifix_aes_password(args.password, type, uuid, mac_address)
-        wifi_payload = encode_request("SET", "Appliance.Config.WifiX", generate_wifi_payload(
+
+        print(await meross_send("SET", "Appliance.Config.WifiX", generate_wifi_payload(
             args.ssid, 
             password, 
             args.bssid, 
             args.channel, 
             args.encryption, 
             args.cipher
-        ))
-        future_response = asyncio.Future()
-        raw_concat = bytearray()
-
-        for chunk in [wifi_payload[i:i + chunk_size] for i in range(0, len(wifi_payload), chunk_size)]:
-            await client.write_gatt_char(WRITE_CHAR_UUID, chunk, response=False)
-        print(await future_response)
-        await client.stop_notify(NOTIFY_CHAR_UUID)
-
+        ), client))
 
 def main():
     parser = argparse.ArgumentParser(description="Interact with a Meross Bluetooth Device.")
@@ -271,9 +253,9 @@ def main():
     if args.command == "scan":
         asyncio.run(meross_scan())
     elif args.command == "wifi_scan":
-        asyncio.run(meross_wifi_scan(args))
+        print_wifi(asyncio.run(meross_send("GET", "Appliance.Config.WifiList", "{}", BleakClient(args.mac_address))), args.ssid)
     elif args.command == "send":
-        asyncio.run(meross_send(args))
+        print(asyncio.run(meross_send(args.method, args.namespace, args.payload, BleakClient(args.mac_address))))
     elif args.command == "onboard":
         if args.from_json:
             wifi_config = json.loads(args.from_json)
