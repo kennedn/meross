@@ -185,10 +185,6 @@ async def meross_send(method, namespace, payload, client):
 
 async def meross_onboard(args):
     async with BleakClient(args.mac_address) as client:
-        # BlueZ doesn't have a proper way to get the MTU, so we have this hack. see https://github.com/hbldh/bleak/blob/develop/examples/mtu_size.py
-        if client._backend.__class__.__name__ == "BleakClientBlueZDBus" and client._backend._mtu_size is None:
-            await client._backend._acquire_mtu()
-
         response = await meross_send("GET", "Appliance.System.Hardware", "{}", client)
         print(response)
 
