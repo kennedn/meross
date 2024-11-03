@@ -21,6 +21,7 @@ HEADER_TEMPLATE = Template('{"header":{"from":"","messageId":"$messageId","metho
 MAGIC_START = b'\x55\xaa'
 MAGIC_END = b'\xaa\x55'
 
+
 def print_wifi(payload, ssid=None):
     wifi_list = json.loads(payload)
     filtered_list = [
@@ -39,6 +40,7 @@ def print_wifi(payload, ssid=None):
         filtered_list = filtered_list[0]
     print(json.dumps(filtered_list, separators=(',', ':')))
 
+
 def generate_config_payload(host, port, key, userid):
     return json.dumps({
         "key": {
@@ -50,7 +52,8 @@ def generate_config_payload(host, port, key, userid):
             "userId": userid
         }
     }, separators=(',', ':'))
-    
+
+
 def generate_wifi_payload(ssid, password, bssid, channel, encryption, cipher):
     return json.dumps({
         "wifi": {
@@ -63,63 +66,65 @@ def generate_wifi_payload(ssid, password, bssid, channel, encryption, cipher):
         },
     }, separators=(',', ':'))
 
+
 def wifix_aes_password(password, type, uuid, mac_address):
     key = md5((type + uuid + mac_address).encode('utf-8')).hexdigest().encode('utf-8')
     iv = b'0' * AES.block_size
     cipher = AES.new(key, AES.MODE_CBC, iv)
     return b64encode(cipher.encrypt(password.ljust(AES.block_size, '\0').encode('utf-8'))).decode()
-    
+
+
 def encode_request(method, namespace, payload):
     # messageId must be random on newer firmwares
     messageId = os.urandom(16).hex()
     # ts is supposed to be the current unix timestamp but in practise can be set to anything
     ts = '0'
     # sign is an md5sum of messageId + key + ts, key is not available until configuration is completed, so can be safely ignored in the sum for now
-    sign =  md5(f"{messageId}{ts}".encode('utf-8')).hexdigest()
+    sign = md5(f"{messageId}{ts}".encode('utf-8')).hexdigest()
     # Substitute template with variables to build up JSON request to be sent to device
     data = bytes(HEADER_TEMPLATE.substitute(messageId=messageId, method=method, namespace=namespace, sign=sign, ts=ts, payload=payload), 'utf-8')
-    # Pack length into 2 byte big endian 
+    # Pack length into 2 byte big endian
     length = struct.pack('>H', len(data))
     # Pack crc into 4 byte big endian
     crc = struct.pack('>I', crc32(data))
 
     # Packet structure is:
     # |----------------------------------------------------------------|
-    # |       55aa (2 bytes)         |     Data Length (2 bytes)       |  
+    # |       55aa (2 bytes)         |     Data Length (2 bytes)       |
     # |----------------------------------------------------------------|
     # |                                                                |
     # |                      Data (Data Length Bytes)                  |
     # |                                                                |
-    # |----------------------------------------------------------------|  
+    # |----------------------------------------------------------------|
     # |                     CRC32 Checksum (4 bytes)                   |
-    # |----------------------------------------------------------------|  
-    # |      aa55 (2 bytes)          |                                  
-    # |------------------------------|                                   
+    # |----------------------------------------------------------------|
+    # |      aa55 (2 bytes)          |
+    # |------------------------------|
     return MAGIC_START + length + data + crc + MAGIC_END
 
 
 def process_response(raw_concat):
     # Packet structure is:
     # |----------------------------------------------------------------|
-    # |       55aa (2 bytes)         |     Data Length (2 bytes)       |  
+    # |       55aa (2 bytes)         |     Data Length (2 bytes)       |
     # |----------------------------------------------------------------|
     # |                                                                |
     # |                      Data (Data Length Bytes)                  |
     # |                                                                |
-    # |----------------------------------------------------------------|  
+    # |----------------------------------------------------------------|
     # |                     CRC32 Checksum (4 bytes)                   |
-    # |----------------------------------------------------------------|  
-    # |      aa55 (2 bytes)          |                                  
-    # |------------------------------|                                   
+    # |----------------------------------------------------------------|
+    # |      aa55 (2 bytes)          |
+    # |------------------------------|
     # Extract data length from packet
     _, data_length = struct.unpack('>2sH', raw_concat[:4])
     # Extract data from packet using data length
     data = raw_concat[4:4 + data_length]
-    # Extract crc from packet 
+    # Extract crc from packet
     crc = struct.unpack('>I', raw_concat[4 + data_length: 4 + data_length + 4])[0]
     # Compute our own crc
     computed_crc = crc32(data)
-    
+
     if crc != computed_crc:
         print("CRC mismatch on data", file=sys.stderr)
     return data.decode()
@@ -131,10 +136,11 @@ def decode_response(sender, value, future_response, raw_concat):
         raw_concat.clear()
     raw_concat.extend(value)
 
-    # Last packet obtained, can process data now 
+    # Last packet obtained, can process data now
     if value.endswith(MAGIC_END):
         resp = process_response(raw_concat)
         future_response.set_result(resp)
+
 
 # Look for Bluetooth devices that advertise the meross custom service
 async def meross_scan():
@@ -144,6 +150,7 @@ async def meross_scan():
     else:
         for device in devices:
             print(device.address)
+
 
 async def meross_send(method, namespace, payload, client):
     payload = encode_request(method, namespace, payload)
@@ -182,18 +189,18 @@ async def meross_onboard(args):
         if client._backend.__class__.__name__ == "BleakClientBlueZDBus" and client._backend._mtu_size is None:
             await client._backend._acquire_mtu()
 
-        response = await meross_send("GET", "Appliance.System.All", "{}", client)
+        response = await meross_send("GET", "Appliance.System.Hardware", "{}", client)
         print(response)
 
         try:
-            hardware = json.loads(response)['payload']['all']['system']['hardware']
-        except:
+            hardware = json.loads(response)['payload']['hardware']
+        except json.JSONDecodeError:
             print("response was not valid json")
-        
+
         type = hardware['type']
         uuid = hardware['uuid']
         mac_address = hardware['macAddress']
-        
+
         print(await meross_send("SET", "Appliance.Config.Key", generate_config_payload(
             args.host,
             args.port,
@@ -204,21 +211,22 @@ async def meross_onboard(args):
         password = wifix_aes_password(args.password, type, uuid, mac_address)
 
         print(await meross_send("SET", "Appliance.Config.WifiX", generate_wifi_payload(
-            args.ssid, 
-            password, 
-            args.bssid, 
-            args.channel, 
-            args.encryption, 
+            args.ssid,
+            password,
+            args.bssid,
+            args.channel,
+            args.encryption,
             args.cipher
         ), client))
+
 
 def main():
     parser = argparse.ArgumentParser(description="Interact with a Meross Bluetooth Device.")
 
     subparsers = parser.add_subparsers(dest="command", help="Sub-command help")
-    
+
     # Subcommand for device scan
-    discover_parser = subparsers.add_parser("scan", help="Scan for Meross Bluetooth LE device")
+    subparsers.add_parser("scan", help="Scan for Meross Bluetooth LE device")
 
     # Subcommand for wifi scan
     wifi_scan_parser = subparsers.add_parser("wifi_scan", help="Scan for Wifi Networks")
@@ -249,7 +257,7 @@ def main():
     onboard_parser.add_argument("-w", "--wifi", action="store_true", help="List available WiFi networks")
 
     args = parser.parse_args()
-    
+
     if args.command == "scan":
         asyncio.run(meross_scan())
     elif args.command == "wifi_scan":
