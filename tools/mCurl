@@ -16,7 +16,7 @@ help() {
 ts=0 # Supposed to be a unix epoch of the current time but can be any value
 key=${4} # If running in normal mode this must match the key configured during setup (can be left blank on older firmware)
 messageID=$(dd if=/dev/urandom bs=1 count=16 2>/dev/null | xxd -p) # Can be any value but must be unique on newer devices
-sign=$(printf "${messageID}${4}${ts}" | md5sum | awk -F\  '{print $1}')
+sign=$(printf "%s%s%s" "${messageID}" "${key}" "${ts}" | md5sum | awk -F\  '{print $1}')
 
 # Argfile removed after jq-1.6
 jq --help | grep -q -- --slurpfile && ARGFILE="--slurpfile" || ARGFILE="--argfile"
@@ -33,4 +33,4 @@ JSON=$(jq -cn \
 
 curl --connect-timeout 3 \
 --header "Content-Type: application/json" \
---data "${JSON}" http://${1}/config
+--data "${JSON}" "http://${1}/config"
