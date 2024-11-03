@@ -1,6 +1,6 @@
 #!/bin/bash
 ts=0 # Supposed to be a unix epoch of the current time but can be any value
-key='' # If running in normal mode this must match the key configured during setup (can be left blank)
+key='0' # If running in normal mode this must match the key configured during setup (can be left blank)
 messageID=$(dd if=/dev/urandom bs=1 count=16 2>/dev/null | xxd -p) # Can be any value but must be unique on newer devices
 
 help() {
