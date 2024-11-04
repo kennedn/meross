@@ -226,12 +226,12 @@ def main():
 
     # Subcommand for wifi scan
     wifi_scan_parser = subparsers.add_parser("wifi_scan", help="Scan for Wifi Networks")
-    wifi_scan_parser.add_argument("-a", "--mac_address", required=True, help="MAC address of the Meross device")
+    wifi_scan_parser.add_argument("-a", "--mac-address", required=True, help="MAC address of the Meross device")
     wifi_scan_parser.add_argument("-s", "--ssid", default=None, help="Filter the returned Wifi list by SSID")
 
     # Subcommand for sending a packet
     packet_parser = subparsers.add_parser("send", help="Send a packet to the Meross device")
-    packet_parser.add_argument("-a", "--mac_address", required=True, help="MAC address of the Meross device")
+    packet_parser.add_argument("-a", "--mac-address", required=True, help="MAC address of the Meross device")
     packet_parser.add_argument("-m", "--method", required=True, help="Method for the packet")
     packet_parser.add_argument("-n", "--namespace", required=True, help="Namespace for the packet")
     packet_parser.add_argument("-p", "--payload", required=True, help="Payload for the packet")
@@ -239,8 +239,8 @@ def main():
     # Subcommand for onboarding a device
     onboard_parser = subparsers.add_parser("onboard", help="Onboard a Meross Bluetooth LE device")
     onboard_parser.add_argument("-a", "--mac-address", required=True, help="Mac address of BLE Meross device")
-    onboard_parser.add_argument("-d", "--host", required=True, help="Specify the host to connect to")
-    onboard_parser.add_argument("-P", "--port", required=True, help="Specify the port to connect to")
+    onboard_parser.add_argument("-d", "--host", required=False, default="127.0.0.1", help="Specify the MQTT host to connect to")
+    onboard_parser.add_argument("-P", "--port", required=False, default="8883", help="Specify the MQTT port to connect to")
     onboard_parser.add_argument("-k", "--key", required=True, help="Specify the key for authentication")
     onboard_parser.add_argument("-p", "--password", required=True, help="Specify the password for the WiFi network")
     onboard_parser.add_argument("-j", "--from-json", help="Specify a wifi JSON object")

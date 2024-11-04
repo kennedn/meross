@@ -1,5 +1,6 @@
 #!/bin/bash
 SCRIPT_NAME=$(basename "$0")
+cd "$(dirname "$0")" || exit
 
 help() {
 cat << EOF
@@ -8,16 +9,14 @@ Onboard a meross device to the network
 Example: $SCRIPT_NAME --wifi
 
 Options:
-  -j,--from-json
-        specify a wifi json object
   -d,--host HOST
-        specify the host to connect to
+        specify the MQTT host to connect to, optional
   -P,--port PORT
-        specify the port to connect to
-  -k,--key KEY
-        specify the key for authentication
+        specify the MQTT port to connect to, optional
   -u,--userid USERID
-        specify the user ID
+        specify a meross cloud user ID, optional
+  -k,--key KEY
+        specify a key, which will then be required to query the device after onboarding, optional for older devices
   -s,--ssid SSID
         specify the SSID of the WiFi network
   -p,--password PASSWORD
@@ -32,17 +31,19 @@ Options:
         specify the cipher type of the WiFi network
   -w,--wifi
         list available WiFi networks
+  -j,--from-json
+        specify a wifi json object obtained from running --wifi
   -h,--help
         print this message
 EOF
 exit 1
-}
+} 1>&2
 
 [ "$#" -eq 0 ] && help
 
 list_wifi() {
   echo "Wifi scan initiated (takes around 10 seconds)..." 1>&2
-  ./mCurl 10.10.10.1 GET Appliance.Config.WifiList '{}' | jq --arg ssid "$1" -r '.payload.wifiList[] | select (($ssid == "") or (.ssid | @base64d == $ssid)) | {"ssid": .ssid | @base64d, "bssid":.bssid, "channel": .channel, "encryption": .encryption, "cipher": .cipher, "signal strength": .signal}'
+  ./merossCurl.sh 10.10.10.1 GET Appliance.Config.WifiList "" '{}' | jq --arg ssid "$1" -r '.payload.wifiList[] | select (($ssid == "") or (.ssid | @base64d == $ssid)) | {"ssid": .ssid | @base64d, "bssid":.bssid, "channel": .channel, "encryption": .encryption, "cipher": .cipher, "signal strength": .signal}'
 }
 
 configure() {
@@ -67,8 +68,7 @@ configure() {
           }
         }')
 
-  ./mCurl 10.10.10.1 SET Appliance.Config.Key "$CONFIG_JSON" | jq -c
-  echo "Key configured" 1>&2
+  ./merossCurl.sh 10.10.10.1 SET Appliance.Config.Key "" "$CONFIG_JSON" | jq -c && echo "Key configured" 1>&2
 }
 
 wifi_connect() {
@@ -96,8 +96,7 @@ wifi_connect() {
             "cipher": $cipher
             }
         }')
-  ./mCurl 10.10.10.1 SET Appliance.Config.Wifi "$WIFI_JSON" | jq -c
-  echo "Wifi configured" 1>&2
+  ./merossCurl.sh 10.10.10.1 SET Appliance.Config.Wifi "" "$WIFI_JSON" | jq -c && echo "Wifi configured" 1>&2
 }
 
 POSITIONAL=()
@@ -176,10 +175,8 @@ while [ "$#" -gt 0 ]; do
 done
 set -- "${POSITIONAL[@]}"
 
-if [ -z "$HOST" ] || [ -z "$PORT" ]; then
-  echo "Error: HOST and PORT must be specified."
-  help
-fi
+[ -z "$HOST" ] && HOST=127.0.0.1
+[ -z "$PORT" ] && PORT=8883
 
 if [ -n "${JSON}" ]; then
   [ -z "${SSID}" ] && SSID=$(jq -r '.ssid' <<<"${JSON}")

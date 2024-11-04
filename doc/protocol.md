@@ -207,7 +207,7 @@ Method: `SETACK`
 
 #### Appliance.Config.WifiX
 
-Used to set Wifi SSID/Password. The only difference from Appliance.Config.Wifi is that .wifi.password is AES encoded, see [reference implementation](../tools/meross_wifix_aes.py)
+Used to set Wifi SSID/Password. The only difference from Appliance.Config.Wifi is that .wifi.password is AES encoded, see [reference implementation](../reference_implementations/meross_wifix_aes.py)
 
 **Note:** Once appliance responds it will restart and connect to the network provided. If an error occurs the appliance will
 reset and wait for configuration.
