@@ -1,0 +1,2422 @@
+[
+  {
+    "_index": "packets-2024-11-24",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.interface_id": "0",
+          "frame.interface_id_tree": {
+            "frame.interface_name": "enp37s0"
+          },
+          "frame.encap_type": "1",
+          "frame.time": "Nov 24, 2024 12:12:13.504697606 GMT",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_epoch": "1732450333.504697606",
+          "frame.time_delta": "0.000032030",
+          "frame.time_delta_displayed": "0.000000000",
+          "frame.time_relative": "2.226102971",
+          "frame.number": "89",
+          "frame.len": "408",
+          "frame.cap_len": "408",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "eth:ethertype:ip:tcp:http:json"
+        },
+        "eth": {
+          "eth.dst": "48:e1:e9:c7:59:90",
+          "eth.dst_tree": {
+            "eth.dst_resolved": "ChengduM_c7:59:90",
+            "eth.dst.oui": "4776425",
+            "eth.dst.oui_resolved": "Chengdu Meross Technology Co., Ltd.",
+            "eth.addr": "48:e1:e9:c7:59:90",
+            "eth.addr_resolved": "ChengduM_c7:59:90",
+            "eth.addr.oui": "4776425",
+            "eth.addr.oui_resolved": "Chengdu Meross Technology Co., Ltd.",
+            "eth.dst.lg": "0",
+            "eth.lg": "0",
+            "eth.dst.ig": "0",
+            "eth.ig": "0"
+          },
+          "eth.src": "2c:f0:5d:56:40:43",
+          "eth.src_tree": {
+            "eth.src_resolved": "Micro-St_56:40:43",
+            "eth.src.oui": "2945117",
+            "eth.src.oui_resolved": "Micro-Star INTL CO., LTD.",
+            "eth.addr": "2c:f0:5d:56:40:43",
+            "eth.addr_resolved": "Micro-St_56:40:43",
+            "eth.addr.oui": "2945117",
+            "eth.addr.oui_resolved": "Micro-Star INTL CO., LTD.",
+            "eth.src.lg": "0",
+            "eth.lg": "0",
+            "eth.src.ig": "0",
+            "eth.ig": "0"
+          },
+          "eth.type": "0x00000800"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00000000",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "394",
+          "ip.id": "0x0000c4c3",
+          "ip.flags": "0x00004000",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "1",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "6",
+          "ip.checksum": "0x0000f04b",
+          "ip.checksum.status": "2",
+          "ip.src": "192.168.1.100",
+          "ip.addr": "192.168.1.100",
+          "ip.src_host": "192.168.1.100",
+          "ip.host": "192.168.1.100",
+          "ip.dst": "192.168.1.170",
+          "ip.addr": "192.168.1.170",
+          "ip.dst_host": "192.168.1.170",
+          "ip.host": "192.168.1.170"
+        },
+        "tcp": {
+          "tcp.srcport": "40316",
+          "tcp.dstport": "80",
+          "tcp.port": "40316",
+          "tcp.port": "80",
+          "tcp.stream": "19",
+          "tcp.len": "354",
+          "tcp.seq": "184",
+          "tcp.seq_raw": "58910163",
+          "tcp.nxtseq": "538",
+          "tcp.ack": "1",
+          "tcp.ack_raw": "39858976",
+          "tcp.hdr_len": "20",
+          "tcp.flags": "0x00000018",
+          "tcp.flags_tree": {
+            "tcp.flags.res": "0",
+            "tcp.flags.ns": "0",
+            "tcp.flags.cwr": "0",
+            "tcp.flags.ecn": "0",
+            "tcp.flags.urg": "0",
+            "tcp.flags.ack": "1",
+            "tcp.flags.push": "1",
+            "tcp.flags.reset": "0",
+            "tcp.flags.syn": "0",
+            "tcp.flags.fin": "0",
+            "tcp.flags.str": "·······AP···"
+          },
+          "tcp.window_size_value": "502",
+          "tcp.window_size": "64256",
+          "tcp.window_size_scalefactor": "128",
+          "tcp.checksum": "0x000085db",
+          "tcp.checksum.status": "2",
+          "tcp.urgent_pointer": "0",
+          "tcp.analysis": {
+            "tcp.analysis.initial_rtt": "0.002084275",
+            "tcp.analysis.bytes_in_flight": "537",
+            "tcp.analysis.push_bytes_sent": "354"
+          },
+          "Timestamps": {
+            "tcp.time_relative": "0.002166774",
+            "tcp.time_delta": "0.000032030"
+          },
+          "tcp.payload": "7b:22:68:65:61:64:65:72:22:3a:7b:22:66:72:6f:6d:22:3a:22:68:74:74:70:3a:2f:2f:31:39:32:2e:31:36:38:2e:31:2e:31:37:30:2f:63:6f:6e:66:69:67:22:2c:22:6d:65:73:73:61:67:65:49:64:22:3a:22:38:35:66:38:33:32:66:63:64:38:36:61:35:38:64:38:39:32:65:31:34:62:66:61:31:39:30:62:66:63:35:37:22:2c:22:6d:65:74:68:6f:64:22:3a:22:53:45:54:22:2c:22:6e:61:6d:65:73:70:61:63:65:22:3a:22:41:70:70:6c:69:61:6e:63:65:2e:48:75:62:2e:4d:74:73:31:30:30:2e:4d:6f:64:65:22:2c:22:70:61:79:6c:6f:61:64:56:65:72:73:69:6f:6e:22:3a:31:2c:22:73:69:67:6e:22:3a:22:33:38:34:64:35:32:66:61:62:30:36:31:37:63:61:37:32:38:31:35:38:39:37:65:66:65:30:30:32:63:63:63:22:2c:22:74:69:6d:65:73:74:61:6d:70:22:3a:31:37:33:32:34:35:30:33:33:33:2c:22:74:72:69:67:67:65:72:53:72:63:22:3a:22:41:6e:64:72:6f:69:64:4c:6f:63:61:6c:22:2c:22:75:75:69:64:22:3a:22:32:33:30:35:31:39:33:33:36:34:35:39:34:32:36:32:30:38:30:32:34:38:65:31:65:39:63:37:35:39:39:30:22:7d:2c:22:70:61:79:6c:6f:61:64:22:3a:7b:22:6d:6f:64:65:22:3a:5b:7b:22:69:64:22:3a:22:30:33:30:30:30:42:44:46:22:2c:22:73:74:61:74:65:22:3a:30:7d:5d:7d:7d",
+          "tcp.segment_data": "7b:22:68:65:61:64:65:72:22:3a:7b:22:66:72:6f:6d:22:3a:22:68:74:74:70:3a:2f:2f:31:39:32:2e:31:36:38:2e:31:2e:31:37:30:2f:63:6f:6e:66:69:67:22:2c:22:6d:65:73:73:61:67:65:49:64:22:3a:22:38:35:66:38:33:32:66:63:64:38:36:61:35:38:64:38:39:32:65:31:34:62:66:61:31:39:30:62:66:63:35:37:22:2c:22:6d:65:74:68:6f:64:22:3a:22:53:45:54:22:2c:22:6e:61:6d:65:73:70:61:63:65:22:3a:22:41:70:70:6c:69:61:6e:63:65:2e:48:75:62:2e:4d:74:73:31:30:30:2e:4d:6f:64:65:22:2c:22:70:61:79:6c:6f:61:64:56:65:72:73:69:6f:6e:22:3a:31:2c:22:73:69:67:6e:22:3a:22:33:38:34:64:35:32:66:61:62:30:36:31:37:63:61:37:32:38:31:35:38:39:37:65:66:65:30:30:32:63:63:63:22:2c:22:74:69:6d:65:73:74:61:6d:70:22:3a:31:37:33:32:34:35:30:33:33:33:2c:22:74:72:69:67:67:65:72:53:72:63:22:3a:22:41:6e:64:72:6f:69:64:4c:6f:63:61:6c:22:2c:22:75:75:69:64:22:3a:22:32:33:30:35:31:39:33:33:36:34:35:39:34:32:36:32:30:38:30:32:34:38:65:31:65:39:63:37:35:39:39:30:22:7d:2c:22:70:61:79:6c:6f:61:64:22:3a:7b:22:6d:6f:64:65:22:3a:5b:7b:22:69:64:22:3a:22:30:33:30:30:30:42:44:46:22:2c:22:73:74:61:74:65:22:3a:30:7d:5d:7d:7d"
+        },
+        "tcp.segments": {
+          "tcp.segment": "88",
+          "tcp.segment": "89",
+          "tcp.segment.count": "2",
+          "tcp.reassembled.length": "537",
+          "tcp.reassembled.data": "50:4f:53:54:20:2f:63:6f:6e:66:69:67:20:48:54:54:50:2f:31:2e:31:0d:0a:43:6f:6e:6e:65:63:74:69:6f:6e:3a:20:63:6c:6f:73:65:0d:0a:43:6f:6e:74:65:6e:74:2d:54:79:70:65:3a:20:61:70:70:6c:69:63:61:74:69:6f:6e:2f:6a:73:6f:6e:3b:20:63:68:61:72:73:65:74:3d:55:54:46:2d:38:0d:0a:43:6f:6e:74:65:6e:74:2d:4c:65:6e:67:74:68:3a:20:33:35:34:0d:0a:48:6f:73:74:3a:20:31:39:32:2e:31:36:38:2e:31:2e:31:37:30:0d:0a:41:63:63:65:70:74:2d:45:6e:63:6f:64:69:6e:67:3a:20:67:7a:69:70:0d:0a:55:73:65:72:2d:41:67:65:6e:74:3a:20:6f:6b:68:74:74:70:2f:33:2e:31:32:2e:30:0d:0a:0d:0a:7b:22:68:65:61:64:65:72:22:3a:7b:22:66:72:6f:6d:22:3a:22:68:74:74:70:3a:2f:2f:31:39:32:2e:31:36:38:2e:31:2e:31:37:30:2f:63:6f:6e:66:69:67:22:2c:22:6d:65:73:73:61:67:65:49:64:22:3a:22:38:35:66:38:33:32:66:63:64:38:36:61:35:38:64:38:39:32:65:31:34:62:66:61:31:39:30:62:66:63:35:37:22:2c:22:6d:65:74:68:6f:64:22:3a:22:53:45:54:22:2c:22:6e:61:6d:65:73:70:61:63:65:22:3a:22:41:70:70:6c:69:61:6e:63:65:2e:48:75:62:2e:4d:74:73:31:30:30:2e:4d:6f:64:65:22:2c:22:70:61:79:6c:6f:61:64:56:65:72:73:69:6f:6e:22:3a:31:2c:22:73:69:67:6e:22:3a:22:33:38:34:64:35:32:66:61:62:30:36:31:37:63:61:37:32:38:31:35:38:39:37:65:66:65:30:30:32:63:63:63:22:2c:22:74:69:6d:65:73:74:61:6d:70:22:3a:31:37:33:32:34:35:30:33:33:33:2c:22:74:72:69:67:67:65:72:53:72:63:22:3a:22:41:6e:64:72:6f:69:64:4c:6f:63:61:6c:22:2c:22:75:75:69:64:22:3a:22:32:33:30:35:31:39:33:33:36:34:35:39:34:32:36:32:30:38:30:32:34:38:65:31:65:39:63:37:35:39:39:30:22:7d:2c:22:70:61:79:6c:6f:61:64:22:3a:7b:22:6d:6f:64:65:22:3a:5b:7b:22:69:64:22:3a:22:30:33:30:30:30:42:44:46:22:2c:22:73:74:61:74:65:22:3a:30:7d:5d:7d:7d"
+        },
+        "http": {
+          "POST /config HTTP/1.1\\r\\n": {
+            "_ws.expert": {
+              "http.chat": "",
+              "_ws.expert.message": "POST /config HTTP/1.1\\r\\n",
+              "_ws.expert.severity": "2097152",
+              "_ws.expert.group": "33554432"
+            },
+            "http.request.method": "POST",
+            "http.request.uri": "/config",
+            "http.request.version": "HTTP/1.1"
+          },
+          "http.connection": "close",
+          "http.request.line": "Connection: close\r\n",
+          "http.content_type": "application/json; charset=UTF-8",
+          "http.request.line": "Content-Type: application/json; charset=UTF-8\r\n",
+          "http.content_length_header": "354",
+          "http.content_length_header_tree": {
+            "http.content_length": "354"
+          },
+          "http.request.line": "Content-Length: 354\r\n",
+          "http.host": "192.168.1.170",
+          "http.request.line": "Host: 192.168.1.170\r\n",
+          "http.accept_encoding": "gzip",
+          "http.request.line": "Accept-Encoding: gzip\r\n",
+          "http.user_agent": "okhttp/3.12.0",
+          "http.request.line": "User-Agent: okhttp/3.12.0\r\n",
+          "\\r\\n": "",
+          "http.request.full_uri": "http://192.168.1.170/config",
+          "http.request": "1",
+          "http.request_number": "1",
+          "http.file_data": "{\"header\":{\"from\":\"http://192.168.1.170/config\",\"messageId\":\"85f832fcd86a58d892e14bfa190bfc57\",\"method\":\"SET\",\"namespace\":\"Appliance.Hub.Mts100.Mode\",\"payloadVersion\":1,\"sign\":\"384d52fab0617ca72815897efe002ccc\",\"timestamp\":1732450333,\"triggerSrc\":\"AndroidLocal\",\"uuid\":\"2305193364594262080248e1e9c75990\"},\"payload\":{\"mode\":[{\"id\":\"03000BDF\",\"state\":0}]}}"
+        },
+        "json": {
+          "JSON compact form: {...}": {
+            "json.member_compact": {
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": ""
+            },
+            "json.member_compact": {
+              "json.member_compact": {
+                "json.object_compact": {
+                  "json.member_compact": "",
+                  "json.member_compact": ""
+                }
+              }
+            }
+          },
+          "json.object": {
+            "json.member": {
+              "json.object": {
+                "json.member": {
+                  "json.value.string": "http://192.168.1.170/config",
+                  "json.key": "from"
+                },
+                "json.member": {
+                  "json.value.string": "85f832fcd86a58d892e14bfa190bfc57",
+                  "json.key": "messageId"
+                },
+                "json.member": {
+                  "json.value.string": "SET",
+                  "json.key": "method"
+                },
+                "json.member": {
+                  "json.value.string": "Appliance.Hub.Mts100.Mode",
+                  "json.key": "namespace"
+                },
+                "json.member": {
+                  "json.value.number": "1",
+                  "json.key": "payloadVersion"
+                },
+                "json.member": {
+                  "json.value.string": "384d52fab0617ca72815897efe002ccc",
+                  "json.key": "sign"
+                },
+                "json.member": {
+                  "json.value.number": "1732450333",
+                  "json.key": "timestamp"
+                },
+                "json.member": {
+                  "json.value.string": "AndroidLocal",
+                  "json.key": "triggerSrc"
+                },
+                "json.member": {
+                  "json.value.string": "2305193364594262080248e1e9c75990",
+                  "json.key": "uuid"
+                }
+              },
+              "json.key": "header"
+            },
+            "json.member": {
+              "json.object": {
+                "json.member": {
+                  "json.array": {
+                    "json.object": {
+                      "json.member": {
+                        "json.value.string": "03000BDF",
+                        "json.key": "id"
+                      },
+                      "json.member": {
+                        "json.value.number": "0",
+                        "json.key": "state"
+                      }
+                    }
+                  },
+                  "json.key": "mode"
+                }
+              },
+              "json.key": "payload"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2024-11-24",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.interface_id": "0",
+          "frame.interface_id_tree": {
+            "frame.interface_name": "enp37s0"
+          },
+          "frame.encap_type": "1",
+          "frame.time": "Nov 24, 2024 12:12:13.537951804 GMT",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_epoch": "1732450333.537951804",
+          "frame.time_delta": "0.002160554",
+          "frame.time_delta_displayed": "0.033254198",
+          "frame.time_relative": "2.259357169",
+          "frame.number": "95",
+          "frame.len": "60",
+          "frame.cap_len": "60",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "eth:ethertype:ip:tcp:http:json"
+        },
+        "eth": {
+          "eth.dst": "2c:f0:5d:56:40:43",
+          "eth.dst_tree": {
+            "eth.dst_resolved": "Micro-St_56:40:43",
+            "eth.dst.oui": "2945117",
+            "eth.dst.oui_resolved": "Micro-Star INTL CO., LTD.",
+            "eth.addr": "2c:f0:5d:56:40:43",
+            "eth.addr_resolved": "Micro-St_56:40:43",
+            "eth.addr.oui": "2945117",
+            "eth.addr.oui_resolved": "Micro-Star INTL CO., LTD.",
+            "eth.dst.lg": "0",
+            "eth.lg": "0",
+            "eth.dst.ig": "0",
+            "eth.ig": "0"
+          },
+          "eth.src": "48:e1:e9:c7:59:90",
+          "eth.src_tree": {
+            "eth.src_resolved": "ChengduM_c7:59:90",
+            "eth.src.oui": "4776425",
+            "eth.src.oui_resolved": "Chengdu Meross Technology Co., Ltd.",
+            "eth.addr": "48:e1:e9:c7:59:90",
+            "eth.addr_resolved": "ChengduM_c7:59:90",
+            "eth.addr.oui": "4776425",
+            "eth.addr.oui_resolved": "Chengdu Meross Technology Co., Ltd.",
+            "eth.src.lg": "0",
+            "eth.lg": "0",
+            "eth.src.ig": "0",
+            "eth.ig": "0"
+          },
+          "eth.type": "0x00000800",
+          "eth.padding": "00:00:00:00:00:00"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00000000",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "40",
+          "ip.id": "0x00005ef0",
+          "ip.flags": "0x00000000",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "0",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "255",
+          "ip.proto": "6",
+          "ip.checksum": "0x0000d880",
+          "ip.checksum.status": "2",
+          "ip.src": "192.168.1.170",
+          "ip.addr": "192.168.1.170",
+          "ip.src_host": "192.168.1.170",
+          "ip.host": "192.168.1.170",
+          "ip.dst": "192.168.1.100",
+          "ip.addr": "192.168.1.100",
+          "ip.dst_host": "192.168.1.100",
+          "ip.host": "192.168.1.100"
+        },
+        "tcp": {
+          "tcp.srcport": "80",
+          "tcp.dstport": "40316",
+          "tcp.port": "80",
+          "tcp.port": "40316",
+          "tcp.stream": "19",
+          "tcp.len": "0",
+          "tcp.seq": "345",
+          "tcp.seq_raw": "39859320",
+          "tcp.nxtseq": "346",
+          "tcp.ack": "538",
+          "tcp.ack_raw": "58910517",
+          "tcp.hdr_len": "20",
+          "tcp.flags": "0x00000011",
+          "tcp.flags_tree": {
+            "tcp.flags.res": "0",
+            "tcp.flags.ns": "0",
+            "tcp.flags.cwr": "0",
+            "tcp.flags.ecn": "0",
+            "tcp.flags.urg": "0",
+            "tcp.flags.ack": "1",
+            "tcp.flags.push": "0",
+            "tcp.flags.reset": "0",
+            "tcp.flags.syn": "0",
+            "tcp.flags.fin": "1",
+            "tcp.flags.fin_tree": {
+              "_ws.expert": {
+                "tcp.connection.fin": "",
+                "_ws.expert.message": "Connection finish (FIN)",
+                "_ws.expert.severity": "2097152",
+                "_ws.expert.group": "33554432"
+              }
+            },
+            "tcp.flags.str": "·······A···F"
+          },
+          "tcp.window_size_value": "12019",
+          "tcp.window_size": "24038",
+          "tcp.window_size_scalefactor": "2",
+          "tcp.checksum": "0x00003d25",
+          "tcp.checksum.status": "2",
+          "tcp.urgent_pointer": "0",
+          "Timestamps": {
+            "tcp.time_relative": "0.035420972",
+            "tcp.time_delta": "0.002160554"
+          }
+        },
+        "tcp.segments": {
+          "tcp.segment": "93",
+          "tcp.segment": "95",
+          "tcp.segment.count": "2",
+          "tcp.reassembled.length": "344",
+          "tcp.reassembled.data": "48:54:54:50:2f:31:2e:31:20:32:30:30:20:4f:4b:0a:43:6f:6e:74:65:6e:74:2d:54:79:70:65:3a:20:61:70:70:6c:69:63:61:74:69:6f:6e:2f:6a:73:6f:6e:0d:0a:0d:0a:7b:22:68:65:61:64:65:72:22:3a:7b:22:6d:65:73:73:61:67:65:49:64:22:3a:22:38:35:66:38:33:32:66:63:64:38:36:61:35:38:64:38:39:32:65:31:34:62:66:61:31:39:30:62:66:63:35:37:22:2c:22:6e:61:6d:65:73:70:61:63:65:22:3a:22:41:70:70:6c:69:61:6e:63:65:2e:48:75:62:2e:4d:74:73:31:30:30:2e:4d:6f:64:65:22:2c:22:6d:65:74:68:6f:64:22:3a:22:53:45:54:41:43:4b:22:2c:22:70:61:79:6c:6f:61:64:56:65:72:73:69:6f:6e:22:3a:31:2c:22:66:72:6f:6d:22:3a:22:2f:61:70:70:6c:69:61:6e:63:65:2f:32:33:30:35:31:39:33:33:36:34:35:39:34:32:36:32:30:38:30:32:34:38:65:31:65:39:63:37:35:39:39:30:2f:70:75:62:6c:69:73:68:22:2c:22:74:69:6d:65:73:74:61:6d:70:22:3a:31:37:33:32:34:35:30:33:33:33:2c:22:74:69:6d:65:73:74:61:6d:70:4d:73:22:3a:31:38:30:2c:22:73:69:67:6e:22:3a:22:33:38:34:64:35:32:66:61:62:30:36:31:37:63:61:37:32:38:31:35:38:39:37:65:66:65:30:30:32:63:63:63:22:7d:2c:22:70:61:79:6c:6f:61:64:22:3a:7b:7d:7d:0a"
+        },
+        "http": {
+          "HTTP/1.1 200 OK\\n": {
+            "_ws.expert": {
+              "http.chat": "",
+              "_ws.expert.message": "HTTP/1.1 200 OK\\n",
+              "_ws.expert.severity": "2097152",
+              "_ws.expert.group": "33554432"
+            },
+            "http.response.version": "HTTP/1.1",
+            "http.response.code": "200",
+            "http.response.code.desc": "OK",
+            "http.response.phrase": "OK"
+          },
+          "http.content_type": "application/json",
+          "http.response.line": "Content-Type: application/json\r\n",
+          "\\r\\n": "",
+          "http.response": "1",
+          "http.response_number": "1",
+          "http.time": "0.033254198",
+          "http.request_in": "89",
+          "http.response_for.uri": "http://192.168.1.170/config",
+          "http.file_data": "{\"header\":{\"messageId\":\"85f832fcd86a58d892e14bfa190bfc57\",\"namespace\":\"Appliance.Hub.Mts100.Mode\",\"method\":\"SETACK\",\"payloadVersion\":1,\"from\":\"/appliance/2305193364594262080248e1e9c75990/publish\",\"timestamp\":1732450333,\"timestampMs\":180,\"sign\":\"384d52fab0617ca72815897efe002ccc\"},\"payload\":{}}\n"
+        },
+        "json": {
+          "JSON compact form: {...}": {
+            "json.member_compact": {
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": ""
+            },
+            "json.member_compact": ""
+          },
+          "json.object": {
+            "json.member": {
+              "json.object": {
+                "json.member": {
+                  "json.value.string": "85f832fcd86a58d892e14bfa190bfc57",
+                  "json.key": "messageId"
+                },
+                "json.member": {
+                  "json.value.string": "Appliance.Hub.Mts100.Mode",
+                  "json.key": "namespace"
+                },
+                "json.member": {
+                  "json.value.string": "SETACK",
+                  "json.key": "method"
+                },
+                "json.member": {
+                  "json.value.number": "1",
+                  "json.key": "payloadVersion"
+                },
+                "json.member": {
+                  "json.value.string": "/appliance/2305193364594262080248e1e9c75990/publish",
+                  "json.key": "from"
+                },
+                "json.member": {
+                  "json.value.number": "1732450333",
+                  "json.key": "timestamp"
+                },
+                "json.member": {
+                  "json.value.number": "180",
+                  "json.key": "timestampMs"
+                },
+                "json.member": {
+                  "json.value.string": "384d52fab0617ca72815897efe002ccc",
+                  "json.key": "sign"
+                }
+              },
+              "json.key": "header"
+            },
+            "json.member": {
+              "json.object": "",
+              "json.key": "payload"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2024-11-24",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.interface_id": "0",
+          "frame.interface_id_tree": {
+            "frame.interface_name": "enp37s0"
+          },
+          "frame.encap_type": "1",
+          "frame.time": "Nov 24, 2024 12:12:14.314595506 GMT",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_epoch": "1732450334.314595506",
+          "frame.time_delta": "0.000041389",
+          "frame.time_delta_displayed": "0.776643702",
+          "frame.time_relative": "3.036000871",
+          "frame.number": "120",
+          "frame.len": "408",
+          "frame.cap_len": "408",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "eth:ethertype:ip:tcp:http:json"
+        },
+        "eth": {
+          "eth.dst": "48:e1:e9:c7:59:90",
+          "eth.dst_tree": {
+            "eth.dst_resolved": "ChengduM_c7:59:90",
+            "eth.dst.oui": "4776425",
+            "eth.dst.oui_resolved": "Chengdu Meross Technology Co., Ltd.",
+            "eth.addr": "48:e1:e9:c7:59:90",
+            "eth.addr_resolved": "ChengduM_c7:59:90",
+            "eth.addr.oui": "4776425",
+            "eth.addr.oui_resolved": "Chengdu Meross Technology Co., Ltd.",
+            "eth.dst.lg": "0",
+            "eth.lg": "0",
+            "eth.dst.ig": "0",
+            "eth.ig": "0"
+          },
+          "eth.src": "2c:f0:5d:56:40:43",
+          "eth.src_tree": {
+            "eth.src_resolved": "Micro-St_56:40:43",
+            "eth.src.oui": "2945117",
+            "eth.src.oui_resolved": "Micro-Star INTL CO., LTD.",
+            "eth.addr": "2c:f0:5d:56:40:43",
+            "eth.addr_resolved": "Micro-St_56:40:43",
+            "eth.addr.oui": "2945117",
+            "eth.addr.oui_resolved": "Micro-Star INTL CO., LTD.",
+            "eth.src.lg": "0",
+            "eth.lg": "0",
+            "eth.src.ig": "0",
+            "eth.ig": "0"
+          },
+          "eth.type": "0x00000800"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00000000",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "394",
+          "ip.id": "0x00000540",
+          "ip.flags": "0x00004000",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "1",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "6",
+          "ip.checksum": "0x0000afcf",
+          "ip.checksum.status": "2",
+          "ip.src": "192.168.1.100",
+          "ip.addr": "192.168.1.100",
+          "ip.src_host": "192.168.1.100",
+          "ip.host": "192.168.1.100",
+          "ip.dst": "192.168.1.170",
+          "ip.addr": "192.168.1.170",
+          "ip.dst_host": "192.168.1.170",
+          "ip.host": "192.168.1.170"
+        },
+        "tcp": {
+          "tcp.srcport": "40326",
+          "tcp.dstport": "80",
+          "tcp.port": "40326",
+          "tcp.port": "80",
+          "tcp.stream": "20",
+          "tcp.len": "354",
+          "tcp.seq": "184",
+          "tcp.seq_raw": "2170389413",
+          "tcp.nxtseq": "538",
+          "tcp.ack": "1",
+          "tcp.ack_raw": "40124350",
+          "tcp.hdr_len": "20",
+          "tcp.flags": "0x00000018",
+          "tcp.flags_tree": {
+            "tcp.flags.res": "0",
+            "tcp.flags.ns": "0",
+            "tcp.flags.cwr": "0",
+            "tcp.flags.ecn": "0",
+            "tcp.flags.urg": "0",
+            "tcp.flags.ack": "1",
+            "tcp.flags.push": "1",
+            "tcp.flags.reset": "0",
+            "tcp.flags.syn": "0",
+            "tcp.flags.fin": "0",
+            "tcp.flags.str": "·······AP···"
+          },
+          "tcp.window_size_value": "502",
+          "tcp.window_size": "64256",
+          "tcp.window_size_scalefactor": "128",
+          "tcp.checksum": "0x000085db",
+          "tcp.checksum.status": "2",
+          "tcp.urgent_pointer": "0",
+          "tcp.analysis": {
+            "tcp.analysis.initial_rtt": "0.002410112",
+            "tcp.analysis.bytes_in_flight": "537",
+            "tcp.analysis.push_bytes_sent": "354"
+          },
+          "Timestamps": {
+            "tcp.time_relative": "0.002514681",
+            "tcp.time_delta": "0.000041389"
+          },
+          "tcp.payload": "7b:22:68:65:61:64:65:72:22:3a:7b:22:66:72:6f:6d:22:3a:22:68:74:74:70:3a:2f:2f:31:39:32:2e:31:36:38:2e:31:2e:31:37:30:2f:63:6f:6e:66:69:67:22:2c:22:6d:65:73:73:61:67:65:49:64:22:3a:22:33:61:64:64:37:63:62:64:34:62:34:63:62:66:36:66:31:36:63:37:66:65:38:33:66:39:31:31:33:65:39:33:22:2c:22:6d:65:74:68:6f:64:22:3a:22:53:45:54:22:2c:22:6e:61:6d:65:73:70:61:63:65:22:3a:22:41:70:70:6c:69:61:6e:63:65:2e:48:75:62:2e:4d:74:73:31:30:30:2e:4d:6f:64:65:22:2c:22:70:61:79:6c:6f:61:64:56:65:72:73:69:6f:6e:22:3a:31:2c:22:73:69:67:6e:22:3a:22:35:31:66:63:65:63:36:65:63:30:61:35:38:61:30:66:39:61:35:61:36:66:38:66:39:62:62:34:30:63:61:66:22:2c:22:74:69:6d:65:73:74:61:6d:70:22:3a:31:37:33:32:34:35:30:33:33:34:2c:22:74:72:69:67:67:65:72:53:72:63:22:3a:22:41:6e:64:72:6f:69:64:4c:6f:63:61:6c:22:2c:22:75:75:69:64:22:3a:22:32:33:30:35:31:39:33:33:36:34:35:39:34:32:36:32:30:38:30:32:34:38:65:31:65:39:63:37:35:39:39:30:22:7d:2c:22:70:61:79:6c:6f:61:64:22:3a:7b:22:6d:6f:64:65:22:3a:5b:7b:22:69:64:22:3a:22:30:33:30:30:30:42:44:46:22:2c:22:73:74:61:74:65:22:3a:31:7d:5d:7d:7d",
+          "tcp.segment_data": "7b:22:68:65:61:64:65:72:22:3a:7b:22:66:72:6f:6d:22:3a:22:68:74:74:70:3a:2f:2f:31:39:32:2e:31:36:38:2e:31:2e:31:37:30:2f:63:6f:6e:66:69:67:22:2c:22:6d:65:73:73:61:67:65:49:64:22:3a:22:33:61:64:64:37:63:62:64:34:62:34:63:62:66:36:66:31:36:63:37:66:65:38:33:66:39:31:31:33:65:39:33:22:2c:22:6d:65:74:68:6f:64:22:3a:22:53:45:54:22:2c:22:6e:61:6d:65:73:70:61:63:65:22:3a:22:41:70:70:6c:69:61:6e:63:65:2e:48:75:62:2e:4d:74:73:31:30:30:2e:4d:6f:64:65:22:2c:22:70:61:79:6c:6f:61:64:56:65:72:73:69:6f:6e:22:3a:31:2c:22:73:69:67:6e:22:3a:22:35:31:66:63:65:63:36:65:63:30:61:35:38:61:30:66:39:61:35:61:36:66:38:66:39:62:62:34:30:63:61:66:22:2c:22:74:69:6d:65:73:74:61:6d:70:22:3a:31:37:33:32:34:35:30:33:33:34:2c:22:74:72:69:67:67:65:72:53:72:63:22:3a:22:41:6e:64:72:6f:69:64:4c:6f:63:61:6c:22:2c:22:75:75:69:64:22:3a:22:32:33:30:35:31:39:33:33:36:34:35:39:34:32:36:32:30:38:30:32:34:38:65:31:65:39:63:37:35:39:39:30:22:7d:2c:22:70:61:79:6c:6f:61:64:22:3a:7b:22:6d:6f:64:65:22:3a:5b:7b:22:69:64:22:3a:22:30:33:30:30:30:42:44:46:22:2c:22:73:74:61:74:65:22:3a:31:7d:5d:7d:7d"
+        },
+        "tcp.segments": {
+          "tcp.segment": "119",
+          "tcp.segment": "120",
+          "tcp.segment.count": "2",
+          "tcp.reassembled.length": "537",
+          "tcp.reassembled.data": "50:4f:53:54:20:2f:63:6f:6e:66:69:67:20:48:54:54:50:2f:31:2e:31:0d:0a:43:6f:6e:6e:65:63:74:69:6f:6e:3a:20:63:6c:6f:73:65:0d:0a:43:6f:6e:74:65:6e:74:2d:54:79:70:65:3a:20:61:70:70:6c:69:63:61:74:69:6f:6e:2f:6a:73:6f:6e:3b:20:63:68:61:72:73:65:74:3d:55:54:46:2d:38:0d:0a:43:6f:6e:74:65:6e:74:2d:4c:65:6e:67:74:68:3a:20:33:35:34:0d:0a:48:6f:73:74:3a:20:31:39:32:2e:31:36:38:2e:31:2e:31:37:30:0d:0a:41:63:63:65:70:74:2d:45:6e:63:6f:64:69:6e:67:3a:20:67:7a:69:70:0d:0a:55:73:65:72:2d:41:67:65:6e:74:3a:20:6f:6b:68:74:74:70:2f:33:2e:31:32:2e:30:0d:0a:0d:0a:7b:22:68:65:61:64:65:72:22:3a:7b:22:66:72:6f:6d:22:3a:22:68:74:74:70:3a:2f:2f:31:39:32:2e:31:36:38:2e:31:2e:31:37:30:2f:63:6f:6e:66:69:67:22:2c:22:6d:65:73:73:61:67:65:49:64:22:3a:22:33:61:64:64:37:63:62:64:34:62:34:63:62:66:36:66:31:36:63:37:66:65:38:33:66:39:31:31:33:65:39:33:22:2c:22:6d:65:74:68:6f:64:22:3a:22:53:45:54:22:2c:22:6e:61:6d:65:73:70:61:63:65:22:3a:22:41:70:70:6c:69:61:6e:63:65:2e:48:75:62:2e:4d:74:73:31:30:30:2e:4d:6f:64:65:22:2c:22:70:61:79:6c:6f:61:64:56:65:72:73:69:6f:6e:22:3a:31:2c:22:73:69:67:6e:22:3a:22:35:31:66:63:65:63:36:65:63:30:61:35:38:61:30:66:39:61:35:61:36:66:38:66:39:62:62:34:30:63:61:66:22:2c:22:74:69:6d:65:73:74:61:6d:70:22:3a:31:37:33:32:34:35:30:33:33:34:2c:22:74:72:69:67:67:65:72:53:72:63:22:3a:22:41:6e:64:72:6f:69:64:4c:6f:63:61:6c:22:2c:22:75:75:69:64:22:3a:22:32:33:30:35:31:39:33:33:36:34:35:39:34:32:36:32:30:38:30:32:34:38:65:31:65:39:63:37:35:39:39:30:22:7d:2c:22:70:61:79:6c:6f:61:64:22:3a:7b:22:6d:6f:64:65:22:3a:5b:7b:22:69:64:22:3a:22:30:33:30:30:30:42:44:46:22:2c:22:73:74:61:74:65:22:3a:31:7d:5d:7d:7d"
+        },
+        "http": {
+          "POST /config HTTP/1.1\\r\\n": {
+            "_ws.expert": {
+              "http.chat": "",
+              "_ws.expert.message": "POST /config HTTP/1.1\\r\\n",
+              "_ws.expert.severity": "2097152",
+              "_ws.expert.group": "33554432"
+            },
+            "http.request.method": "POST",
+            "http.request.uri": "/config",
+            "http.request.version": "HTTP/1.1"
+          },
+          "http.connection": "close",
+          "http.request.line": "Connection: close\r\n",
+          "http.content_type": "application/json; charset=UTF-8",
+          "http.request.line": "Content-Type: application/json; charset=UTF-8\r\n",
+          "http.content_length_header": "354",
+          "http.content_length_header_tree": {
+            "http.content_length": "354"
+          },
+          "http.request.line": "Content-Length: 354\r\n",
+          "http.host": "192.168.1.170",
+          "http.request.line": "Host: 192.168.1.170\r\n",
+          "http.accept_encoding": "gzip",
+          "http.request.line": "Accept-Encoding: gzip\r\n",
+          "http.user_agent": "okhttp/3.12.0",
+          "http.request.line": "User-Agent: okhttp/3.12.0\r\n",
+          "\\r\\n": "",
+          "http.request.full_uri": "http://192.168.1.170/config",
+          "http.request": "1",
+          "http.request_number": "1",
+          "http.file_data": "{\"header\":{\"from\":\"http://192.168.1.170/config\",\"messageId\":\"3add7cbd4b4cbf6f16c7fe83f9113e93\",\"method\":\"SET\",\"namespace\":\"Appliance.Hub.Mts100.Mode\",\"payloadVersion\":1,\"sign\":\"51fcec6ec0a58a0f9a5a6f8f9bb40caf\",\"timestamp\":1732450334,\"triggerSrc\":\"AndroidLocal\",\"uuid\":\"2305193364594262080248e1e9c75990\"},\"payload\":{\"mode\":[{\"id\":\"03000BDF\",\"state\":1}]}}"
+        },
+        "json": {
+          "JSON compact form: {...}": {
+            "json.member_compact": {
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": ""
+            },
+            "json.member_compact": {
+              "json.member_compact": {
+                "json.object_compact": {
+                  "json.member_compact": "",
+                  "json.member_compact": ""
+                }
+              }
+            }
+          },
+          "json.object": {
+            "json.member": {
+              "json.object": {
+                "json.member": {
+                  "json.value.string": "http://192.168.1.170/config",
+                  "json.key": "from"
+                },
+                "json.member": {
+                  "json.value.string": "3add7cbd4b4cbf6f16c7fe83f9113e93",
+                  "json.key": "messageId"
+                },
+                "json.member": {
+                  "json.value.string": "SET",
+                  "json.key": "method"
+                },
+                "json.member": {
+                  "json.value.string": "Appliance.Hub.Mts100.Mode",
+                  "json.key": "namespace"
+                },
+                "json.member": {
+                  "json.value.number": "1",
+                  "json.key": "payloadVersion"
+                },
+                "json.member": {
+                  "json.value.string": "51fcec6ec0a58a0f9a5a6f8f9bb40caf",
+                  "json.key": "sign"
+                },
+                "json.member": {
+                  "json.value.number": "1732450334",
+                  "json.key": "timestamp"
+                },
+                "json.member": {
+                  "json.value.string": "AndroidLocal",
+                  "json.key": "triggerSrc"
+                },
+                "json.member": {
+                  "json.value.string": "2305193364594262080248e1e9c75990",
+                  "json.key": "uuid"
+                }
+              },
+              "json.key": "header"
+            },
+            "json.member": {
+              "json.object": {
+                "json.member": {
+                  "json.array": {
+                    "json.object": {
+                      "json.member": {
+                        "json.value.string": "03000BDF",
+                        "json.key": "id"
+                      },
+                      "json.member": {
+                        "json.value.number": "1",
+                        "json.key": "state"
+                      }
+                    }
+                  },
+                  "json.key": "mode"
+                }
+              },
+              "json.key": "payload"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2024-11-24",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.interface_id": "0",
+          "frame.interface_id_tree": {
+            "frame.interface_name": "enp37s0"
+          },
+          "frame.encap_type": "1",
+          "frame.time": "Nov 24, 2024 12:12:14.348465582 GMT",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_epoch": "1732450334.348465582",
+          "frame.time_delta": "0.002090525",
+          "frame.time_delta_displayed": "0.033870076",
+          "frame.time_relative": "3.069870947",
+          "frame.number": "124",
+          "frame.len": "60",
+          "frame.cap_len": "60",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "eth:ethertype:ip:tcp:http:json"
+        },
+        "eth": {
+          "eth.dst": "2c:f0:5d:56:40:43",
+          "eth.dst_tree": {
+            "eth.dst_resolved": "Micro-St_56:40:43",
+            "eth.dst.oui": "2945117",
+            "eth.dst.oui_resolved": "Micro-Star INTL CO., LTD.",
+            "eth.addr": "2c:f0:5d:56:40:43",
+            "eth.addr_resolved": "Micro-St_56:40:43",
+            "eth.addr.oui": "2945117",
+            "eth.addr.oui_resolved": "Micro-Star INTL CO., LTD.",
+            "eth.dst.lg": "0",
+            "eth.lg": "0",
+            "eth.dst.ig": "0",
+            "eth.ig": "0"
+          },
+          "eth.src": "48:e1:e9:c7:59:90",
+          "eth.src_tree": {
+            "eth.src_resolved": "ChengduM_c7:59:90",
+            "eth.src.oui": "4776425",
+            "eth.src.oui_resolved": "Chengdu Meross Technology Co., Ltd.",
+            "eth.addr": "48:e1:e9:c7:59:90",
+            "eth.addr_resolved": "ChengduM_c7:59:90",
+            "eth.addr.oui": "4776425",
+            "eth.addr.oui_resolved": "Chengdu Meross Technology Co., Ltd.",
+            "eth.src.lg": "0",
+            "eth.lg": "0",
+            "eth.src.ig": "0",
+            "eth.ig": "0"
+          },
+          "eth.type": "0x00000800",
+          "eth.padding": "00:00:00:00:00:00"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00000000",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "40",
+          "ip.id": "0x00005ef5",
+          "ip.flags": "0x00000000",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "0",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "255",
+          "ip.proto": "6",
+          "ip.checksum": "0x0000d87b",
+          "ip.checksum.status": "2",
+          "ip.src": "192.168.1.170",
+          "ip.addr": "192.168.1.170",
+          "ip.src_host": "192.168.1.170",
+          "ip.host": "192.168.1.170",
+          "ip.dst": "192.168.1.100",
+          "ip.addr": "192.168.1.100",
+          "ip.dst_host": "192.168.1.100",
+          "ip.host": "192.168.1.100"
+        },
+        "tcp": {
+          "tcp.srcport": "80",
+          "tcp.dstport": "40326",
+          "tcp.port": "80",
+          "tcp.port": "40326",
+          "tcp.stream": "20",
+          "tcp.len": "0",
+          "tcp.seq": "345",
+          "tcp.seq_raw": "40124694",
+          "tcp.nxtseq": "346",
+          "tcp.ack": "538",
+          "tcp.ack_raw": "2170389767",
+          "tcp.hdr_len": "20",
+          "tcp.flags": "0x00000011",
+          "tcp.flags_tree": {
+            "tcp.flags.res": "0",
+            "tcp.flags.ns": "0",
+            "tcp.flags.cwr": "0",
+            "tcp.flags.ecn": "0",
+            "tcp.flags.urg": "0",
+            "tcp.flags.ack": "1",
+            "tcp.flags.push": "0",
+            "tcp.flags.reset": "0",
+            "tcp.flags.syn": "0",
+            "tcp.flags.fin": "1",
+            "tcp.flags.fin_tree": {
+              "_ws.expert": {
+                "tcp.connection.fin": "",
+                "_ws.expert.message": "Connection finish (FIN)",
+                "_ws.expert.severity": "2097152",
+                "_ws.expert.group": "33554432"
+              }
+            },
+            "tcp.flags.str": "·······A···F"
+          },
+          "tcp.window_size_value": "12019",
+          "tcp.window_size": "24038",
+          "tcp.window_size_scalefactor": "2",
+          "tcp.checksum": "0x000014cc",
+          "tcp.checksum.status": "2",
+          "tcp.urgent_pointer": "0",
+          "Timestamps": {
+            "tcp.time_relative": "0.036384757",
+            "tcp.time_delta": "0.002090525"
+          }
+        },
+        "tcp.segments": {
+          "tcp.segment": "122",
+          "tcp.segment": "124",
+          "tcp.segment.count": "2",
+          "tcp.reassembled.length": "344",
+          "tcp.reassembled.data": "48:54:54:50:2f:31:2e:31:20:32:30:30:20:4f:4b:0a:43:6f:6e:74:65:6e:74:2d:54:79:70:65:3a:20:61:70:70:6c:69:63:61:74:69:6f:6e:2f:6a:73:6f:6e:0d:0a:0d:0a:7b:22:68:65:61:64:65:72:22:3a:7b:22:6d:65:73:73:61:67:65:49:64:22:3a:22:33:61:64:64:37:63:62:64:34:62:34:63:62:66:36:66:31:36:63:37:66:65:38:33:66:39:31:31:33:65:39:33:22:2c:22:6e:61:6d:65:73:70:61:63:65:22:3a:22:41:70:70:6c:69:61:6e:63:65:2e:48:75:62:2e:4d:74:73:31:30:30:2e:4d:6f:64:65:22:2c:22:6d:65:74:68:6f:64:22:3a:22:53:45:54:41:43:4b:22:2c:22:70:61:79:6c:6f:61:64:56:65:72:73:69:6f:6e:22:3a:31:2c:22:66:72:6f:6d:22:3a:22:2f:61:70:70:6c:69:61:6e:63:65:2f:32:33:30:35:31:39:33:33:36:34:35:39:34:32:36:32:30:38:30:32:34:38:65:31:65:39:63:37:35:39:39:30:2f:70:75:62:6c:69:73:68:22:2c:22:74:69:6d:65:73:74:61:6d:70:22:3a:31:37:33:32:34:35:30:33:33:34:2c:22:74:69:6d:65:73:74:61:6d:70:4d:73:22:3a:39:39:30:2c:22:73:69:67:6e:22:3a:22:35:31:66:63:65:63:36:65:63:30:61:35:38:61:30:66:39:61:35:61:36:66:38:66:39:62:62:34:30:63:61:66:22:7d:2c:22:70:61:79:6c:6f:61:64:22:3a:7b:7d:7d:0a"
+        },
+        "http": {
+          "HTTP/1.1 200 OK\\n": {
+            "_ws.expert": {
+              "http.chat": "",
+              "_ws.expert.message": "HTTP/1.1 200 OK\\n",
+              "_ws.expert.severity": "2097152",
+              "_ws.expert.group": "33554432"
+            },
+            "http.response.version": "HTTP/1.1",
+            "http.response.code": "200",
+            "http.response.code.desc": "OK",
+            "http.response.phrase": "OK"
+          },
+          "http.content_type": "application/json",
+          "http.response.line": "Content-Type: application/json\r\n",
+          "\\r\\n": "",
+          "http.response": "1",
+          "http.response_number": "1",
+          "http.time": "0.033870076",
+          "http.request_in": "120",
+          "http.response_for.uri": "http://192.168.1.170/config",
+          "http.file_data": "{\"header\":{\"messageId\":\"3add7cbd4b4cbf6f16c7fe83f9113e93\",\"namespace\":\"Appliance.Hub.Mts100.Mode\",\"method\":\"SETACK\",\"payloadVersion\":1,\"from\":\"/appliance/2305193364594262080248e1e9c75990/publish\",\"timestamp\":1732450334,\"timestampMs\":990,\"sign\":\"51fcec6ec0a58a0f9a5a6f8f9bb40caf\"},\"payload\":{}}\n"
+        },
+        "json": {
+          "JSON compact form: {...}": {
+            "json.member_compact": {
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": ""
+            },
+            "json.member_compact": ""
+          },
+          "json.object": {
+            "json.member": {
+              "json.object": {
+                "json.member": {
+                  "json.value.string": "3add7cbd4b4cbf6f16c7fe83f9113e93",
+                  "json.key": "messageId"
+                },
+                "json.member": {
+                  "json.value.string": "Appliance.Hub.Mts100.Mode",
+                  "json.key": "namespace"
+                },
+                "json.member": {
+                  "json.value.string": "SETACK",
+                  "json.key": "method"
+                },
+                "json.member": {
+                  "json.value.number": "1",
+                  "json.key": "payloadVersion"
+                },
+                "json.member": {
+                  "json.value.string": "/appliance/2305193364594262080248e1e9c75990/publish",
+                  "json.key": "from"
+                },
+                "json.member": {
+                  "json.value.number": "1732450334",
+                  "json.key": "timestamp"
+                },
+                "json.member": {
+                  "json.value.number": "990",
+                  "json.key": "timestampMs"
+                },
+                "json.member": {
+                  "json.value.string": "51fcec6ec0a58a0f9a5a6f8f9bb40caf",
+                  "json.key": "sign"
+                }
+              },
+              "json.key": "header"
+            },
+            "json.member": {
+              "json.object": "",
+              "json.key": "payload"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2024-11-24",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.interface_id": "0",
+          "frame.interface_id_tree": {
+            "frame.interface_name": "enp37s0"
+          },
+          "frame.encap_type": "1",
+          "frame.time": "Nov 24, 2024 12:12:14.819700142 GMT",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_epoch": "1732450334.819700142",
+          "frame.time_delta": "0.000032510",
+          "frame.time_delta_displayed": "0.471234560",
+          "frame.time_relative": "3.541105507",
+          "frame.number": "151",
+          "frame.len": "408",
+          "frame.cap_len": "408",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "eth:ethertype:ip:tcp:http:json"
+        },
+        "eth": {
+          "eth.dst": "48:e1:e9:c7:59:90",
+          "eth.dst_tree": {
+            "eth.dst_resolved": "ChengduM_c7:59:90",
+            "eth.dst.oui": "4776425",
+            "eth.dst.oui_resolved": "Chengdu Meross Technology Co., Ltd.",
+            "eth.addr": "48:e1:e9:c7:59:90",
+            "eth.addr_resolved": "ChengduM_c7:59:90",
+            "eth.addr.oui": "4776425",
+            "eth.addr.oui_resolved": "Chengdu Meross Technology Co., Ltd.",
+            "eth.dst.lg": "0",
+            "eth.lg": "0",
+            "eth.dst.ig": "0",
+            "eth.ig": "0"
+          },
+          "eth.src": "2c:f0:5d:56:40:43",
+          "eth.src_tree": {
+            "eth.src_resolved": "Micro-St_56:40:43",
+            "eth.src.oui": "2945117",
+            "eth.src.oui_resolved": "Micro-Star INTL CO., LTD.",
+            "eth.addr": "2c:f0:5d:56:40:43",
+            "eth.addr_resolved": "Micro-St_56:40:43",
+            "eth.addr.oui": "2945117",
+            "eth.addr.oui_resolved": "Micro-Star INTL CO., LTD.",
+            "eth.src.lg": "0",
+            "eth.lg": "0",
+            "eth.src.ig": "0",
+            "eth.ig": "0"
+          },
+          "eth.type": "0x00000800"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00000000",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "394",
+          "ip.id": "0x000023d3",
+          "ip.flags": "0x00004000",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "1",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "6",
+          "ip.checksum": "0x0000913c",
+          "ip.checksum.status": "2",
+          "ip.src": "192.168.1.100",
+          "ip.addr": "192.168.1.100",
+          "ip.src_host": "192.168.1.100",
+          "ip.host": "192.168.1.100",
+          "ip.dst": "192.168.1.170",
+          "ip.addr": "192.168.1.170",
+          "ip.dst_host": "192.168.1.170",
+          "ip.host": "192.168.1.170"
+        },
+        "tcp": {
+          "tcp.srcport": "40334",
+          "tcp.dstport": "80",
+          "tcp.port": "40334",
+          "tcp.port": "80",
+          "tcp.stream": "21",
+          "tcp.len": "354",
+          "tcp.seq": "184",
+          "tcp.seq_raw": "4072159570",
+          "tcp.nxtseq": "538",
+          "tcp.ack": "1",
+          "tcp.ack_raw": "40389725",
+          "tcp.hdr_len": "20",
+          "tcp.flags": "0x00000018",
+          "tcp.flags_tree": {
+            "tcp.flags.res": "0",
+            "tcp.flags.ns": "0",
+            "tcp.flags.cwr": "0",
+            "tcp.flags.ecn": "0",
+            "tcp.flags.urg": "0",
+            "tcp.flags.ack": "1",
+            "tcp.flags.push": "1",
+            "tcp.flags.reset": "0",
+            "tcp.flags.syn": "0",
+            "tcp.flags.fin": "0",
+            "tcp.flags.str": "·······AP···"
+          },
+          "tcp.window_size_value": "502",
+          "tcp.window_size": "64256",
+          "tcp.window_size_scalefactor": "128",
+          "tcp.checksum": "0x000085db",
+          "tcp.checksum.status": "2",
+          "tcp.urgent_pointer": "0",
+          "tcp.analysis": {
+            "tcp.analysis.initial_rtt": "0.002631791",
+            "tcp.analysis.bytes_in_flight": "537",
+            "tcp.analysis.push_bytes_sent": "354"
+          },
+          "Timestamps": {
+            "tcp.time_relative": "0.002742631",
+            "tcp.time_delta": "0.000032510"
+          },
+          "tcp.payload": "7b:22:68:65:61:64:65:72:22:3a:7b:22:66:72:6f:6d:22:3a:22:68:74:74:70:3a:2f:2f:31:39:32:2e:31:36:38:2e:31:2e:31:37:30:2f:63:6f:6e:66:69:67:22:2c:22:6d:65:73:73:61:67:65:49:64:22:3a:22:37:63:32:63:33:38:30:66:38:36:30:65:65:32:38:65:32:66:38:37:66:63:63:31:63:30:31:63:64:64:30:39:22:2c:22:6d:65:74:68:6f:64:22:3a:22:53:45:54:22:2c:22:6e:61:6d:65:73:70:61:63:65:22:3a:22:41:70:70:6c:69:61:6e:63:65:2e:48:75:62:2e:4d:74:73:31:30:30:2e:4d:6f:64:65:22:2c:22:70:61:79:6c:6f:61:64:56:65:72:73:69:6f:6e:22:3a:31:2c:22:73:69:67:6e:22:3a:22:63:34:66:34:65:66:32:37:37:35:32:61:63:34:62:66:33:32:34:32:39:63:32:33:63:34:63:38:63:62:34:33:22:2c:22:74:69:6d:65:73:74:61:6d:70:22:3a:31:37:33:32:34:35:30:33:33:34:2c:22:74:72:69:67:67:65:72:53:72:63:22:3a:22:41:6e:64:72:6f:69:64:4c:6f:63:61:6c:22:2c:22:75:75:69:64:22:3a:22:32:33:30:35:31:39:33:33:36:34:35:39:34:32:36:32:30:38:30:32:34:38:65:31:65:39:63:37:35:39:39:30:22:7d:2c:22:70:61:79:6c:6f:61:64:22:3a:7b:22:6d:6f:64:65:22:3a:5b:7b:22:69:64:22:3a:22:30:33:30:30:30:42:44:46:22:2c:22:73:74:61:74:65:22:3a:32:7d:5d:7d:7d",
+          "tcp.segment_data": "7b:22:68:65:61:64:65:72:22:3a:7b:22:66:72:6f:6d:22:3a:22:68:74:74:70:3a:2f:2f:31:39:32:2e:31:36:38:2e:31:2e:31:37:30:2f:63:6f:6e:66:69:67:22:2c:22:6d:65:73:73:61:67:65:49:64:22:3a:22:37:63:32:63:33:38:30:66:38:36:30:65:65:32:38:65:32:66:38:37:66:63:63:31:63:30:31:63:64:64:30:39:22:2c:22:6d:65:74:68:6f:64:22:3a:22:53:45:54:22:2c:22:6e:61:6d:65:73:70:61:63:65:22:3a:22:41:70:70:6c:69:61:6e:63:65:2e:48:75:62:2e:4d:74:73:31:30:30:2e:4d:6f:64:65:22:2c:22:70:61:79:6c:6f:61:64:56:65:72:73:69:6f:6e:22:3a:31:2c:22:73:69:67:6e:22:3a:22:63:34:66:34:65:66:32:37:37:35:32:61:63:34:62:66:33:32:34:32:39:63:32:33:63:34:63:38:63:62:34:33:22:2c:22:74:69:6d:65:73:74:61:6d:70:22:3a:31:37:33:32:34:35:30:33:33:34:2c:22:74:72:69:67:67:65:72:53:72:63:22:3a:22:41:6e:64:72:6f:69:64:4c:6f:63:61:6c:22:2c:22:75:75:69:64:22:3a:22:32:33:30:35:31:39:33:33:36:34:35:39:34:32:36:32:30:38:30:32:34:38:65:31:65:39:63:37:35:39:39:30:22:7d:2c:22:70:61:79:6c:6f:61:64:22:3a:7b:22:6d:6f:64:65:22:3a:5b:7b:22:69:64:22:3a:22:30:33:30:30:30:42:44:46:22:2c:22:73:74:61:74:65:22:3a:32:7d:5d:7d:7d"
+        },
+        "tcp.segments": {
+          "tcp.segment": "150",
+          "tcp.segment": "151",
+          "tcp.segment.count": "2",
+          "tcp.reassembled.length": "537",
+          "tcp.reassembled.data": "50:4f:53:54:20:2f:63:6f:6e:66:69:67:20:48:54:54:50:2f:31:2e:31:0d:0a:43:6f:6e:6e:65:63:74:69:6f:6e:3a:20:63:6c:6f:73:65:0d:0a:43:6f:6e:74:65:6e:74:2d:54:79:70:65:3a:20:61:70:70:6c:69:63:61:74:69:6f:6e:2f:6a:73:6f:6e:3b:20:63:68:61:72:73:65:74:3d:55:54:46:2d:38:0d:0a:43:6f:6e:74:65:6e:74:2d:4c:65:6e:67:74:68:3a:20:33:35:34:0d:0a:48:6f:73:74:3a:20:31:39:32:2e:31:36:38:2e:31:2e:31:37:30:0d:0a:41:63:63:65:70:74:2d:45:6e:63:6f:64:69:6e:67:3a:20:67:7a:69:70:0d:0a:55:73:65:72:2d:41:67:65:6e:74:3a:20:6f:6b:68:74:74:70:2f:33:2e:31:32:2e:30:0d:0a:0d:0a:7b:22:68:65:61:64:65:72:22:3a:7b:22:66:72:6f:6d:22:3a:22:68:74:74:70:3a:2f:2f:31:39:32:2e:31:36:38:2e:31:2e:31:37:30:2f:63:6f:6e:66:69:67:22:2c:22:6d:65:73:73:61:67:65:49:64:22:3a:22:37:63:32:63:33:38:30:66:38:36:30:65:65:32:38:65:32:66:38:37:66:63:63:31:63:30:31:63:64:64:30:39:22:2c:22:6d:65:74:68:6f:64:22:3a:22:53:45:54:22:2c:22:6e:61:6d:65:73:70:61:63:65:22:3a:22:41:70:70:6c:69:61:6e:63:65:2e:48:75:62:2e:4d:74:73:31:30:30:2e:4d:6f:64:65:22:2c:22:70:61:79:6c:6f:61:64:56:65:72:73:69:6f:6e:22:3a:31:2c:22:73:69:67:6e:22:3a:22:63:34:66:34:65:66:32:37:37:35:32:61:63:34:62:66:33:32:34:32:39:63:32:33:63:34:63:38:63:62:34:33:22:2c:22:74:69:6d:65:73:74:61:6d:70:22:3a:31:37:33:32:34:35:30:33:33:34:2c:22:74:72:69:67:67:65:72:53:72:63:22:3a:22:41:6e:64:72:6f:69:64:4c:6f:63:61:6c:22:2c:22:75:75:69:64:22:3a:22:32:33:30:35:31:39:33:33:36:34:35:39:34:32:36:32:30:38:30:32:34:38:65:31:65:39:63:37:35:39:39:30:22:7d:2c:22:70:61:79:6c:6f:61:64:22:3a:7b:22:6d:6f:64:65:22:3a:5b:7b:22:69:64:22:3a:22:30:33:30:30:30:42:44:46:22:2c:22:73:74:61:74:65:22:3a:32:7d:5d:7d:7d"
+        },
+        "http": {
+          "POST /config HTTP/1.1\\r\\n": {
+            "_ws.expert": {
+              "http.chat": "",
+              "_ws.expert.message": "POST /config HTTP/1.1\\r\\n",
+              "_ws.expert.severity": "2097152",
+              "_ws.expert.group": "33554432"
+            },
+            "http.request.method": "POST",
+            "http.request.uri": "/config",
+            "http.request.version": "HTTP/1.1"
+          },
+          "http.connection": "close",
+          "http.request.line": "Connection: close\r\n",
+          "http.content_type": "application/json; charset=UTF-8",
+          "http.request.line": "Content-Type: application/json; charset=UTF-8\r\n",
+          "http.content_length_header": "354",
+          "http.content_length_header_tree": {
+            "http.content_length": "354"
+          },
+          "http.request.line": "Content-Length: 354\r\n",
+          "http.host": "192.168.1.170",
+          "http.request.line": "Host: 192.168.1.170\r\n",
+          "http.accept_encoding": "gzip",
+          "http.request.line": "Accept-Encoding: gzip\r\n",
+          "http.user_agent": "okhttp/3.12.0",
+          "http.request.line": "User-Agent: okhttp/3.12.0\r\n",
+          "\\r\\n": "",
+          "http.request.full_uri": "http://192.168.1.170/config",
+          "http.request": "1",
+          "http.request_number": "1",
+          "http.file_data": "{\"header\":{\"from\":\"http://192.168.1.170/config\",\"messageId\":\"7c2c380f860ee28e2f87fcc1c01cdd09\",\"method\":\"SET\",\"namespace\":\"Appliance.Hub.Mts100.Mode\",\"payloadVersion\":1,\"sign\":\"c4f4ef27752ac4bf32429c23c4c8cb43\",\"timestamp\":1732450334,\"triggerSrc\":\"AndroidLocal\",\"uuid\":\"2305193364594262080248e1e9c75990\"},\"payload\":{\"mode\":[{\"id\":\"03000BDF\",\"state\":2}]}}"
+        },
+        "json": {
+          "JSON compact form: {...}": {
+            "json.member_compact": {
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": ""
+            },
+            "json.member_compact": {
+              "json.member_compact": {
+                "json.object_compact": {
+                  "json.member_compact": "",
+                  "json.member_compact": ""
+                }
+              }
+            }
+          },
+          "json.object": {
+            "json.member": {
+              "json.object": {
+                "json.member": {
+                  "json.value.string": "http://192.168.1.170/config",
+                  "json.key": "from"
+                },
+                "json.member": {
+                  "json.value.string": "7c2c380f860ee28e2f87fcc1c01cdd09",
+                  "json.key": "messageId"
+                },
+                "json.member": {
+                  "json.value.string": "SET",
+                  "json.key": "method"
+                },
+                "json.member": {
+                  "json.value.string": "Appliance.Hub.Mts100.Mode",
+                  "json.key": "namespace"
+                },
+                "json.member": {
+                  "json.value.number": "1",
+                  "json.key": "payloadVersion"
+                },
+                "json.member": {
+                  "json.value.string": "c4f4ef27752ac4bf32429c23c4c8cb43",
+                  "json.key": "sign"
+                },
+                "json.member": {
+                  "json.value.number": "1732450334",
+                  "json.key": "timestamp"
+                },
+                "json.member": {
+                  "json.value.string": "AndroidLocal",
+                  "json.key": "triggerSrc"
+                },
+                "json.member": {
+                  "json.value.string": "2305193364594262080248e1e9c75990",
+                  "json.key": "uuid"
+                }
+              },
+              "json.key": "header"
+            },
+            "json.member": {
+              "json.object": {
+                "json.member": {
+                  "json.array": {
+                    "json.object": {
+                      "json.member": {
+                        "json.value.string": "03000BDF",
+                        "json.key": "id"
+                      },
+                      "json.member": {
+                        "json.value.number": "2",
+                        "json.key": "state"
+                      }
+                    }
+                  },
+                  "json.key": "mode"
+                }
+              },
+              "json.key": "payload"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2024-11-24",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.interface_id": "0",
+          "frame.interface_id_tree": {
+            "frame.interface_name": "enp37s0"
+          },
+          "frame.encap_type": "1",
+          "frame.time": "Nov 24, 2024 12:12:14.852990649 GMT",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_epoch": "1732450334.852990649",
+          "frame.time_delta": "0.001572198",
+          "frame.time_delta_displayed": "0.033290507",
+          "frame.time_relative": "3.574396014",
+          "frame.number": "159",
+          "frame.len": "60",
+          "frame.cap_len": "60",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "eth:ethertype:ip:tcp:http:json"
+        },
+        "eth": {
+          "eth.dst": "2c:f0:5d:56:40:43",
+          "eth.dst_tree": {
+            "eth.dst_resolved": "Micro-St_56:40:43",
+            "eth.dst.oui": "2945117",
+            "eth.dst.oui_resolved": "Micro-Star INTL CO., LTD.",
+            "eth.addr": "2c:f0:5d:56:40:43",
+            "eth.addr_resolved": "Micro-St_56:40:43",
+            "eth.addr.oui": "2945117",
+            "eth.addr.oui_resolved": "Micro-Star INTL CO., LTD.",
+            "eth.dst.lg": "0",
+            "eth.lg": "0",
+            "eth.dst.ig": "0",
+            "eth.ig": "0"
+          },
+          "eth.src": "48:e1:e9:c7:59:90",
+          "eth.src_tree": {
+            "eth.src_resolved": "ChengduM_c7:59:90",
+            "eth.src.oui": "4776425",
+            "eth.src.oui_resolved": "Chengdu Meross Technology Co., Ltd.",
+            "eth.addr": "48:e1:e9:c7:59:90",
+            "eth.addr_resolved": "ChengduM_c7:59:90",
+            "eth.addr.oui": "4776425",
+            "eth.addr.oui_resolved": "Chengdu Meross Technology Co., Ltd.",
+            "eth.src.lg": "0",
+            "eth.lg": "0",
+            "eth.src.ig": "0",
+            "eth.ig": "0"
+          },
+          "eth.type": "0x00000800",
+          "eth.padding": "00:00:00:00:00:00"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00000000",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "40",
+          "ip.id": "0x00005efe",
+          "ip.flags": "0x00000000",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "0",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "255",
+          "ip.proto": "6",
+          "ip.checksum": "0x0000d872",
+          "ip.checksum.status": "2",
+          "ip.src": "192.168.1.170",
+          "ip.addr": "192.168.1.170",
+          "ip.src_host": "192.168.1.170",
+          "ip.host": "192.168.1.170",
+          "ip.dst": "192.168.1.100",
+          "ip.addr": "192.168.1.100",
+          "ip.dst_host": "192.168.1.100",
+          "ip.host": "192.168.1.100"
+        },
+        "tcp": {
+          "tcp.srcport": "80",
+          "tcp.dstport": "40334",
+          "tcp.port": "80",
+          "tcp.port": "40334",
+          "tcp.stream": "21",
+          "tcp.len": "0",
+          "tcp.seq": "345",
+          "tcp.seq_raw": "40390069",
+          "tcp.nxtseq": "346",
+          "tcp.ack": "538",
+          "tcp.ack_raw": "4072159924",
+          "tcp.hdr_len": "20",
+          "tcp.flags": "0x00000011",
+          "tcp.flags_tree": {
+            "tcp.flags.res": "0",
+            "tcp.flags.ns": "0",
+            "tcp.flags.cwr": "0",
+            "tcp.flags.ecn": "0",
+            "tcp.flags.urg": "0",
+            "tcp.flags.ack": "1",
+            "tcp.flags.push": "0",
+            "tcp.flags.reset": "0",
+            "tcp.flags.syn": "0",
+            "tcp.flags.fin": "1",
+            "tcp.flags.fin_tree": {
+              "_ws.expert": {
+                "tcp.connection.fin": "",
+                "_ws.expert.message": "Connection finish (FIN)",
+                "_ws.expert.severity": "2097152",
+                "_ws.expert.group": "33554432"
+              }
+            },
+            "tcp.flags.str": "·······A···F"
+          },
+          "tcp.window_size_value": "12019",
+          "tcp.window_size": "24038",
+          "tcp.window_size_scalefactor": "2",
+          "tcp.checksum": "0x0000e118",
+          "tcp.checksum.status": "2",
+          "tcp.urgent_pointer": "0",
+          "Timestamps": {
+            "tcp.time_relative": "0.036033138",
+            "tcp.time_delta": "0.001572198"
+          }
+        },
+        "tcp.segments": {
+          "tcp.segment": "157",
+          "tcp.segment": "159",
+          "tcp.segment.count": "2",
+          "tcp.reassembled.length": "344",
+          "tcp.reassembled.data": "48:54:54:50:2f:31:2e:31:20:32:30:30:20:4f:4b:0a:43:6f:6e:74:65:6e:74:2d:54:79:70:65:3a:20:61:70:70:6c:69:63:61:74:69:6f:6e:2f:6a:73:6f:6e:0d:0a:0d:0a:7b:22:68:65:61:64:65:72:22:3a:7b:22:6d:65:73:73:61:67:65:49:64:22:3a:22:37:63:32:63:33:38:30:66:38:36:30:65:65:32:38:65:32:66:38:37:66:63:63:31:63:30:31:63:64:64:30:39:22:2c:22:6e:61:6d:65:73:70:61:63:65:22:3a:22:41:70:70:6c:69:61:6e:63:65:2e:48:75:62:2e:4d:74:73:31:30:30:2e:4d:6f:64:65:22:2c:22:6d:65:74:68:6f:64:22:3a:22:53:45:54:41:43:4b:22:2c:22:70:61:79:6c:6f:61:64:56:65:72:73:69:6f:6e:22:3a:31:2c:22:66:72:6f:6d:22:3a:22:2f:61:70:70:6c:69:61:6e:63:65:2f:32:33:30:35:31:39:33:33:36:34:35:39:34:32:36:32:30:38:30:32:34:38:65:31:65:39:63:37:35:39:39:30:2f:70:75:62:6c:69:73:68:22:2c:22:74:69:6d:65:73:74:61:6d:70:22:3a:31:37:33:32:34:35:30:33:33:35:2c:22:74:69:6d:65:73:74:61:6d:70:4d:73:22:3a:34:39:33:2c:22:73:69:67:6e:22:3a:22:33:36:64:62:65:62:63:66:30:34:38:65:34:31:31:34:38:38:63:34:65:65:66:34:63:32:39:31:30:35:39:30:22:7d:2c:22:70:61:79:6c:6f:61:64:22:3a:7b:7d:7d:0a"
+        },
+        "http": {
+          "HTTP/1.1 200 OK\\n": {
+            "_ws.expert": {
+              "http.chat": "",
+              "_ws.expert.message": "HTTP/1.1 200 OK\\n",
+              "_ws.expert.severity": "2097152",
+              "_ws.expert.group": "33554432"
+            },
+            "http.response.version": "HTTP/1.1",
+            "http.response.code": "200",
+            "http.response.code.desc": "OK",
+            "http.response.phrase": "OK"
+          },
+          "http.content_type": "application/json",
+          "http.response.line": "Content-Type: application/json\r\n",
+          "\\r\\n": "",
+          "http.response": "1",
+          "http.response_number": "1",
+          "http.time": "0.033290507",
+          "http.request_in": "151",
+          "http.response_for.uri": "http://192.168.1.170/config",
+          "http.file_data": "{\"header\":{\"messageId\":\"7c2c380f860ee28e2f87fcc1c01cdd09\",\"namespace\":\"Appliance.Hub.Mts100.Mode\",\"method\":\"SETACK\",\"payloadVersion\":1,\"from\":\"/appliance/2305193364594262080248e1e9c75990/publish\",\"timestamp\":1732450335,\"timestampMs\":493,\"sign\":\"36dbebcf048e411488c4eef4c2910590\"},\"payload\":{}}\n"
+        },
+        "json": {
+          "JSON compact form: {...}": {
+            "json.member_compact": {
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": ""
+            },
+            "json.member_compact": ""
+          },
+          "json.object": {
+            "json.member": {
+              "json.object": {
+                "json.member": {
+                  "json.value.string": "7c2c380f860ee28e2f87fcc1c01cdd09",
+                  "json.key": "messageId"
+                },
+                "json.member": {
+                  "json.value.string": "Appliance.Hub.Mts100.Mode",
+                  "json.key": "namespace"
+                },
+                "json.member": {
+                  "json.value.string": "SETACK",
+                  "json.key": "method"
+                },
+                "json.member": {
+                  "json.value.number": "1",
+                  "json.key": "payloadVersion"
+                },
+                "json.member": {
+                  "json.value.string": "/appliance/2305193364594262080248e1e9c75990/publish",
+                  "json.key": "from"
+                },
+                "json.member": {
+                  "json.value.number": "1732450335",
+                  "json.key": "timestamp"
+                },
+                "json.member": {
+                  "json.value.number": "493",
+                  "json.key": "timestampMs"
+                },
+                "json.member": {
+                  "json.value.string": "36dbebcf048e411488c4eef4c2910590",
+                  "json.key": "sign"
+                }
+              },
+              "json.key": "header"
+            },
+            "json.member": {
+              "json.object": "",
+              "json.key": "payload"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2024-11-24",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.interface_id": "0",
+          "frame.interface_id_tree": {
+            "frame.interface_name": "enp37s0"
+          },
+          "frame.encap_type": "1",
+          "frame.time": "Nov 24, 2024 12:12:15.287685164 GMT",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_epoch": "1732450335.287685164",
+          "frame.time_delta": "0.000033730",
+          "frame.time_delta_displayed": "0.434694515",
+          "frame.time_relative": "4.009090529",
+          "frame.number": "174",
+          "frame.len": "408",
+          "frame.cap_len": "408",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "eth:ethertype:ip:tcp:http:json"
+        },
+        "eth": {
+          "eth.dst": "48:e1:e9:c7:59:90",
+          "eth.dst_tree": {
+            "eth.dst_resolved": "ChengduM_c7:59:90",
+            "eth.dst.oui": "4776425",
+            "eth.dst.oui_resolved": "Chengdu Meross Technology Co., Ltd.",
+            "eth.addr": "48:e1:e9:c7:59:90",
+            "eth.addr_resolved": "ChengduM_c7:59:90",
+            "eth.addr.oui": "4776425",
+            "eth.addr.oui_resolved": "Chengdu Meross Technology Co., Ltd.",
+            "eth.dst.lg": "0",
+            "eth.lg": "0",
+            "eth.dst.ig": "0",
+            "eth.ig": "0"
+          },
+          "eth.src": "2c:f0:5d:56:40:43",
+          "eth.src_tree": {
+            "eth.src_resolved": "Micro-St_56:40:43",
+            "eth.src.oui": "2945117",
+            "eth.src.oui_resolved": "Micro-Star INTL CO., LTD.",
+            "eth.addr": "2c:f0:5d:56:40:43",
+            "eth.addr_resolved": "Micro-St_56:40:43",
+            "eth.addr.oui": "2945117",
+            "eth.addr.oui_resolved": "Micro-Star INTL CO., LTD.",
+            "eth.src.lg": "0",
+            "eth.lg": "0",
+            "eth.src.ig": "0",
+            "eth.ig": "0"
+          },
+          "eth.type": "0x00000800"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00000000",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "394",
+          "ip.id": "0x00002baa",
+          "ip.flags": "0x00004000",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "1",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "6",
+          "ip.checksum": "0x00008965",
+          "ip.checksum.status": "2",
+          "ip.src": "192.168.1.100",
+          "ip.addr": "192.168.1.100",
+          "ip.src_host": "192.168.1.100",
+          "ip.host": "192.168.1.100",
+          "ip.dst": "192.168.1.170",
+          "ip.addr": "192.168.1.170",
+          "ip.dst_host": "192.168.1.170",
+          "ip.host": "192.168.1.170"
+        },
+        "tcp": {
+          "tcp.srcport": "40336",
+          "tcp.dstport": "80",
+          "tcp.port": "40336",
+          "tcp.port": "80",
+          "tcp.stream": "22",
+          "tcp.len": "354",
+          "tcp.seq": "184",
+          "tcp.seq_raw": "2836328644",
+          "tcp.nxtseq": "538",
+          "tcp.ack": "1",
+          "tcp.ack_raw": "40655101",
+          "tcp.hdr_len": "20",
+          "tcp.flags": "0x00000018",
+          "tcp.flags_tree": {
+            "tcp.flags.res": "0",
+            "tcp.flags.ns": "0",
+            "tcp.flags.cwr": "0",
+            "tcp.flags.ecn": "0",
+            "tcp.flags.urg": "0",
+            "tcp.flags.ack": "1",
+            "tcp.flags.push": "1",
+            "tcp.flags.reset": "0",
+            "tcp.flags.syn": "0",
+            "tcp.flags.fin": "0",
+            "tcp.flags.str": "·······AP···"
+          },
+          "tcp.window_size_value": "502",
+          "tcp.window_size": "64256",
+          "tcp.window_size_scalefactor": "128",
+          "tcp.checksum": "0x000085db",
+          "tcp.checksum.status": "2",
+          "tcp.urgent_pointer": "0",
+          "tcp.analysis": {
+            "tcp.analysis.initial_rtt": "0.001974966",
+            "tcp.analysis.bytes_in_flight": "537",
+            "tcp.analysis.push_bytes_sent": "354"
+          },
+          "Timestamps": {
+            "tcp.time_relative": "0.002088335",
+            "tcp.time_delta": "0.000033730"
+          },
+          "tcp.payload": "7b:22:68:65:61:64:65:72:22:3a:7b:22:66:72:6f:6d:22:3a:22:68:74:74:70:3a:2f:2f:31:39:32:2e:31:36:38:2e:31:2e:31:37:30:2f:63:6f:6e:66:69:67:22:2c:22:6d:65:73:73:61:67:65:49:64:22:3a:22:65:30:36:33:31:35:64:61:32:37:63:34:64:33:64:30:31:31:38:31:65:38:36:30:39:38:65:34:33:31:61:62:22:2c:22:6d:65:74:68:6f:64:22:3a:22:53:45:54:22:2c:22:6e:61:6d:65:73:70:61:63:65:22:3a:22:41:70:70:6c:69:61:6e:63:65:2e:48:75:62:2e:4d:74:73:31:30:30:2e:4d:6f:64:65:22:2c:22:70:61:79:6c:6f:61:64:56:65:72:73:69:6f:6e:22:3a:31:2c:22:73:69:67:6e:22:3a:22:31:39:31:34:31:65:31:38:37:35:32:63:36:31:39:39:38:61:63:35:30:66:64:65:37:37:32:30:33:65:34:65:22:2c:22:74:69:6d:65:73:74:61:6d:70:22:3a:31:37:33:32:34:35:30:33:33:35:2c:22:74:72:69:67:67:65:72:53:72:63:22:3a:22:41:6e:64:72:6f:69:64:4c:6f:63:61:6c:22:2c:22:75:75:69:64:22:3a:22:32:33:30:35:31:39:33:33:36:34:35:39:34:32:36:32:30:38:30:32:34:38:65:31:65:39:63:37:35:39:39:30:22:7d:2c:22:70:61:79:6c:6f:61:64:22:3a:7b:22:6d:6f:64:65:22:3a:5b:7b:22:69:64:22:3a:22:30:33:30:30:30:42:44:46:22:2c:22:73:74:61:74:65:22:3a:34:7d:5d:7d:7d",
+          "tcp.segment_data": "7b:22:68:65:61:64:65:72:22:3a:7b:22:66:72:6f:6d:22:3a:22:68:74:74:70:3a:2f:2f:31:39:32:2e:31:36:38:2e:31:2e:31:37:30:2f:63:6f:6e:66:69:67:22:2c:22:6d:65:73:73:61:67:65:49:64:22:3a:22:65:30:36:33:31:35:64:61:32:37:63:34:64:33:64:30:31:31:38:31:65:38:36:30:39:38:65:34:33:31:61:62:22:2c:22:6d:65:74:68:6f:64:22:3a:22:53:45:54:22:2c:22:6e:61:6d:65:73:70:61:63:65:22:3a:22:41:70:70:6c:69:61:6e:63:65:2e:48:75:62:2e:4d:74:73:31:30:30:2e:4d:6f:64:65:22:2c:22:70:61:79:6c:6f:61:64:56:65:72:73:69:6f:6e:22:3a:31:2c:22:73:69:67:6e:22:3a:22:31:39:31:34:31:65:31:38:37:35:32:63:36:31:39:39:38:61:63:35:30:66:64:65:37:37:32:30:33:65:34:65:22:2c:22:74:69:6d:65:73:74:61:6d:70:22:3a:31:37:33:32:34:35:30:33:33:35:2c:22:74:72:69:67:67:65:72:53:72:63:22:3a:22:41:6e:64:72:6f:69:64:4c:6f:63:61:6c:22:2c:22:75:75:69:64:22:3a:22:32:33:30:35:31:39:33:33:36:34:35:39:34:32:36:32:30:38:30:32:34:38:65:31:65:39:63:37:35:39:39:30:22:7d:2c:22:70:61:79:6c:6f:61:64:22:3a:7b:22:6d:6f:64:65:22:3a:5b:7b:22:69:64:22:3a:22:30:33:30:30:30:42:44:46:22:2c:22:73:74:61:74:65:22:3a:34:7d:5d:7d:7d"
+        },
+        "tcp.segments": {
+          "tcp.segment": "173",
+          "tcp.segment": "174",
+          "tcp.segment.count": "2",
+          "tcp.reassembled.length": "537",
+          "tcp.reassembled.data": "50:4f:53:54:20:2f:63:6f:6e:66:69:67:20:48:54:54:50:2f:31:2e:31:0d:0a:43:6f:6e:6e:65:63:74:69:6f:6e:3a:20:63:6c:6f:73:65:0d:0a:43:6f:6e:74:65:6e:74:2d:54:79:70:65:3a:20:61:70:70:6c:69:63:61:74:69:6f:6e:2f:6a:73:6f:6e:3b:20:63:68:61:72:73:65:74:3d:55:54:46:2d:38:0d:0a:43:6f:6e:74:65:6e:74:2d:4c:65:6e:67:74:68:3a:20:33:35:34:0d:0a:48:6f:73:74:3a:20:31:39:32:2e:31:36:38:2e:31:2e:31:37:30:0d:0a:41:63:63:65:70:74:2d:45:6e:63:6f:64:69:6e:67:3a:20:67:7a:69:70:0d:0a:55:73:65:72:2d:41:67:65:6e:74:3a:20:6f:6b:68:74:74:70:2f:33:2e:31:32:2e:30:0d:0a:0d:0a:7b:22:68:65:61:64:65:72:22:3a:7b:22:66:72:6f:6d:22:3a:22:68:74:74:70:3a:2f:2f:31:39:32:2e:31:36:38:2e:31:2e:31:37:30:2f:63:6f:6e:66:69:67:22:2c:22:6d:65:73:73:61:67:65:49:64:22:3a:22:65:30:36:33:31:35:64:61:32:37:63:34:64:33:64:30:31:31:38:31:65:38:36:30:39:38:65:34:33:31:61:62:22:2c:22:6d:65:74:68:6f:64:22:3a:22:53:45:54:22:2c:22:6e:61:6d:65:73:70:61:63:65:22:3a:22:41:70:70:6c:69:61:6e:63:65:2e:48:75:62:2e:4d:74:73:31:30:30:2e:4d:6f:64:65:22:2c:22:70:61:79:6c:6f:61:64:56:65:72:73:69:6f:6e:22:3a:31:2c:22:73:69:67:6e:22:3a:22:31:39:31:34:31:65:31:38:37:35:32:63:36:31:39:39:38:61:63:35:30:66:64:65:37:37:32:30:33:65:34:65:22:2c:22:74:69:6d:65:73:74:61:6d:70:22:3a:31:37:33:32:34:35:30:33:33:35:2c:22:74:72:69:67:67:65:72:53:72:63:22:3a:22:41:6e:64:72:6f:69:64:4c:6f:63:61:6c:22:2c:22:75:75:69:64:22:3a:22:32:33:30:35:31:39:33:33:36:34:35:39:34:32:36:32:30:38:30:32:34:38:65:31:65:39:63:37:35:39:39:30:22:7d:2c:22:70:61:79:6c:6f:61:64:22:3a:7b:22:6d:6f:64:65:22:3a:5b:7b:22:69:64:22:3a:22:30:33:30:30:30:42:44:46:22:2c:22:73:74:61:74:65:22:3a:34:7d:5d:7d:7d"
+        },
+        "http": {
+          "POST /config HTTP/1.1\\r\\n": {
+            "_ws.expert": {
+              "http.chat": "",
+              "_ws.expert.message": "POST /config HTTP/1.1\\r\\n",
+              "_ws.expert.severity": "2097152",
+              "_ws.expert.group": "33554432"
+            },
+            "http.request.method": "POST",
+            "http.request.uri": "/config",
+            "http.request.version": "HTTP/1.1"
+          },
+          "http.connection": "close",
+          "http.request.line": "Connection: close\r\n",
+          "http.content_type": "application/json; charset=UTF-8",
+          "http.request.line": "Content-Type: application/json; charset=UTF-8\r\n",
+          "http.content_length_header": "354",
+          "http.content_length_header_tree": {
+            "http.content_length": "354"
+          },
+          "http.request.line": "Content-Length: 354\r\n",
+          "http.host": "192.168.1.170",
+          "http.request.line": "Host: 192.168.1.170\r\n",
+          "http.accept_encoding": "gzip",
+          "http.request.line": "Accept-Encoding: gzip\r\n",
+          "http.user_agent": "okhttp/3.12.0",
+          "http.request.line": "User-Agent: okhttp/3.12.0\r\n",
+          "\\r\\n": "",
+          "http.request.full_uri": "http://192.168.1.170/config",
+          "http.request": "1",
+          "http.request_number": "1",
+          "http.file_data": "{\"header\":{\"from\":\"http://192.168.1.170/config\",\"messageId\":\"e06315da27c4d3d01181e86098e431ab\",\"method\":\"SET\",\"namespace\":\"Appliance.Hub.Mts100.Mode\",\"payloadVersion\":1,\"sign\":\"19141e18752c61998ac50fde77203e4e\",\"timestamp\":1732450335,\"triggerSrc\":\"AndroidLocal\",\"uuid\":\"2305193364594262080248e1e9c75990\"},\"payload\":{\"mode\":[{\"id\":\"03000BDF\",\"state\":4}]}}"
+        },
+        "json": {
+          "JSON compact form: {...}": {
+            "json.member_compact": {
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": ""
+            },
+            "json.member_compact": {
+              "json.member_compact": {
+                "json.object_compact": {
+                  "json.member_compact": "",
+                  "json.member_compact": ""
+                }
+              }
+            }
+          },
+          "json.object": {
+            "json.member": {
+              "json.object": {
+                "json.member": {
+                  "json.value.string": "http://192.168.1.170/config",
+                  "json.key": "from"
+                },
+                "json.member": {
+                  "json.value.string": "e06315da27c4d3d01181e86098e431ab",
+                  "json.key": "messageId"
+                },
+                "json.member": {
+                  "json.value.string": "SET",
+                  "json.key": "method"
+                },
+                "json.member": {
+                  "json.value.string": "Appliance.Hub.Mts100.Mode",
+                  "json.key": "namespace"
+                },
+                "json.member": {
+                  "json.value.number": "1",
+                  "json.key": "payloadVersion"
+                },
+                "json.member": {
+                  "json.value.string": "19141e18752c61998ac50fde77203e4e",
+                  "json.key": "sign"
+                },
+                "json.member": {
+                  "json.value.number": "1732450335",
+                  "json.key": "timestamp"
+                },
+                "json.member": {
+                  "json.value.string": "AndroidLocal",
+                  "json.key": "triggerSrc"
+                },
+                "json.member": {
+                  "json.value.string": "2305193364594262080248e1e9c75990",
+                  "json.key": "uuid"
+                }
+              },
+              "json.key": "header"
+            },
+            "json.member": {
+              "json.object": {
+                "json.member": {
+                  "json.array": {
+                    "json.object": {
+                      "json.member": {
+                        "json.value.string": "03000BDF",
+                        "json.key": "id"
+                      },
+                      "json.member": {
+                        "json.value.number": "4",
+                        "json.key": "state"
+                      }
+                    }
+                  },
+                  "json.key": "mode"
+                }
+              },
+              "json.key": "payload"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2024-11-24",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.interface_id": "0",
+          "frame.interface_id_tree": {
+            "frame.interface_name": "enp37s0"
+          },
+          "frame.encap_type": "1",
+          "frame.time": "Nov 24, 2024 12:12:15.319541913 GMT",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_epoch": "1732450335.319541913",
+          "frame.time_delta": "0.002189025",
+          "frame.time_delta_displayed": "0.031856749",
+          "frame.time_relative": "4.040947278",
+          "frame.number": "178",
+          "frame.len": "60",
+          "frame.cap_len": "60",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "eth:ethertype:ip:tcp:http:json"
+        },
+        "eth": {
+          "eth.dst": "2c:f0:5d:56:40:43",
+          "eth.dst_tree": {
+            "eth.dst_resolved": "Micro-St_56:40:43",
+            "eth.dst.oui": "2945117",
+            "eth.dst.oui_resolved": "Micro-Star INTL CO., LTD.",
+            "eth.addr": "2c:f0:5d:56:40:43",
+            "eth.addr_resolved": "Micro-St_56:40:43",
+            "eth.addr.oui": "2945117",
+            "eth.addr.oui_resolved": "Micro-Star INTL CO., LTD.",
+            "eth.dst.lg": "0",
+            "eth.lg": "0",
+            "eth.dst.ig": "0",
+            "eth.ig": "0"
+          },
+          "eth.src": "48:e1:e9:c7:59:90",
+          "eth.src_tree": {
+            "eth.src_resolved": "ChengduM_c7:59:90",
+            "eth.src.oui": "4776425",
+            "eth.src.oui_resolved": "Chengdu Meross Technology Co., Ltd.",
+            "eth.addr": "48:e1:e9:c7:59:90",
+            "eth.addr_resolved": "ChengduM_c7:59:90",
+            "eth.addr.oui": "4776425",
+            "eth.addr.oui_resolved": "Chengdu Meross Technology Co., Ltd.",
+            "eth.src.lg": "0",
+            "eth.lg": "0",
+            "eth.src.ig": "0",
+            "eth.ig": "0"
+          },
+          "eth.type": "0x00000800",
+          "eth.padding": "00:00:00:00:00:00"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00000000",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "40",
+          "ip.id": "0x00005f04",
+          "ip.flags": "0x00000000",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "0",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "255",
+          "ip.proto": "6",
+          "ip.checksum": "0x0000d86c",
+          "ip.checksum.status": "2",
+          "ip.src": "192.168.1.170",
+          "ip.addr": "192.168.1.170",
+          "ip.src_host": "192.168.1.170",
+          "ip.host": "192.168.1.170",
+          "ip.dst": "192.168.1.100",
+          "ip.addr": "192.168.1.100",
+          "ip.dst_host": "192.168.1.100",
+          "ip.host": "192.168.1.100"
+        },
+        "tcp": {
+          "tcp.srcport": "80",
+          "tcp.dstport": "40336",
+          "tcp.port": "80",
+          "tcp.port": "40336",
+          "tcp.stream": "22",
+          "tcp.len": "0",
+          "tcp.seq": "345",
+          "tcp.seq_raw": "40655445",
+          "tcp.nxtseq": "346",
+          "tcp.ack": "538",
+          "tcp.ack_raw": "2836328998",
+          "tcp.hdr_len": "20",
+          "tcp.flags": "0x00000011",
+          "tcp.flags_tree": {
+            "tcp.flags.res": "0",
+            "tcp.flags.ns": "0",
+            "tcp.flags.cwr": "0",
+            "tcp.flags.ecn": "0",
+            "tcp.flags.urg": "0",
+            "tcp.flags.ack": "1",
+            "tcp.flags.push": "0",
+            "tcp.flags.reset": "0",
+            "tcp.flags.syn": "0",
+            "tcp.flags.fin": "1",
+            "tcp.flags.fin_tree": {
+              "_ws.expert": {
+                "tcp.connection.fin": "",
+                "_ws.expert.message": "Connection finish (FIN)",
+                "_ws.expert.severity": "2097152",
+                "_ws.expert.group": "33554432"
+              }
+            },
+            "tcp.flags.str": "·······A···F"
+          },
+          "tcp.window_size_value": "12019",
+          "tcp.window_size": "24038",
+          "tcp.window_size_scalefactor": "2",
+          "tcp.checksum": "0x000066aa",
+          "tcp.checksum.status": "2",
+          "tcp.urgent_pointer": "0",
+          "Timestamps": {
+            "tcp.time_relative": "0.033945084",
+            "tcp.time_delta": "0.002189025"
+          }
+        },
+        "tcp.segments": {
+          "tcp.segment": "176",
+          "tcp.segment": "178",
+          "tcp.segment.count": "2",
+          "tcp.reassembled.length": "344",
+          "tcp.reassembled.data": "48:54:54:50:2f:31:2e:31:20:32:30:30:20:4f:4b:0a:43:6f:6e:74:65:6e:74:2d:54:79:70:65:3a:20:61:70:70:6c:69:63:61:74:69:6f:6e:2f:6a:73:6f:6e:0d:0a:0d:0a:7b:22:68:65:61:64:65:72:22:3a:7b:22:6d:65:73:73:61:67:65:49:64:22:3a:22:65:30:36:33:31:35:64:61:32:37:63:34:64:33:64:30:31:31:38:31:65:38:36:30:39:38:65:34:33:31:61:62:22:2c:22:6e:61:6d:65:73:70:61:63:65:22:3a:22:41:70:70:6c:69:61:6e:63:65:2e:48:75:62:2e:4d:74:73:31:30:30:2e:4d:6f:64:65:22:2c:22:6d:65:74:68:6f:64:22:3a:22:53:45:54:41:43:4b:22:2c:22:70:61:79:6c:6f:61:64:56:65:72:73:69:6f:6e:22:3a:31:2c:22:66:72:6f:6d:22:3a:22:2f:61:70:70:6c:69:61:6e:63:65:2f:32:33:30:35:31:39:33:33:36:34:35:39:34:32:36:32:30:38:30:32:34:38:65:31:65:39:63:37:35:39:39:30:2f:70:75:62:6c:69:73:68:22:2c:22:74:69:6d:65:73:74:61:6d:70:22:3a:31:37:33:32:34:35:30:33:33:35:2c:22:74:69:6d:65:73:74:61:6d:70:4d:73:22:3a:39:36:30:2c:22:73:69:67:6e:22:3a:22:31:39:31:34:31:65:31:38:37:35:32:63:36:31:39:39:38:61:63:35:30:66:64:65:37:37:32:30:33:65:34:65:22:7d:2c:22:70:61:79:6c:6f:61:64:22:3a:7b:7d:7d:0a"
+        },
+        "http": {
+          "HTTP/1.1 200 OK\\n": {
+            "_ws.expert": {
+              "http.chat": "",
+              "_ws.expert.message": "HTTP/1.1 200 OK\\n",
+              "_ws.expert.severity": "2097152",
+              "_ws.expert.group": "33554432"
+            },
+            "http.response.version": "HTTP/1.1",
+            "http.response.code": "200",
+            "http.response.code.desc": "OK",
+            "http.response.phrase": "OK"
+          },
+          "http.content_type": "application/json",
+          "http.response.line": "Content-Type: application/json\r\n",
+          "\\r\\n": "",
+          "http.response": "1",
+          "http.response_number": "1",
+          "http.time": "0.031856749",
+          "http.request_in": "174",
+          "http.response_for.uri": "http://192.168.1.170/config",
+          "http.file_data": "{\"header\":{\"messageId\":\"e06315da27c4d3d01181e86098e431ab\",\"namespace\":\"Appliance.Hub.Mts100.Mode\",\"method\":\"SETACK\",\"payloadVersion\":1,\"from\":\"/appliance/2305193364594262080248e1e9c75990/publish\",\"timestamp\":1732450335,\"timestampMs\":960,\"sign\":\"19141e18752c61998ac50fde77203e4e\"},\"payload\":{}}\n"
+        },
+        "json": {
+          "JSON compact form: {...}": {
+            "json.member_compact": {
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": ""
+            },
+            "json.member_compact": ""
+          },
+          "json.object": {
+            "json.member": {
+              "json.object": {
+                "json.member": {
+                  "json.value.string": "e06315da27c4d3d01181e86098e431ab",
+                  "json.key": "messageId"
+                },
+                "json.member": {
+                  "json.value.string": "Appliance.Hub.Mts100.Mode",
+                  "json.key": "namespace"
+                },
+                "json.member": {
+                  "json.value.string": "SETACK",
+                  "json.key": "method"
+                },
+                "json.member": {
+                  "json.value.number": "1",
+                  "json.key": "payloadVersion"
+                },
+                "json.member": {
+                  "json.value.string": "/appliance/2305193364594262080248e1e9c75990/publish",
+                  "json.key": "from"
+                },
+                "json.member": {
+                  "json.value.number": "1732450335",
+                  "json.key": "timestamp"
+                },
+                "json.member": {
+                  "json.value.number": "960",
+                  "json.key": "timestampMs"
+                },
+                "json.member": {
+                  "json.value.string": "19141e18752c61998ac50fde77203e4e",
+                  "json.key": "sign"
+                }
+              },
+              "json.key": "header"
+            },
+            "json.member": {
+              "json.object": "",
+              "json.key": "payload"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2024-11-24",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.interface_id": "0",
+          "frame.interface_id_tree": {
+            "frame.interface_name": "enp37s0"
+          },
+          "frame.encap_type": "1",
+          "frame.time": "Nov 24, 2024 12:12:18.214614938 GMT",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_epoch": "1732450338.214614938",
+          "frame.time_delta": "0.000047320",
+          "frame.time_delta_displayed": "2.895073025",
+          "frame.time_relative": "6.936020303",
+          "frame.number": "289",
+          "frame.len": "408",
+          "frame.cap_len": "408",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "eth:ethertype:ip:tcp:http:json"
+        },
+        "eth": {
+          "eth.dst": "48:e1:e9:c7:59:90",
+          "eth.dst_tree": {
+            "eth.dst_resolved": "ChengduM_c7:59:90",
+            "eth.dst.oui": "4776425",
+            "eth.dst.oui_resolved": "Chengdu Meross Technology Co., Ltd.",
+            "eth.addr": "48:e1:e9:c7:59:90",
+            "eth.addr_resolved": "ChengduM_c7:59:90",
+            "eth.addr.oui": "4776425",
+            "eth.addr.oui_resolved": "Chengdu Meross Technology Co., Ltd.",
+            "eth.dst.lg": "0",
+            "eth.lg": "0",
+            "eth.dst.ig": "0",
+            "eth.ig": "0"
+          },
+          "eth.src": "2c:f0:5d:56:40:43",
+          "eth.src_tree": {
+            "eth.src_resolved": "Micro-St_56:40:43",
+            "eth.src.oui": "2945117",
+            "eth.src.oui_resolved": "Micro-Star INTL CO., LTD.",
+            "eth.addr": "2c:f0:5d:56:40:43",
+            "eth.addr_resolved": "Micro-St_56:40:43",
+            "eth.addr.oui": "2945117",
+            "eth.addr.oui_resolved": "Micro-Star INTL CO., LTD.",
+            "eth.src.lg": "0",
+            "eth.lg": "0",
+            "eth.src.ig": "0",
+            "eth.ig": "0"
+          },
+          "eth.type": "0x00000800"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00000000",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "394",
+          "ip.id": "0x00003c5a",
+          "ip.flags": "0x00004000",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "1",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "6",
+          "ip.checksum": "0x000078b5",
+          "ip.checksum.status": "2",
+          "ip.src": "192.168.1.100",
+          "ip.addr": "192.168.1.100",
+          "ip.src_host": "192.168.1.100",
+          "ip.host": "192.168.1.100",
+          "ip.dst": "192.168.1.170",
+          "ip.addr": "192.168.1.170",
+          "ip.dst_host": "192.168.1.170",
+          "ip.host": "192.168.1.170"
+        },
+        "tcp": {
+          "tcp.srcport": "40342",
+          "tcp.dstport": "80",
+          "tcp.port": "40342",
+          "tcp.port": "80",
+          "tcp.stream": "24",
+          "tcp.len": "354",
+          "tcp.seq": "184",
+          "tcp.seq_raw": "934717145",
+          "tcp.nxtseq": "538",
+          "tcp.ack": "1",
+          "tcp.ack_raw": "40920483",
+          "tcp.hdr_len": "20",
+          "tcp.flags": "0x00000018",
+          "tcp.flags_tree": {
+            "tcp.flags.res": "0",
+            "tcp.flags.ns": "0",
+            "tcp.flags.cwr": "0",
+            "tcp.flags.ecn": "0",
+            "tcp.flags.urg": "0",
+            "tcp.flags.ack": "1",
+            "tcp.flags.push": "1",
+            "tcp.flags.reset": "0",
+            "tcp.flags.syn": "0",
+            "tcp.flags.fin": "0",
+            "tcp.flags.str": "·······AP···"
+          },
+          "tcp.window_size_value": "502",
+          "tcp.window_size": "64256",
+          "tcp.window_size_scalefactor": "128",
+          "tcp.checksum": "0x000085db",
+          "tcp.checksum.status": "2",
+          "tcp.urgent_pointer": "0",
+          "tcp.analysis": {
+            "tcp.analysis.initial_rtt": "0.001874926",
+            "tcp.analysis.bytes_in_flight": "537",
+            "tcp.analysis.push_bytes_sent": "354"
+          },
+          "Timestamps": {
+            "tcp.time_relative": "0.002002125",
+            "tcp.time_delta": "0.000047320"
+          },
+          "tcp.payload": "7b:22:68:65:61:64:65:72:22:3a:7b:22:66:72:6f:6d:22:3a:22:68:74:74:70:3a:2f:2f:31:39:32:2e:31:36:38:2e:31:2e:31:37:30:2f:63:6f:6e:66:69:67:22:2c:22:6d:65:73:73:61:67:65:49:64:22:3a:22:31:33:39:33:36:61:62:37:61:62:30:64:61:62:64:37:66:31:61:30:66:38:38:62:66:34:64:31:64:64:65:34:22:2c:22:6d:65:74:68:6f:64:22:3a:22:53:45:54:22:2c:22:6e:61:6d:65:73:70:61:63:65:22:3a:22:41:70:70:6c:69:61:6e:63:65:2e:48:75:62:2e:4d:74:73:31:30:30:2e:4d:6f:64:65:22:2c:22:70:61:79:6c:6f:61:64:56:65:72:73:69:6f:6e:22:3a:31:2c:22:73:69:67:6e:22:3a:22:36:32:36:38:62:62:32:33:37:64:30:63:66:39:61:65:65:30:37:36:33:37:37:38:32:61:30:35:61:66:33:38:22:2c:22:74:69:6d:65:73:74:61:6d:70:22:3a:31:37:33:32:34:35:30:33:33:38:2c:22:74:72:69:67:67:65:72:53:72:63:22:3a:22:41:6e:64:72:6f:69:64:4c:6f:63:61:6c:22:2c:22:75:75:69:64:22:3a:22:32:33:30:35:31:39:33:33:36:34:35:39:34:32:36:32:30:38:30:32:34:38:65:31:65:39:63:37:35:39:39:30:22:7d:2c:22:70:61:79:6c:6f:61:64:22:3a:7b:22:6d:6f:64:65:22:3a:5b:7b:22:69:64:22:3a:22:30:33:30:30:30:42:44:46:22:2c:22:73:74:61:74:65:22:3a:33:7d:5d:7d:7d",
+          "tcp.segment_data": "7b:22:68:65:61:64:65:72:22:3a:7b:22:66:72:6f:6d:22:3a:22:68:74:74:70:3a:2f:2f:31:39:32:2e:31:36:38:2e:31:2e:31:37:30:2f:63:6f:6e:66:69:67:22:2c:22:6d:65:73:73:61:67:65:49:64:22:3a:22:31:33:39:33:36:61:62:37:61:62:30:64:61:62:64:37:66:31:61:30:66:38:38:62:66:34:64:31:64:64:65:34:22:2c:22:6d:65:74:68:6f:64:22:3a:22:53:45:54:22:2c:22:6e:61:6d:65:73:70:61:63:65:22:3a:22:41:70:70:6c:69:61:6e:63:65:2e:48:75:62:2e:4d:74:73:31:30:30:2e:4d:6f:64:65:22:2c:22:70:61:79:6c:6f:61:64:56:65:72:73:69:6f:6e:22:3a:31:2c:22:73:69:67:6e:22:3a:22:36:32:36:38:62:62:32:33:37:64:30:63:66:39:61:65:65:30:37:36:33:37:37:38:32:61:30:35:61:66:33:38:22:2c:22:74:69:6d:65:73:74:61:6d:70:22:3a:31:37:33:32:34:35:30:33:33:38:2c:22:74:72:69:67:67:65:72:53:72:63:22:3a:22:41:6e:64:72:6f:69:64:4c:6f:63:61:6c:22:2c:22:75:75:69:64:22:3a:22:32:33:30:35:31:39:33:33:36:34:35:39:34:32:36:32:30:38:30:32:34:38:65:31:65:39:63:37:35:39:39:30:22:7d:2c:22:70:61:79:6c:6f:61:64:22:3a:7b:22:6d:6f:64:65:22:3a:5b:7b:22:69:64:22:3a:22:30:33:30:30:30:42:44:46:22:2c:22:73:74:61:74:65:22:3a:33:7d:5d:7d:7d"
+        },
+        "tcp.segments": {
+          "tcp.segment": "288",
+          "tcp.segment": "289",
+          "tcp.segment.count": "2",
+          "tcp.reassembled.length": "537",
+          "tcp.reassembled.data": "50:4f:53:54:20:2f:63:6f:6e:66:69:67:20:48:54:54:50:2f:31:2e:31:0d:0a:43:6f:6e:6e:65:63:74:69:6f:6e:3a:20:63:6c:6f:73:65:0d:0a:43:6f:6e:74:65:6e:74:2d:54:79:70:65:3a:20:61:70:70:6c:69:63:61:74:69:6f:6e:2f:6a:73:6f:6e:3b:20:63:68:61:72:73:65:74:3d:55:54:46:2d:38:0d:0a:43:6f:6e:74:65:6e:74:2d:4c:65:6e:67:74:68:3a:20:33:35:34:0d:0a:48:6f:73:74:3a:20:31:39:32:2e:31:36:38:2e:31:2e:31:37:30:0d:0a:41:63:63:65:70:74:2d:45:6e:63:6f:64:69:6e:67:3a:20:67:7a:69:70:0d:0a:55:73:65:72:2d:41:67:65:6e:74:3a:20:6f:6b:68:74:74:70:2f:33:2e:31:32:2e:30:0d:0a:0d:0a:7b:22:68:65:61:64:65:72:22:3a:7b:22:66:72:6f:6d:22:3a:22:68:74:74:70:3a:2f:2f:31:39:32:2e:31:36:38:2e:31:2e:31:37:30:2f:63:6f:6e:66:69:67:22:2c:22:6d:65:73:73:61:67:65:49:64:22:3a:22:31:33:39:33:36:61:62:37:61:62:30:64:61:62:64:37:66:31:61:30:66:38:38:62:66:34:64:31:64:64:65:34:22:2c:22:6d:65:74:68:6f:64:22:3a:22:53:45:54:22:2c:22:6e:61:6d:65:73:70:61:63:65:22:3a:22:41:70:70:6c:69:61:6e:63:65:2e:48:75:62:2e:4d:74:73:31:30:30:2e:4d:6f:64:65:22:2c:22:70:61:79:6c:6f:61:64:56:65:72:73:69:6f:6e:22:3a:31:2c:22:73:69:67:6e:22:3a:22:36:32:36:38:62:62:32:33:37:64:30:63:66:39:61:65:65:30:37:36:33:37:37:38:32:61:30:35:61:66:33:38:22:2c:22:74:69:6d:65:73:74:61:6d:70:22:3a:31:37:33:32:34:35:30:33:33:38:2c:22:74:72:69:67:67:65:72:53:72:63:22:3a:22:41:6e:64:72:6f:69:64:4c:6f:63:61:6c:22:2c:22:75:75:69:64:22:3a:22:32:33:30:35:31:39:33:33:36:34:35:39:34:32:36:32:30:38:30:32:34:38:65:31:65:39:63:37:35:39:39:30:22:7d:2c:22:70:61:79:6c:6f:61:64:22:3a:7b:22:6d:6f:64:65:22:3a:5b:7b:22:69:64:22:3a:22:30:33:30:30:30:42:44:46:22:2c:22:73:74:61:74:65:22:3a:33:7d:5d:7d:7d"
+        },
+        "http": {
+          "POST /config HTTP/1.1\\r\\n": {
+            "_ws.expert": {
+              "http.chat": "",
+              "_ws.expert.message": "POST /config HTTP/1.1\\r\\n",
+              "_ws.expert.severity": "2097152",
+              "_ws.expert.group": "33554432"
+            },
+            "http.request.method": "POST",
+            "http.request.uri": "/config",
+            "http.request.version": "HTTP/1.1"
+          },
+          "http.connection": "close",
+          "http.request.line": "Connection: close\r\n",
+          "http.content_type": "application/json; charset=UTF-8",
+          "http.request.line": "Content-Type: application/json; charset=UTF-8\r\n",
+          "http.content_length_header": "354",
+          "http.content_length_header_tree": {
+            "http.content_length": "354"
+          },
+          "http.request.line": "Content-Length: 354\r\n",
+          "http.host": "192.168.1.170",
+          "http.request.line": "Host: 192.168.1.170\r\n",
+          "http.accept_encoding": "gzip",
+          "http.request.line": "Accept-Encoding: gzip\r\n",
+          "http.user_agent": "okhttp/3.12.0",
+          "http.request.line": "User-Agent: okhttp/3.12.0\r\n",
+          "\\r\\n": "",
+          "http.request.full_uri": "http://192.168.1.170/config",
+          "http.request": "1",
+          "http.request_number": "1",
+          "http.file_data": "{\"header\":{\"from\":\"http://192.168.1.170/config\",\"messageId\":\"13936ab7ab0dabd7f1a0f88bf4d1dde4\",\"method\":\"SET\",\"namespace\":\"Appliance.Hub.Mts100.Mode\",\"payloadVersion\":1,\"sign\":\"6268bb237d0cf9aee07637782a05af38\",\"timestamp\":1732450338,\"triggerSrc\":\"AndroidLocal\",\"uuid\":\"2305193364594262080248e1e9c75990\"},\"payload\":{\"mode\":[{\"id\":\"03000BDF\",\"state\":3}]}}"
+        },
+        "json": {
+          "JSON compact form: {...}": {
+            "json.member_compact": {
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": ""
+            },
+            "json.member_compact": {
+              "json.member_compact": {
+                "json.object_compact": {
+                  "json.member_compact": "",
+                  "json.member_compact": ""
+                }
+              }
+            }
+          },
+          "json.object": {
+            "json.member": {
+              "json.object": {
+                "json.member": {
+                  "json.value.string": "http://192.168.1.170/config",
+                  "json.key": "from"
+                },
+                "json.member": {
+                  "json.value.string": "13936ab7ab0dabd7f1a0f88bf4d1dde4",
+                  "json.key": "messageId"
+                },
+                "json.member": {
+                  "json.value.string": "SET",
+                  "json.key": "method"
+                },
+                "json.member": {
+                  "json.value.string": "Appliance.Hub.Mts100.Mode",
+                  "json.key": "namespace"
+                },
+                "json.member": {
+                  "json.value.number": "1",
+                  "json.key": "payloadVersion"
+                },
+                "json.member": {
+                  "json.value.string": "6268bb237d0cf9aee07637782a05af38",
+                  "json.key": "sign"
+                },
+                "json.member": {
+                  "json.value.number": "1732450338",
+                  "json.key": "timestamp"
+                },
+                "json.member": {
+                  "json.value.string": "AndroidLocal",
+                  "json.key": "triggerSrc"
+                },
+                "json.member": {
+                  "json.value.string": "2305193364594262080248e1e9c75990",
+                  "json.key": "uuid"
+                }
+              },
+              "json.key": "header"
+            },
+            "json.member": {
+              "json.object": {
+                "json.member": {
+                  "json.array": {
+                    "json.object": {
+                      "json.member": {
+                        "json.value.string": "03000BDF",
+                        "json.key": "id"
+                      },
+                      "json.member": {
+                        "json.value.number": "3",
+                        "json.key": "state"
+                      }
+                    }
+                  },
+                  "json.key": "mode"
+                }
+              },
+              "json.key": "payload"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2024-11-24",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.interface_id": "0",
+          "frame.interface_id_tree": {
+            "frame.interface_name": "enp37s0"
+          },
+          "frame.encap_type": "1",
+          "frame.time": "Nov 24, 2024 12:12:18.248143775 GMT",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_epoch": "1732450338.248143775",
+          "frame.time_delta": "0.002110245",
+          "frame.time_delta_displayed": "0.033528837",
+          "frame.time_relative": "6.969549140",
+          "frame.number": "293",
+          "frame.len": "60",
+          "frame.cap_len": "60",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "eth:ethertype:ip:tcp:http:json"
+        },
+        "eth": {
+          "eth.dst": "2c:f0:5d:56:40:43",
+          "eth.dst_tree": {
+            "eth.dst_resolved": "Micro-St_56:40:43",
+            "eth.dst.oui": "2945117",
+            "eth.dst.oui_resolved": "Micro-Star INTL CO., LTD.",
+            "eth.addr": "2c:f0:5d:56:40:43",
+            "eth.addr_resolved": "Micro-St_56:40:43",
+            "eth.addr.oui": "2945117",
+            "eth.addr.oui_resolved": "Micro-Star INTL CO., LTD.",
+            "eth.dst.lg": "0",
+            "eth.lg": "0",
+            "eth.dst.ig": "0",
+            "eth.ig": "0"
+          },
+          "eth.src": "48:e1:e9:c7:59:90",
+          "eth.src_tree": {
+            "eth.src_resolved": "ChengduM_c7:59:90",
+            "eth.src.oui": "4776425",
+            "eth.src.oui_resolved": "Chengdu Meross Technology Co., Ltd.",
+            "eth.addr": "48:e1:e9:c7:59:90",
+            "eth.addr_resolved": "ChengduM_c7:59:90",
+            "eth.addr.oui": "4776425",
+            "eth.addr.oui_resolved": "Chengdu Meross Technology Co., Ltd.",
+            "eth.src.lg": "0",
+            "eth.lg": "0",
+            "eth.src.ig": "0",
+            "eth.ig": "0"
+          },
+          "eth.type": "0x00000800",
+          "eth.padding": "00:00:00:00:00:00"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00000000",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "40",
+          "ip.id": "0x00005f0e",
+          "ip.flags": "0x00000000",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "0",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "255",
+          "ip.proto": "6",
+          "ip.checksum": "0x0000d862",
+          "ip.checksum.status": "2",
+          "ip.src": "192.168.1.170",
+          "ip.addr": "192.168.1.170",
+          "ip.src_host": "192.168.1.170",
+          "ip.host": "192.168.1.170",
+          "ip.dst": "192.168.1.100",
+          "ip.addr": "192.168.1.100",
+          "ip.dst_host": "192.168.1.100",
+          "ip.host": "192.168.1.100"
+        },
+        "tcp": {
+          "tcp.srcport": "80",
+          "tcp.dstport": "40342",
+          "tcp.port": "80",
+          "tcp.port": "40342",
+          "tcp.stream": "24",
+          "tcp.len": "0",
+          "tcp.seq": "345",
+          "tcp.seq_raw": "40920827",
+          "tcp.nxtseq": "346",
+          "tcp.ack": "538",
+          "tcp.ack_raw": "934717499",
+          "tcp.hdr_len": "20",
+          "tcp.flags": "0x00000011",
+          "tcp.flags_tree": {
+            "tcp.flags.res": "0",
+            "tcp.flags.ns": "0",
+            "tcp.flags.cwr": "0",
+            "tcp.flags.ecn": "0",
+            "tcp.flags.urg": "0",
+            "tcp.flags.ack": "1",
+            "tcp.flags.push": "0",
+            "tcp.flags.reset": "0",
+            "tcp.flags.syn": "0",
+            "tcp.flags.fin": "1",
+            "tcp.flags.fin_tree": {
+              "_ws.expert": {
+                "tcp.connection.fin": "",
+                "_ws.expert.message": "Connection finish (FIN)",
+                "_ws.expert.severity": "2097152",
+                "_ws.expert.group": "33554432"
+              }
+            },
+            "tcp.flags.str": "·······A···F"
+          },
+          "tcp.window_size_value": "12019",
+          "tcp.window_size": "24038",
+          "tcp.window_size_scalefactor": "2",
+          "tcp.checksum": "0x0000153e",
+          "tcp.checksum.status": "2",
+          "tcp.urgent_pointer": "0",
+          "Timestamps": {
+            "tcp.time_relative": "0.035530962",
+            "tcp.time_delta": "0.002110245"
+          }
+        },
+        "tcp.segments": {
+          "tcp.segment": "291",
+          "tcp.segment": "293",
+          "tcp.segment.count": "2",
+          "tcp.reassembled.length": "344",
+          "tcp.reassembled.data": "48:54:54:50:2f:31:2e:31:20:32:30:30:20:4f:4b:0a:43:6f:6e:74:65:6e:74:2d:54:79:70:65:3a:20:61:70:70:6c:69:63:61:74:69:6f:6e:2f:6a:73:6f:6e:0d:0a:0d:0a:7b:22:68:65:61:64:65:72:22:3a:7b:22:6d:65:73:73:61:67:65:49:64:22:3a:22:31:33:39:33:36:61:62:37:61:62:30:64:61:62:64:37:66:31:61:30:66:38:38:62:66:34:64:31:64:64:65:34:22:2c:22:6e:61:6d:65:73:70:61:63:65:22:3a:22:41:70:70:6c:69:61:6e:63:65:2e:48:75:62:2e:4d:74:73:31:30:30:2e:4d:6f:64:65:22:2c:22:6d:65:74:68:6f:64:22:3a:22:53:45:54:41:43:4b:22:2c:22:70:61:79:6c:6f:61:64:56:65:72:73:69:6f:6e:22:3a:31:2c:22:66:72:6f:6d:22:3a:22:2f:61:70:70:6c:69:61:6e:63:65:2f:32:33:30:35:31:39:33:33:36:34:35:39:34:32:36:32:30:38:30:32:34:38:65:31:65:39:63:37:35:39:39:30:2f:70:75:62:6c:69:73:68:22:2c:22:74:69:6d:65:73:74:61:6d:70:22:3a:31:37:33:32:34:35:30:33:33:38:2c:22:74:69:6d:65:73:74:61:6d:70:4d:73:22:3a:38:38:37:2c:22:73:69:67:6e:22:3a:22:36:32:36:38:62:62:32:33:37:64:30:63:66:39:61:65:65:30:37:36:33:37:37:38:32:61:30:35:61:66:33:38:22:7d:2c:22:70:61:79:6c:6f:61:64:22:3a:7b:7d:7d:0a"
+        },
+        "http": {
+          "HTTP/1.1 200 OK\\n": {
+            "_ws.expert": {
+              "http.chat": "",
+              "_ws.expert.message": "HTTP/1.1 200 OK\\n",
+              "_ws.expert.severity": "2097152",
+              "_ws.expert.group": "33554432"
+            },
+            "http.response.version": "HTTP/1.1",
+            "http.response.code": "200",
+            "http.response.code.desc": "OK",
+            "http.response.phrase": "OK"
+          },
+          "http.content_type": "application/json",
+          "http.response.line": "Content-Type: application/json\r\n",
+          "\\r\\n": "",
+          "http.response": "1",
+          "http.response_number": "1",
+          "http.time": "0.033528837",
+          "http.request_in": "289",
+          "http.response_for.uri": "http://192.168.1.170/config",
+          "http.file_data": "{\"header\":{\"messageId\":\"13936ab7ab0dabd7f1a0f88bf4d1dde4\",\"namespace\":\"Appliance.Hub.Mts100.Mode\",\"method\":\"SETACK\",\"payloadVersion\":1,\"from\":\"/appliance/2305193364594262080248e1e9c75990/publish\",\"timestamp\":1732450338,\"timestampMs\":887,\"sign\":\"6268bb237d0cf9aee07637782a05af38\"},\"payload\":{}}\n"
+        },
+        "json": {
+          "JSON compact form: {...}": {
+            "json.member_compact": {
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": ""
+            },
+            "json.member_compact": ""
+          },
+          "json.object": {
+            "json.member": {
+              "json.object": {
+                "json.member": {
+                  "json.value.string": "13936ab7ab0dabd7f1a0f88bf4d1dde4",
+                  "json.key": "messageId"
+                },
+                "json.member": {
+                  "json.value.string": "Appliance.Hub.Mts100.Mode",
+                  "json.key": "namespace"
+                },
+                "json.member": {
+                  "json.value.string": "SETACK",
+                  "json.key": "method"
+                },
+                "json.member": {
+                  "json.value.number": "1",
+                  "json.key": "payloadVersion"
+                },
+                "json.member": {
+                  "json.value.string": "/appliance/2305193364594262080248e1e9c75990/publish",
+                  "json.key": "from"
+                },
+                "json.member": {
+                  "json.value.number": "1732450338",
+                  "json.key": "timestamp"
+                },
+                "json.member": {
+                  "json.value.number": "887",
+                  "json.key": "timestampMs"
+                },
+                "json.member": {
+                  "json.value.string": "6268bb237d0cf9aee07637782a05af38",
+                  "json.key": "sign"
+                }
+              },
+              "json.key": "header"
+            },
+            "json.member": {
+              "json.object": "",
+              "json.key": "payload"
+            }
+          }
+        }
+      }
+    }
+  }
+]

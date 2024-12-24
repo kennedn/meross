@@ -1,0 +1,484 @@
+[
+  {
+    "_index": "packets-2024-11-24",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.interface_id": "0",
+          "frame.interface_id_tree": {
+            "frame.interface_name": "enp37s0"
+          },
+          "frame.encap_type": "1",
+          "frame.time": "Nov 24, 2024 12:26:26.962102559 GMT",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_epoch": "1732451186.962102559",
+          "frame.time_delta": "0.000030490",
+          "frame.time_delta_displayed": "0.000000000",
+          "frame.time_relative": "0.002464674",
+          "frame.number": "4",
+          "frame.len": "454",
+          "frame.cap_len": "454",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "eth:ethertype:ip:tcp:http:json"
+        },
+        "eth": {
+          "eth.dst": "48:e1:e9:c7:59:90",
+          "eth.dst_tree": {
+            "eth.dst_resolved": "ChengduM_c7:59:90",
+            "eth.dst.oui": "4776425",
+            "eth.dst.oui_resolved": "Chengdu Meross Technology Co., Ltd.",
+            "eth.addr": "48:e1:e9:c7:59:90",
+            "eth.addr_resolved": "ChengduM_c7:59:90",
+            "eth.addr.oui": "4776425",
+            "eth.addr.oui_resolved": "Chengdu Meross Technology Co., Ltd.",
+            "eth.dst.lg": "0",
+            "eth.lg": "0",
+            "eth.dst.ig": "0",
+            "eth.ig": "0"
+          },
+          "eth.src": "2c:f0:5d:56:40:43",
+          "eth.src_tree": {
+            "eth.src_resolved": "Micro-St_56:40:43",
+            "eth.src.oui": "2945117",
+            "eth.src.oui_resolved": "Micro-Star INTL CO., LTD.",
+            "eth.addr": "2c:f0:5d:56:40:43",
+            "eth.addr_resolved": "Micro-St_56:40:43",
+            "eth.addr.oui": "2945117",
+            "eth.addr.oui_resolved": "Micro-Star INTL CO., LTD.",
+            "eth.src.lg": "0",
+            "eth.lg": "0",
+            "eth.src.ig": "0",
+            "eth.ig": "0"
+          },
+          "eth.type": "0x00000800"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00000000",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "440",
+          "ip.id": "0x00006224",
+          "ip.flags": "0x00004000",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "1",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "6",
+          "ip.checksum": "0x000052bd",
+          "ip.checksum.status": "2",
+          "ip.src": "192.168.1.100",
+          "ip.addr": "192.168.1.100",
+          "ip.src_host": "192.168.1.100",
+          "ip.host": "192.168.1.100",
+          "ip.dst": "192.168.1.170",
+          "ip.addr": "192.168.1.170",
+          "ip.dst_host": "192.168.1.170",
+          "ip.host": "192.168.1.170"
+        },
+        "tcp": {
+          "tcp.srcport": "33442",
+          "tcp.dstport": "80",
+          "tcp.port": "33442",
+          "tcp.port": "80",
+          "tcp.stream": "0",
+          "tcp.len": "400",
+          "tcp.seq": "1",
+          "tcp.seq_raw": "3284670133",
+          "tcp.nxtseq": "401",
+          "tcp.ack": "1",
+          "tcp.ack_raw": "42787549",
+          "tcp.hdr_len": "20",
+          "tcp.flags": "0x00000018",
+          "tcp.flags_tree": {
+            "tcp.flags.res": "0",
+            "tcp.flags.ns": "0",
+            "tcp.flags.cwr": "0",
+            "tcp.flags.ecn": "0",
+            "tcp.flags.urg": "0",
+            "tcp.flags.ack": "1",
+            "tcp.flags.push": "1",
+            "tcp.flags.reset": "0",
+            "tcp.flags.syn": "0",
+            "tcp.flags.fin": "0",
+            "tcp.flags.str": "·······AP···"
+          },
+          "tcp.window_size_value": "502",
+          "tcp.window_size": "64256",
+          "tcp.window_size_scalefactor": "128",
+          "tcp.checksum": "0x00008609",
+          "tcp.checksum.status": "2",
+          "tcp.urgent_pointer": "0",
+          "tcp.analysis": {
+            "tcp.analysis.initial_rtt": "0.002434184",
+            "tcp.analysis.bytes_in_flight": "400",
+            "tcp.analysis.push_bytes_sent": "400"
+          },
+          "Timestamps": {
+            "tcp.time_relative": "0.002464674",
+            "tcp.time_delta": "0.000030490"
+          },
+          "tcp.payload": "50:4f:53:54:20:2f:63:6f:6e:66:69:67:20:48:54:54:50:2f:31:2e:31:0d:0a:48:6f:73:74:3a:20:31:39:32:2e:31:36:38:2e:31:2e:31:37:30:0d:0a:55:73:65:72:2d:41:67:65:6e:74:3a:20:63:75:72:6c:2f:37:2e:36:38:2e:30:0d:0a:41:63:63:65:70:74:3a:20:2a:2f:2a:0d:0a:43:6f:6e:74:65:6e:74:2d:54:79:70:65:3a:20:61:70:70:6c:69:63:61:74:69:6f:6e:2f:6a:73:6f:6e:0d:0a:43:6f:6e:74:65:6e:74:2d:4c:65:6e:67:74:68:3a:20:32:36:33:0d:0a:0d:0a:7b:22:68:65:61:64:65:72:22:3a:7b:22:66:72:6f:6d:22:3a:22:68:74:74:70:3a:2f:2f:31:30:2e:31:30:2e:31:30:2e:31:2f:63:6f:6e:66:69:67:22:2c:22:6d:65:73:73:61:67:65:49:64:22:3a:22:65:31:66:36:31:39:65:65:61:65:34:30:30:39:37:31:33:36:39:35:32:30:39:61:37:62:63:38:33:36:34:33:22:2c:22:6d:65:74:68:6f:64:22:3a:22:47:45:54:22:2c:22:6e:61:6d:65:73:70:61:63:65:22:3a:22:41:70:70:6c:69:61:6e:63:65:2e:48:75:62:2e:42:61:74:74:65:72:79:22:2c:22:70:61:79:6c:6f:61:64:56:65:72:73:69:6f:6e:22:3a:31:2c:22:73:69:67:6e:22:3a:22:65:61:32:61:38:65:65:39:35:64:30:62:38:64:34:38:61:61:36:31:35:35:36:31:37:61:65:64:62:38:63:63:22:2c:22:74:69:6d:65:73:74:61:6d:70:22:3a:22:30:22:7d:2c:22:70:61:79:6c:6f:61:64:22:3a:7b:22:62:61:74:74:65:72:79:22:3a:5b:7b:22:69:64:22:3a:22:30:33:30:30:30:42:44:46:22:7d:5d:7d:7d"
+        },
+        "http": {
+          "POST /config HTTP/1.1\\r\\n": {
+            "_ws.expert": {
+              "http.chat": "",
+              "_ws.expert.message": "POST /config HTTP/1.1\\r\\n",
+              "_ws.expert.severity": "2097152",
+              "_ws.expert.group": "33554432"
+            },
+            "http.request.method": "POST",
+            "http.request.uri": "/config",
+            "http.request.version": "HTTP/1.1"
+          },
+          "http.host": "192.168.1.170",
+          "http.request.line": "Host: 192.168.1.170\r\n",
+          "http.user_agent": "curl/7.68.0",
+          "http.request.line": "User-Agent: curl/7.68.0\r\n",
+          "http.accept": "*/*",
+          "http.request.line": "Accept: */*\r\n",
+          "http.content_type": "application/json",
+          "http.request.line": "Content-Type: application/json\r\n",
+          "http.content_length_header": "263",
+          "http.content_length_header_tree": {
+            "http.content_length": "263"
+          },
+          "http.request.line": "Content-Length: 263\r\n",
+          "\\r\\n": "",
+          "http.request.full_uri": "http://192.168.1.170/config",
+          "http.request": "1",
+          "http.request_number": "1",
+          "http.file_data": "{\"header\":{\"from\":\"http://10.10.10.1/config\",\"messageId\":\"e1f619eeae4009713695209a7bc83643\",\"method\":\"GET\",\"namespace\":\"Appliance.Hub.Battery\",\"payloadVersion\":1,\"sign\":\"ea2a8ee95d0b8d48aa6155617aedb8cc\",\"timestamp\":\"0\"},\"payload\":{\"battery\":[{\"id\":\"03000BDF\"}]}}"
+        },
+        "json": {
+          "JSON compact form: {...}": {
+            "json.member_compact": {
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": ""
+            },
+            "json.member_compact": {
+              "json.member_compact": {
+                "json.object_compact": {
+                  "json.member_compact": ""
+                }
+              }
+            }
+          },
+          "json.object": {
+            "json.member": {
+              "json.object": {
+                "json.member": {
+                  "json.value.string": "http://10.10.10.1/config",
+                  "json.key": "from"
+                },
+                "json.member": {
+                  "json.value.string": "e1f619eeae4009713695209a7bc83643",
+                  "json.key": "messageId"
+                },
+                "json.member": {
+                  "json.value.string": "GET",
+                  "json.key": "method"
+                },
+                "json.member": {
+                  "json.value.string": "Appliance.Hub.Battery",
+                  "json.key": "namespace"
+                },
+                "json.member": {
+                  "json.value.number": "1",
+                  "json.key": "payloadVersion"
+                },
+                "json.member": {
+                  "json.value.string": "ea2a8ee95d0b8d48aa6155617aedb8cc",
+                  "json.key": "sign"
+                },
+                "json.member": {
+                  "json.value.string": "0",
+                  "json.key": "timestamp"
+                }
+              },
+              "json.key": "header"
+            },
+            "json.member": {
+              "json.object": {
+                "json.member": {
+                  "json.array": {
+                    "json.object": {
+                      "json.member": {
+                        "json.value.string": "03000BDF",
+                        "json.key": "id"
+                      }
+                    }
+                  },
+                  "json.key": "battery"
+                }
+              },
+              "json.key": "payload"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2024-11-24",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.interface_id": "0",
+          "frame.interface_id_tree": {
+            "frame.interface_name": "enp37s0"
+          },
+          "frame.encap_type": "1",
+          "frame.time": "Nov 24, 2024 12:26:26.970671351 GMT",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_epoch": "1732451186.970671351",
+          "frame.time_delta": "0.001320422",
+          "frame.time_delta_displayed": "0.008568792",
+          "frame.time_relative": "0.011033466",
+          "frame.number": "7",
+          "frame.len": "60",
+          "frame.cap_len": "60",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "eth:ethertype:ip:tcp:http:json"
+        },
+        "eth": {
+          "eth.dst": "2c:f0:5d:56:40:43",
+          "eth.dst_tree": {
+            "eth.dst_resolved": "Micro-St_56:40:43",
+            "eth.dst.oui": "2945117",
+            "eth.dst.oui_resolved": "Micro-Star INTL CO., LTD.",
+            "eth.addr": "2c:f0:5d:56:40:43",
+            "eth.addr_resolved": "Micro-St_56:40:43",
+            "eth.addr.oui": "2945117",
+            "eth.addr.oui_resolved": "Micro-Star INTL CO., LTD.",
+            "eth.dst.lg": "0",
+            "eth.lg": "0",
+            "eth.dst.ig": "0",
+            "eth.ig": "0"
+          },
+          "eth.src": "48:e1:e9:c7:59:90",
+          "eth.src_tree": {
+            "eth.src_resolved": "ChengduM_c7:59:90",
+            "eth.src.oui": "4776425",
+            "eth.src.oui_resolved": "Chengdu Meross Technology Co., Ltd.",
+            "eth.addr": "48:e1:e9:c7:59:90",
+            "eth.addr_resolved": "ChengduM_c7:59:90",
+            "eth.addr.oui": "4776425",
+            "eth.addr.oui_resolved": "Chengdu Meross Technology Co., Ltd.",
+            "eth.src.lg": "0",
+            "eth.lg": "0",
+            "eth.src.ig": "0",
+            "eth.ig": "0"
+          },
+          "eth.type": "0x00000800",
+          "eth.padding": "00:00:00:00:00:00"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00000000",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "40",
+          "ip.id": "0x00005fbc",
+          "ip.flags": "0x00000000",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "0",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "255",
+          "ip.proto": "6",
+          "ip.checksum": "0x0000d7b4",
+          "ip.checksum.status": "2",
+          "ip.src": "192.168.1.170",
+          "ip.addr": "192.168.1.170",
+          "ip.src_host": "192.168.1.170",
+          "ip.host": "192.168.1.170",
+          "ip.dst": "192.168.1.100",
+          "ip.addr": "192.168.1.100",
+          "ip.dst_host": "192.168.1.100",
+          "ip.host": "192.168.1.100"
+        },
+        "tcp": {
+          "tcp.srcport": "80",
+          "tcp.dstport": "33442",
+          "tcp.port": "80",
+          "tcp.port": "33442",
+          "tcp.stream": "0",
+          "tcp.len": "0",
+          "tcp.seq": "381",
+          "tcp.seq_raw": "42787929",
+          "tcp.nxtseq": "382",
+          "tcp.ack": "401",
+          "tcp.ack_raw": "3284670533",
+          "tcp.hdr_len": "20",
+          "tcp.flags": "0x00000011",
+          "tcp.flags_tree": {
+            "tcp.flags.res": "0",
+            "tcp.flags.ns": "0",
+            "tcp.flags.cwr": "0",
+            "tcp.flags.ecn": "0",
+            "tcp.flags.urg": "0",
+            "tcp.flags.ack": "1",
+            "tcp.flags.push": "0",
+            "tcp.flags.reset": "0",
+            "tcp.flags.syn": "0",
+            "tcp.flags.fin": "1",
+            "tcp.flags.fin_tree": {
+              "_ws.expert": {
+                "tcp.connection.fin": "",
+                "_ws.expert.message": "Connection finish (FIN)",
+                "_ws.expert.severity": "2097152",
+                "_ws.expert.group": "33554432"
+              }
+            },
+            "tcp.flags.str": "·······A···F"
+          },
+          "tcp.window_size_value": "12088",
+          "tcp.window_size": "24176",
+          "tcp.window_size_scalefactor": "2",
+          "tcp.checksum": "0x0000b656",
+          "tcp.checksum.status": "2",
+          "tcp.urgent_pointer": "0",
+          "Timestamps": {
+            "tcp.time_relative": "0.011033466",
+            "tcp.time_delta": "0.001320422"
+          }
+        },
+        "tcp.segments": {
+          "tcp.segment": "5",
+          "tcp.segment": "7",
+          "tcp.segment.count": "2",
+          "tcp.reassembled.length": "380",
+          "tcp.reassembled.data": "48:54:54:50:2f:31:2e:31:20:32:30:30:20:4f:4b:0a:43:6f:6e:74:65:6e:74:2d:54:79:70:65:3a:20:61:70:70:6c:69:63:61:74:69:6f:6e:2f:6a:73:6f:6e:0d:0a:0d:0a:7b:22:68:65:61:64:65:72:22:3a:7b:22:6d:65:73:73:61:67:65:49:64:22:3a:22:65:31:66:36:31:39:65:65:61:65:34:30:30:39:37:31:33:36:39:35:32:30:39:61:37:62:63:38:33:36:34:33:22:2c:22:6e:61:6d:65:73:70:61:63:65:22:3a:22:41:70:70:6c:69:61:6e:63:65:2e:48:75:62:2e:42:61:74:74:65:72:79:22:2c:22:6d:65:74:68:6f:64:22:3a:22:47:45:54:41:43:4b:22:2c:22:70:61:79:6c:6f:61:64:56:65:72:73:69:6f:6e:22:3a:31:2c:22:66:72:6f:6d:22:3a:22:2f:61:70:70:6c:69:61:6e:63:65:2f:32:33:30:35:31:39:33:33:36:34:35:39:34:32:36:32:30:38:30:32:34:38:65:31:65:39:63:37:35:39:39:30:2f:70:75:62:6c:69:73:68:22:2c:22:74:69:6d:65:73:74:61:6d:70:22:3a:31:37:33:32:34:35:31:31:38:37:2c:22:74:69:6d:65:73:74:61:6d:70:4d:73:22:3a:33:31:2c:22:73:69:67:6e:22:3a:22:62:37:65:65:36:34:61:65:64:32:61:66:32:34:62:61:39:31:61:39:34:37:37:62:66:36:37:33:31:64:62:39:22:7d:2c:22:70:61:79:6c:6f:61:64:22:3a:7b:22:62:61:74:74:65:72:79:22:3a:5b:7b:22:69:64:22:3a:22:30:33:30:30:30:42:44:46:22:2c:22:76:61:6c:75:65:22:3a:31:30:30:7d:5d:7d:7d:0a"
+        },
+        "http": {
+          "HTTP/1.1 200 OK\\n": {
+            "_ws.expert": {
+              "http.chat": "",
+              "_ws.expert.message": "HTTP/1.1 200 OK\\n",
+              "_ws.expert.severity": "2097152",
+              "_ws.expert.group": "33554432"
+            },
+            "http.response.version": "HTTP/1.1",
+            "http.response.code": "200",
+            "http.response.code.desc": "OK",
+            "http.response.phrase": "OK"
+          },
+          "http.content_type": "application/json",
+          "http.response.line": "Content-Type: application/json\r\n",
+          "\\r\\n": "",
+          "http.response": "1",
+          "http.response_number": "1",
+          "http.time": "0.008568792",
+          "http.request_in": "4",
+          "http.response_for.uri": "http://192.168.1.170/config",
+          "http.file_data": "{\"header\":{\"messageId\":\"e1f619eeae4009713695209a7bc83643\",\"namespace\":\"Appliance.Hub.Battery\",\"method\":\"GETACK\",\"payloadVersion\":1,\"from\":\"/appliance/2305193364594262080248e1e9c75990/publish\",\"timestamp\":1732451187,\"timestampMs\":31,\"sign\":\"b7ee64aed2af24ba91a9477bf6731db9\"},\"payload\":{\"battery\":[{\"id\":\"03000BDF\",\"value\":100}]}}\n"
+        },
+        "json": {
+          "JSON compact form: {...}": {
+            "json.member_compact": {
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": "",
+              "json.member_compact": ""
+            },
+            "json.member_compact": {
+              "json.member_compact": {
+                "json.object_compact": {
+                  "json.member_compact": "",
+                  "json.member_compact": ""
+                }
+              }
+            }
+          },
+          "json.object": {
+            "json.member": {
+              "json.object": {
+                "json.member": {
+                  "json.value.string": "e1f619eeae4009713695209a7bc83643",
+                  "json.key": "messageId"
+                },
+                "json.member": {
+                  "json.value.string": "Appliance.Hub.Battery",
+                  "json.key": "namespace"
+                },
+                "json.member": {
+                  "json.value.string": "GETACK",
+                  "json.key": "method"
+                },
+                "json.member": {
+                  "json.value.number": "1",
+                  "json.key": "payloadVersion"
+                },
+                "json.member": {
+                  "json.value.string": "/appliance/2305193364594262080248e1e9c75990/publish",
+                  "json.key": "from"
+                },
+                "json.member": {
+                  "json.value.number": "1732451187",
+                  "json.key": "timestamp"
+                },
+                "json.member": {
+                  "json.value.number": "31",
+                  "json.key": "timestampMs"
+                },
+                "json.member": {
+                  "json.value.string": "b7ee64aed2af24ba91a9477bf6731db9",
+                  "json.key": "sign"
+                }
+              },
+              "json.key": "header"
+            },
+            "json.member": {
+              "json.object": {
+                "json.member": {
+                  "json.array": {
+                    "json.object": {
+                      "json.member": {
+                        "json.value.string": "03000BDF",
+                        "json.key": "id"
+                      },
+                      "json.member": {
+                        "json.value.number": "100",
+                        "json.key": "value"
+                      }
+                    }
+                  },
+                  "json.key": "battery"
+                }
+              },
+              "json.key": "payload"
+            }
+          }
+        }
+      }
+    }
+  }
+]
