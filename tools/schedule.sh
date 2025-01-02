@@ -12,14 +12,14 @@ jq -r '
             ) as $data |
         {$id, $data}
     ) |
-.[] |
-[
-    .id + ":",(.data | map(
-        [
-            ("  " + .day | ascii_upcase),
-            .min as $min | .temp | to_entries | map(
-                "    \(.value[:-1])°C between \($min[.key][0] | tonumber * 60 | strftime("%H:%M")) - \($min[.key][1] | tonumber * 60 | strftime("%H:%M"))") | join("\n")
-        ] | join("\n")
-    ) | join("\n"))
-] | join("\n") 
-'
+.[]'
+#[
+#    .id + ":",(.data | map(
+#        [
+#            ("  " + .day | ascii_upcase),
+#            .min as $min | .temp | to_entries | map(
+#                "    \(.value[:-1])°C between \($min[.key][0] | tonumber * 60 | strftime("%H:%M")) - \($min[.key][1] | tonumber * 60 | strftime("%H:%M"))") | join("\n")
+#        ] | join("\n")
+#    ) | join("\n"))
+#] | join("\n") 
+#'
