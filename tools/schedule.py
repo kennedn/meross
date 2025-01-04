@@ -1,15 +1,34 @@
 #!/usr/bin/env python3
-import matplotlib.pyplot as plt
-from functools import partial
-from matplotlib.ticker import FuncFormatter, FixedLocator
-from matplotlib.widgets import TextBox, Button
-import numpy as np
+"""
+A tool to fetch and visualize the schedule data for a meross trv device.
+"""
 import hashlib
 import os
-import requests
 import argparse
+import requests
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.ticker import FuncFormatter, FixedLocator
+from matplotlib.widgets import TextBox, Button
 
 class ScheduleManager:
+    """
+    A class to manage the schedule of a device.
+
+    Attributes:
+        ip_addr (str): The IP address of the target device.
+        device_id (str): The unique identifier of the device.
+        key (str): The secret key used for authentication.
+        schedule_data (dict or None): The fetched schedule data.
+
+    Methods:
+        fetch_schedule():
+            Fetches the current schedule from the device and stores it in `schedule_data`.
+
+        save_schedule(updated_schedule):
+            Saves an updated schedule to the device.
+    """
+
     def __init__(self, ip_addr, device_id, key):
         self.ip_addr = ip_addr  # IP address of the target device
         self.device_id = device_id  # Unique device identifier
@@ -22,6 +41,21 @@ class ScheduleManager:
         return hashlib.md5(sign_data).hexdigest()
 
     def fetch_schedule(self):
+        """
+        Fetches the current schedule from the device.
+
+        This method generates a random message ID and a placeholder timestamp, then constructs a request payload
+        to fetch the schedule from the device. It sends a POST request to the device's configuration endpoint and
+        processes the response to extract the schedule data.
+
+        Raises:
+            requests.exceptions.RequestException: If there is an error during the request.
+
+        Sets:
+            self.schedule_data: The extracted schedule data from the response. If the response status code is not 200,
+                                or if there is an error in the payload, or if there is an exception in the schedule data,
+                                self.schedule_data is set to None.
+        """
         # Fetch the current schedule from the device
         message_id = os.urandom(16).hex()  # Generate a random message ID
         timestamp = 0  # Placeholder timestamp
@@ -61,6 +95,18 @@ class ScheduleManager:
 
 
     def save_schedule(self, updated_schedule):
+        """
+        Save an updated schedule to the device.
+
+        Args:
+            updated_schedule (dict): The updated schedule data to be saved.
+
+        Raises:
+            requests.exceptions.RequestException: If there is an error making the request.
+
+        Returns:
+            None
+        """
         # Save an updated schedule to the device
         message_id = os.urandom(16).hex()  # Generate a random message ID
         timestamp = 0  # Placeholder timestamp
@@ -96,6 +142,12 @@ class ScheduleManager:
             print(f"Error: {e}")
 
 class ScheduleVisualizer:
+    """
+    A class to visualize and interact with a schedule of temperature settings over a week.
+    
+    Attributes:
+        manager (ScheduleManager): An instance of ScheduleManager to handle schedule operations.
+    """
     def __init__(self, schedule_manager):
         self.manager = schedule_manager  # Manager to handle schedule operations
         self.selected_day = "mon"  # Default day selected for visualization
@@ -114,16 +166,16 @@ class ScheduleVisualizer:
 
         self.line, = self.ax.step([], [], where='pre', marker="o", markersize=10, linestyle="-")
         self.highlight, = self.ax.plot([], [], marker='o', markersize=10, color='r')
-        
+
         self._initialize_plot()
-        self.update_graph()
+        self._update_graph()
         self._initialize_controls()
 
-        self.fig.canvas.mpl_connect('button_press_event', self.on_press)
-        self.fig.canvas.mpl_connect('motion_notify_event', self.on_motion)
-        self.fig.canvas.mpl_connect('button_release_event', self.on_release)
-        self.time_textbox.on_submit(self.on_submit)
-        self.temp_textbox.on_submit(self.on_submit)
+        self.fig.canvas.mpl_connect('button_press_event', self._on_press)
+        self.fig.canvas.mpl_connect('motion_notify_event', self._on_motion)
+        self.fig.canvas.mpl_connect('button_release_event', self._on_release)
+        self.time_textbox.on_submit(self._on_submit)
+        self.temp_textbox.on_submit(self._on_submit)
 
     def _data_to_schedule(self):
         vals = {}
@@ -163,19 +215,19 @@ class ScheduleVisualizer:
         self.time_textbox = TextBox(plt.axes([0.11, 0.025, 0.045, 0.05]), 'Time (hours)  ', initial='')
         self.temp_textbox = TextBox(plt.axes([0.25, 0.025, 0.045, 0.05]), 'Temp (°C)  ', initial='')
 
-        button_height = 0.05 
+        button_height = 0.05
         button_width = 1.0 / len(self.days)
         button_pad = 0.01
         for i, day in enumerate(self.days):
             button_ax = self.fig.add_axes([i * button_width + button_pad, 0.925, button_width - button_pad * 2, button_height])
             day_button = Button(button_ax, day.capitalize())
-            day_button.on_clicked(lambda event, calling_button=day_button, day=day, cb_func=self.update_graph: self._button_handler(calling_button, lambda day=day: cb_func(day)))
+            day_button.on_clicked(lambda event, calling_button=day_button, day=day, cb_func=self._update_graph: self._button_handler(calling_button, lambda day=day: cb_func(day)))
             if i == 0:
                 self._button_handler(day_button, lambda *args, **kwargs: None)
             self.buttons.append(day_button)
 
         save_button = Button(plt.axes([ 1 - button_width + button_pad, 0.025, button_width - button_pad * 2, button_height]), "Save")
-        save_button.on_clicked(lambda event: self.save_schedule())
+        save_button.on_clicked(lambda event: self._save_schedule())
         self.buttons.append(save_button)
         reset_button = Button(plt.axes([ 1 - button_width * 2 + button_pad, 0.025, button_width - button_pad * 2, button_height]), "Reset")
         reset_button.on_clicked(lambda event: self._reset())
@@ -183,23 +235,23 @@ class ScheduleVisualizer:
 
     def _reset(self):
         self.vals = self._data_to_schedule()  # Prepare initial schedule data
-        self.update_graph()
+        self._update_graph()
 
     def _button_handler(self, calling_button, cb_func):
-        for i in range(len(self.buttons)):
+        for i, _ in enumerate(self.buttons):
             self.buttons[i].color = "0.85"
         calling_button.color = "0.95"
-        cb_func() 
+        cb_func()
 
     def _time_formatter(self, x, _):
         hours = int(x // 1)
         minutes = int((x % 1) * 60)
         return f"{hours:02}:{minutes:02}"
-    
+
     def _temp_formatter(self, x, _):
         return f"{x:.01f}"
 
-    def update_graph(self, day=None):
+    def _update_graph(self, day=None):
         if day:
             self.selected_day = day
         self.line.set_xdata(self.vals[self.selected_day]["x_vals"])
@@ -212,10 +264,10 @@ class ScheduleVisualizer:
         self.ax.set_yticks(sorted(set(self.vals[self.selected_day]["y_vals"])))
         self.fig.canvas.draw_idle()
 
-    def save_schedule(self):
+    def _save_schedule(self):
         self.manager.save_schedule(self._schedule_to_data())
 
-    def on_press(self, event):
+    def _on_press(self, event):
         if event.inaxes != self.ax:
             return
         for i, (x, y) in enumerate(zip(self.vals[self.selected_day]["x_vals"], self.vals[self.selected_day]["y_vals"])):
@@ -228,9 +280,9 @@ class ScheduleVisualizer:
             self.temp_textbox.set_val(str(self.vals[self.selected_day]["y_vals"][self.dragging_point]))
             self.time_textbox.set_val(str(self.vals[self.selected_day]["x_vals"][self.dragging_point]))
             self.last_clicked_idx = self.dragging_point
-            self.update_graph()
+            self._update_graph()
 
-    def on_motion(self, event):
+    def _on_motion(self, event):
         if self.dragging_point is None or event.inaxes != self.ax:
             return
         if self.start_pos and self.lock_axis is None:
@@ -251,21 +303,21 @@ class ScheduleVisualizer:
         if self.dragging_point is not None:
             self.temp_textbox.set_val(str(self.vals[self.selected_day]["y_vals"][self.dragging_point]))
             self.time_textbox.set_val(str(self.vals[self.selected_day]["x_vals"][self.dragging_point]))
-            self.update_graph()
+            self._update_graph()
 
-    def on_release(self, event):
+    def _on_release(self, _):
         self.dragging_point = None
         self.lock_axis = None
         self.start_pos = None
-    
-    def on_submit(self, event):
+
+    def _on_submit(self, _):
         if self.last_clicked_idx is None or self.dragging_point is not None:
             return
         try:
             min_point = self.vals[self.selected_day]["x_vals"][self.last_clicked_idx-1] if self.last_clicked_idx > 0 else 0
             max_point = self.vals[self.selected_day]["x_vals"][self.last_clicked_idx+1] if self.last_clicked_idx < len(self.vals[self.selected_day]["x_vals"])-1 else 24
             new_time = max(min_point, min(max_point, round(float(self.time_textbox.text) / 0.25) * 0.25))
-            new_temp = max(5, min(30, round(float(self.temp_textbox.text)/ 0.5) * 0.5)) 
+            new_temp = max(5, min(30, round(float(self.temp_textbox.text)/ 0.5) * 0.5))
             # Update the values for the last clicked node
             self.time_textbox.set_val(str(new_time))
             self.temp_textbox.set_val(str(new_temp))
@@ -274,16 +326,33 @@ class ScheduleVisualizer:
             if self.last_clicked_idx == 1:
                 self.vals[self.selected_day]["y_vals"][0] = self.vals[self.selected_day]["y_vals"][self.last_clicked_idx]
                 self.vals[self.selected_day]["y_vals"][-1] = self.vals[self.selected_day]["y_vals"][self.last_clicked_idx]
-            self.update_graph()
+            self._update_graph()
         except ValueError:
             pass  # Handle invalid input gracefully
 
 
 def main():
+    """
+    Main function to fetch and visualize schedule data for a device.
+
+    This function sets up argument parsing to accept the following arguments:
+    - `-i` or `--ip`: The IP address of the device (default: '192.168.1.170').
+    - `-d` or `--device_id`: The device ID (required).
+    - `-k` or `--key`: The device key (optional, can also be provided via the MEROSS_KEY environment variable).
+
+    The function initializes a ScheduleManager with the provided device information,
+    fetches the current schedule, and creates a ScheduleVisualizer to display the schedule.
+
+    If the key is not provided via arguments or environment variable, or if fetching the schedule fails,
+    the function will print an error message and exit.
+
+    Returns:
+        None
+    """
     # Set up argument parsing
     parser = argparse.ArgumentParser(description="Fetch and visualize schedule data.")
     parser.add_argument('-i', '--ip', type=str, default='192.168.1.170', help='IP address of the device (default: 192.168.1.170)')
-    parser.add_argument('-d', '--device_id', type=str, required=True, help='Device ID (required)')    
+    parser.add_argument('-d', '--device_id', type=str, required=True, help='Device ID (required)')
     parser.add_argument('-k', '--key', type=str, help="Device key (optional)")
 
     # Parse arguments
@@ -301,7 +370,7 @@ def main():
         print(f"Failed to fetch schedule data for {args.ip=},{args.device_id=}")
         exit(1)  # Exit if fetching schedule fails
 
-    visualizer = ScheduleVisualizer(manager)  # Create the visualizer
+    ScheduleVisualizer(manager)  # Create the visualizer
     # Display the visualization
     plt.show()
 
