@@ -149,7 +149,7 @@ class ScheduleVisualizer:
 
 
     def _initialize_plot(self):
-        self.ax.set_title("Temperature Schedule")
+        self.ax.set_title(self.manager.device_id)
         self.ax.set_xlabel("Time of day")
         self.ax.set_ylabel("Temperature (°C)")
         self.ax.xaxis.set_major_formatter(FuncFormatter(self._time_formatter))
