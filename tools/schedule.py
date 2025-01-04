@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import matplotlib.pyplot as plt
 from functools import partial
 from matplotlib.ticker import FuncFormatter, FixedLocator
@@ -110,7 +111,7 @@ class ScheduleVisualizer:
         self.fig, self.ax = plt.subplots(figsize=(10, 8))
         plt.subplots_adjust(top=0.85,bottom=0.15,left=0.075,right=0.925)
 
-        self.line, = self.ax.step([], [], where='post', marker="o", markersize=10, linestyle="-")
+        self.line, = self.ax.step([], [], where='pre', marker="o", markersize=10, linestyle="-")
         self.highlight, = self.ax.plot([], [], marker='o', markersize=10, color='r')
         
         self._initialize_plot()
@@ -178,7 +179,7 @@ class ScheduleVisualizer:
 
     def _button_handler(self, calling_button, cb_func):
         for i in range(len(self.buttons)):
-            self.buttons[i].color = "silver"
+            self.buttons[i].color = "0.85"
         calling_button.color = "0.95"
         cb_func() 
 
@@ -266,7 +267,6 @@ class ScheduleVisualizer:
                 self.vals[self.selected_day]["y_vals"][0] = self.vals[self.selected_day]["y_vals"][self.last_clicked_idx]
                 self.vals[self.selected_day]["y_vals"][-1] = self.vals[self.selected_day]["y_vals"][self.last_clicked_idx]
             self.update_graph()
-            # update_schedule_data()
         except ValueError:
             pass  # Handle invalid input gracefully
 
