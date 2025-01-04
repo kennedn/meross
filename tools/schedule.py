@@ -10,10 +10,10 @@ import requests
 import argparse
 
 class ScheduleManager:
-    def __init__(self, ip_addr, device_id):
+    def __init__(self, ip_addr, device_id, key):
         self.ip_addr = ip_addr  # IP address of the target device
         self.device_id = device_id  # Unique device identifier
-        self.key = os.environ.get("KEY")  # Secret key retrieved from environment variables
+        self.key = key  # Secret key retrieved from environment variables
         self.schedule_data = None  # To store fetched schedule data
 
     def _generate_signature(self, message_id, timestamp):
@@ -51,9 +51,10 @@ class ScheduleManager:
             response = requests.post(url, json=json_data, headers=headers, timeout=3)  # Make the request
             # Extract schedule data from the response
             json = response.json()
-            self.schedule_data = response.json().get("payload", {}).get("schedule", [{}])[0]
-            if response.status_code != 200 or self.schedule_data.get("exception", None) is not None:
+            self.schedule_data = json.get("payload", {}).get("schedule", [{}])[0]
+            if response.status_code != 200 or json.get("payload").get("error") is not None or self.schedule_data.get("exception", None) is not None:
                 self.schedule_data = None
+            print(json)
 
         except requests.exceptions.RequestException as e:
             print(f"Error: {e}")
@@ -149,7 +150,7 @@ class ScheduleVisualizer:
 
     def _initialize_plot(self):
         self.ax.set_title("Temperature Schedule")
-        self.ax.set_xlabel("Time (hours since midnight)")
+        self.ax.set_xlabel("Time of day")
         self.ax.set_ylabel("Temperature (°C)")
         self.ax.xaxis.set_major_formatter(FuncFormatter(self._time_formatter))
         self.ax.xaxis.set_minor_formatter(FuncFormatter(self._time_formatter))
@@ -176,6 +177,13 @@ class ScheduleVisualizer:
         save_button = Button(plt.axes([ 1 - button_width + button_pad, 0.025, button_width - button_pad * 2, button_height]), "Save")
         save_button.on_clicked(lambda event: self.save_schedule())
         self.buttons.append(save_button)
+        reset_button = Button(plt.axes([ 1 - button_width * 2 + button_pad, 0.025, button_width - button_pad * 2, button_height]), "Reset")
+        reset_button.on_clicked(lambda event: self._reset())
+        self.buttons.append(reset_button)
+
+    def _reset(self):
+        self.vals = self._data_to_schedule()  # Prepare initial schedule data
+        self.update_graph()
 
     def _button_handler(self, calling_button, cb_func):
         for i in range(len(self.buttons)):
@@ -236,7 +244,7 @@ class ScheduleVisualizer:
             self.vals[self.selected_day]["x_vals"][self.dragging_point] = max(min_point, min(max_point, round(event.xdata / 0.25) * 0.25))
         elif self.lock_axis == "y" and event.ydata:
             self.vals[self.selected_day]["y_vals"][self.dragging_point] = max(5, min(30, round(event.ydata / 0.5) * 0.5))
-            if self.dragging_point == len(self.vals[self.selected_day]["y_vals"])-2:
+            if self.dragging_point == 1:
                 self.vals[self.selected_day]["y_vals"][0] = self.vals[self.selected_day]["y_vals"][self.dragging_point]
                 self.vals[self.selected_day]["y_vals"][-1] = self.vals[self.selected_day]["y_vals"][self.dragging_point]
 
@@ -263,7 +271,7 @@ class ScheduleVisualizer:
             self.temp_textbox.set_val(str(new_temp))
             self.vals[self.selected_day]["x_vals"][self.last_clicked_idx] = new_time
             self.vals[self.selected_day]["y_vals"][self.last_clicked_idx] = new_temp
-            if self.last_clicked_idx == len(self.vals[self.selected_day]["y_vals"])-2:
+            if self.last_clicked_idx == 1:
                 self.vals[self.selected_day]["y_vals"][0] = self.vals[self.selected_day]["y_vals"][self.last_clicked_idx]
                 self.vals[self.selected_day]["y_vals"][-1] = self.vals[self.selected_day]["y_vals"][self.last_clicked_idx]
             self.update_graph()
@@ -275,12 +283,19 @@ def main():
     # Set up argument parsing
     parser = argparse.ArgumentParser(description="Fetch and visualize schedule data.")
     parser.add_argument('-i', '--ip', type=str, default='192.168.1.170', help='IP address of the device (default: 192.168.1.170)')
-    parser.add_argument('-d', '--device_id', type=str, required=True, help='Device ID (required)')
+    parser.add_argument('-d', '--device_id', type=str, required=True, help='Device ID (required)')    
+    parser.add_argument('-k', '--key', type=str, help="Device key (optional)")
 
     # Parse arguments
     args = parser.parse_args()
 
-    manager = ScheduleManager(args.ip, args.device_id)  # Initialize the manager with device info
+    # Get the key from arguments or environment variable
+    key = args.key or os.getenv('MEROSS_KEY')
+    if not key:
+        print("Error: A key must be provided either via the --key argument or the MEROSS_KEY environment variable.")
+        exit(1)
+
+    manager = ScheduleManager(args.ip, args.device_id, key)  # Initialize the manager with device info
     manager.fetch_schedule()  # Fetch the current schedule
     if not manager.schedule_data:
         print(f"Failed to fetch schedule data for {args.ip=},{args.device_id=}")
