@@ -149,7 +149,8 @@ async def meross_scan():
         print("No devices found")
     else:
         for device in devices:
-            print(device.address)
+            if "MRBL" in device.name:
+                print(device.address)
 
 
 async def meross_send(method, namespace, payload, client):
