@@ -1,25 +1,30 @@
 #!/bin/bash
-
 jq -r '
-.schedule | 
-    map(((.id // .channel) | tostring) as $id | {mon,tue,wed,thu,fri,sat,sun} | to_entries |
-            map( 
-                .key as $day |
-                .value | 
-                    (map(.[0]) | reduce .[] as $item ([[0,0]]; . += [[.[-1][1], $item + .[-1][1]]]) | .[1:]) as $min | 
-                    map(.[1] * 10.01 | round / 100 | tostring) as $temp | 
-                    {$day,$min, $temp}
-            ) as $data |
-        {$id, $data}
-    ) |
-.[]'
-#[
-#    .id + ":",(.data | map(
-#        [
-#            ("  " + .day | ascii_upcase),
-#            .min as $min | .temp | to_entries | map(
-#                "    \(.value[:-1])°C between \($min[.key][0] | tonumber * 60 | strftime("%H:%M")) - \($min[.key][1] | tonumber * 60 | strftime("%H:%M"))") | join("\n")
-#        ] | join("\n")
-#    ) | join("\n"))
-#] | join("\n") 
-#'
+  (["NAME","DAY","START","END","TEMPERATURE(°C)"] | @tsv),
+  (
+    {
+      "03000BDF":"OFFICE",
+      "0300B980":"LIVRM1",
+      "0300B1F7":"LIVRM2",
+      "0300CA57":"KITCHE"
+    } as $device_names
+    |
+    [
+      .schedule[] as $sched
+      | ["mon","tue","wed","thu","fri","sat","sun"][] as $day
+      | ($sched[$day] // []) as $arr
+      | foreach $arr[] as $it
+          (0;
+           . + ($it[0] * 60);
+           {
+             name: $device_names[$sched.id],
+             day:  ($day | ascii_upcase),
+             start: (. - ($it[0] * 60) | strftime("%H:%M")),
+             end:   (. | strftime("%H:%M")),
+             temp:  ($it[1] / 10)
+           })
+    ]
+    | map([.name, .day, .start, .end, (.temp|tostring)] | @tsv)[]
+  )
+'
+

@@ -62,6 +62,8 @@ configure() {
             "gateway": {
               "host": $host,
               "port": $port,
+              "secondHost": $host,
+              "secondPort": $port
             },
             "key": $key,
             "userId": $userid
