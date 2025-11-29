@@ -28,7 +28,7 @@ bthome_status() {
 }
 
 radiator_status() {
-  curl -sX POST "https://api.kennedn.com/v2/radiator?hosts=kitchen,livingroom,office&code=status" \
+  curl -sX POST "https://api.kennedn.com/v2/radiator?hosts=kitchen,livingroom,office,bedroom&code=status" \
     | jq -r '
       (["NAME","ID","ONOFF","MODE","CURRENT","TARGET","HEATING","OPEN_WINDOW"] | @tsv),
       (
@@ -49,7 +49,7 @@ radiator_status() {
 }
 
 radiator_battery() {
-  curl -sX POST "https://api.kennedn.com/v2/radiator?hosts=kitchen,livingroom,office&code=battery" \
+  curl -sX POST "https://api.kennedn.com/v2/radiator?hosts=kitchen,livingroom,office,bedroom&code=battery" \
     | jq -r '
       (["NAME","ID","BATTERY(%)"] | @tsv),
       (
@@ -72,7 +72,8 @@ radiator_schedule() {
         "03000BDF":"OFFICE",
         "0300B980":"LIVING1",
         "0300B1F7":"LIVING2",
-        "0300CA57":"KITCHEN"
+        "0300CA57":"KITCHEN",
+        "0300AE4D":"BEDROOM"
       } as $device_names
       |
       [
